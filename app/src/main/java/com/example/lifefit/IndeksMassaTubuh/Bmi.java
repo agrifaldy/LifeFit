@@ -1,5 +1,8 @@
 package com.example.lifefit.IndeksMassaTubuh;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+
 public class Bmi {
     private String id;
     private String berat;
@@ -7,12 +10,15 @@ public class Bmi {
     private String tanggal;
     private String imt;
     private String keterangan;
+    private FirebaseAuth mAuth;
 
     public Bmi() {
+
     }
 
     public Bmi(String id, String berat, String tinggi, String tanggal, String imt, String keterangan) {
-        this.id = id;
+        mAuth = FirebaseAuth.getInstance();
+        this.id = mAuth.getCurrentUser().getUid();
         this.berat = berat;
         this.tinggi = tinggi;
         this.tanggal = tanggal;

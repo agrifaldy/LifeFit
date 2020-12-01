@@ -11,6 +11,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.lifefit.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import org.w3c.dom.Text;
 
@@ -21,6 +24,8 @@ public class BmiAdapter extends RecyclerView.Adapter<BmiAdapter.ViewHolder> {
 
     private Context context;
     private List<Bmi> list;
+    private DatabaseReference mDatabase;
+    private FirebaseAuth mAuth;
 
     public BmiAdapter(Context context, List<Bmi> list) {
         this.context = context;
@@ -30,6 +35,8 @@ public class BmiAdapter extends RecyclerView.Adapter<BmiAdapter.ViewHolder> {
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mAuth = FirebaseAuth.getInstance();
         View view = LayoutInflater.from(context).inflate(R.layout.activity_indeks_massa_tubuh_item, parent, false);
         return new ViewHolder(view);
     }
@@ -41,6 +48,19 @@ public class BmiAdapter extends RecyclerView.Adapter<BmiAdapter.ViewHolder> {
         holder.tv_tanggal.setText(list.get(position).getTanggal());
         holder.tv_imt.setText(formatNumberCurrency(list.get(position).getImt()));
         holder.tv_keterangan.setText(list.get(position).getKeterangan());
+        if (mAuth.getCurrentUser().getUid().equals(list.get(position).getId())){
+            holder.tv_berat.setVisibility(View.VISIBLE);
+            holder.tv_tinggi.setVisibility(View.VISIBLE);
+            holder.tv_tanggal.setVisibility(View.VISIBLE);
+            holder.tv_imt.setVisibility(View.VISIBLE);
+            holder.tv_keterangan.setVisibility(View.VISIBLE);
+        } else {
+            holder.tv_berat.setVisibility(View.GONE);
+            holder.tv_tinggi.setVisibility(View.GONE);
+            holder.tv_tanggal.setVisibility(View.GONE);
+            holder.tv_imt.setVisibility(View.GONE);
+            holder.tv_keterangan.setVisibility(View.GONE);
+        }
     }
 
     private static String formatNumberCurrency(String number) {
@@ -50,20 +70,26 @@ public class BmiAdapter extends RecyclerView.Adapter<BmiAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return list.size();
+            return list.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
+        int position;
 
         private TextView tv_berat, tv_tinggi, tv_tanggal, tv_imt, tv_keterangan;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-
             tv_berat = itemView.findViewById(R.id.tv_berat);
             tv_tinggi = itemView.findViewById(R.id.tv_tinggi);
             tv_tanggal = itemView.findViewById(R.id.tv_tanggal);
             tv_imt = itemView.findViewById(R.id.tv_imt);
             tv_keterangan = itemView.findViewById(R.id.tv_keterangan);
+            if (mAuth.getCurrentUser().getUid().equals(list.get(position).getId())) {
+                itemView.setVisibility(View.VISIBLE);
+            } else {
+                itemView.setVisibility(View.GONE);
+            }
+
         }
     }
 }
