@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "225858473617",
+    "firebase_url": "https://lifefit-233f0.firebaseio.com",
+    "project_id": "lifefit-233f0",
+    "storage_bucket": "lifefit-233f0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:225858473617:android:a8bb7368b49f1bb047b930",
+        "android_client_info": {
+          "package_name": "com.example.lifefit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "225858473617-d7uvho4h9fl2uqree420govjeio8qmci.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.lifefit",
+            "certificate_hash": "bf9e69bfd41b07f98bcadf1703223bdc3585e723"
+          }
+        },
+        {
+          "client_id": "225858473617-uggv2m4n928jm9ripvjmmko2pp4sn8ov.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5NbF-qtVfWiZTGGvUOVJBqJab1sFWar8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "225858473617-uggv2m4n928jm9ripvjmmko2pp4sn8ov.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

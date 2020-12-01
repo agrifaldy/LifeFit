@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- <item
+        android:id="@+id/penyakit"
+        android:title="@string/penyakit"
+        android:icon="@drawable/ic_monitoring"/> -->
+
+    <item
+        android:id="@+id/ensiklopedia"
+        android:title="@string/ensiklopedia"
+        android:icon="@drawable/ic_ensiklopedia"/>
+
+    <item
+        android:id="@+id/monitoring"
+        android:title="@string/monitoring"
+        android:icon="@drawable/ic_monitor"/>
+
+    <!-- <item
+        android:id="@+id/makanMinum"
+        android:title="@string/makan"
+        android:icon="@drawable/ic_food"/>
+
+    <item
+        android:id="@+id/olahraga"
+        android:title="@string/olahraga"
+        android:icon="@drawable/ic_olahraga"/> -->
+
+    <item
+        android:id="@+id/profil"
+        android:title="@string/profil"
+        android:icon="@drawable/ic_profil" />
+
+</menu>

@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">LifeFit</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="monitoring">Monitoring</string>
+    <string name="penyakit">Deteksi Penyakit Ringan</string>
+    <string name="ensiklopedia">Ensiklopedia</string>
+    <string name="makan">Saran Makanan dan Minuman</string>
+    <string name="olahraga">Saran Olahraga</string>
+    <string name="profil">Profil</string>
+
+    <string name="tv_ePenyakit">Penyakit Ringan</string>
+    <string name="tv_ePenyakitD">Daftar Penyakit Ringan dan solusi mengatasinya</string>
+    <string name="tv_eMakanan">Makanan dan Minuman</string>
+    <string name="tv_eMakananD">Daftar Makanan dan Minuman yang sehat</string>
+    <string name="tv_eOlahraga">Olahraga</string>
+    <string name="tv_eOlahragaD">Daftar Olahraga yang simple</string>
+</resources>
