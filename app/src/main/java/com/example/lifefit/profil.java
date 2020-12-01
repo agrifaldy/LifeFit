@@ -1,6 +1,7 @@
 package com.example.lifefit;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import com.example.lifefit.R;
 
@@ -20,7 +21,7 @@ public class profil extends Fragment implements View.OnClickListener {
 
     private Button b_logout;
     View view;
-    private LinearLayout ll_logout;
+    private LinearLayout ll_logout, feedback;
 
     public profil() {
         // Required empty public constructor
@@ -33,6 +34,21 @@ public class profil extends Fragment implements View.OnClickListener {
         view = inflater.inflate(R.layout.fragment_profil, container, false);
 
         ll_logout = (LinearLayout) view.findViewById(R.id.ll_logout);
+        feedback = (LinearLayout) view.findViewById(R.id.ll_feedback);
+
+        feedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                String[] strTo = { "test@g.com" };
+                intent.putExtra(Intent.EXTRA_EMAIL, strTo);
+                intent.putExtra(Intent.EXTRA_SUBJECT, "Feedback");
+                intent.setType("message/rfc822");
+                intent.setPackage("com.google.android.gm");
+                startActivity(intent);
+            }
+        });
+
         ll_logout.setOnClickListener(this);
         return view;
     }
@@ -44,7 +60,6 @@ public class profil extends Fragment implements View.OnClickListener {
 
     }
 
-
     public void onClick(View view) {
 
         int i = view.getId();
@@ -52,4 +67,5 @@ public class profil extends Fragment implements View.OnClickListener {
             logOut();
         }
     }
+
 }
