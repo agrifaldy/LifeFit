@@ -14,7 +14,6 @@ import java.util.Map;
 
         public Admin() {
             // Default constructor required for calls to DataSnapshot.getValue(User.class)
-            // woy
         }
 
         public Admin(String username, String email) {
