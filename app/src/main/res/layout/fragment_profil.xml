@@ -8,11 +8,12 @@
     android:background="#424874">
 
     <!-- TODO: Update blank fragment layout -->
+
     <TextView
         android:id="@+id/tv_profil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_gravity="center"
         android:text="@string/profil"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
@@ -21,7 +22,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Logout"
-        android:layout_below="@id/tv_profil"
-        android:layout_centerInParent="true" />
+        android:layout_gravity="center"/>
 
 </LinearLayout>

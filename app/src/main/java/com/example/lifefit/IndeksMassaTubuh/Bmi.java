@@ -18,7 +18,7 @@ public class Bmi {
         this.tanggal = tanggal;
         this.imt = imt;
         this.keterangan = keterangan;
-        //
+
     }
 
     public String getId() {
