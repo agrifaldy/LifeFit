@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".IndeksMassaTubuh.page_monitoring"></activity>
+        <activity android:name=".MenuMakan"></activity>
+        <activity android:name=".IndeksMassaTubuh.page_monitoring" />
         <activity android:name=".IndeksMassaTubuh.indeks_massa_tubuh_grafik" />
         <activity android:name=".IndeksMassaTubuh.indeks_massa_tubuh_input" />
         <activity android:name=".IndeksMassaTubuh.indeks_massa_tubuh" />
