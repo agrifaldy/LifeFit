@@ -80,6 +80,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
         if (pressedTime + 2000 > System.currentTimeMillis()) {
             //super.onBackPressed();
+            //test
             android.os.Process.killProcess(android.os.Process.myPid());
             finish();
 
