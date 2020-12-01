@@ -13,9 +13,22 @@
         android:id="@+id/tv_profil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/profil"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+        android:text="Akun"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="#60a9a6"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"/>
+
+    <ImageView
+        android:layout_width="82dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/ic_akun" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""/>
 
     <Button
         android:id="@+id/b_logout"
