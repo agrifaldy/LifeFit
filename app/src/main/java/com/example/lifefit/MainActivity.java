@@ -9,11 +9,15 @@ import androidx.viewpager.widget.ViewPager;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
 
+
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
+
+    private long pressedTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +71,26 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 fragment = new profil();
                 break;
         }   return loadFragment(fragment);
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        if (pressedTime + 2000 > System.currentTimeMillis()) {
+            //super.onBackPressed();
+            android.os.Process.killProcess(android.os.Process.myPid());
+            finish();
+
+        } else {
+            Toast.makeText(getBaseContext(), "Press back again to exit", Toast.LENGTH_SHORT).show();
+        }
+        pressedTime = System.currentTimeMillis();
+    }
+
+    @Override
+    public void onDestroy() {
+        android.os.Process.killProcess(android.os.Process.myPid());
+        super.onDestroy();
     }
 
 }
