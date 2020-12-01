@@ -9,6 +9,7 @@ import androidx.viewpager.widget.ViewPager;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
 
         // kita set default nya Home Fragment
@@ -77,7 +79,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     public void onBackPressed() {
 
         if (pressedTime + 2000 > System.currentTimeMillis()) {
-            //super.onBackPressed();
+
             android.os.Process.killProcess(android.os.Process.myPid());
             finish();
 

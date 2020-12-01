@@ -10,22 +10,22 @@ import android.view.WindowManager;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class MenuMakan extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
+public class MenuOlahraga extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_menu_makan);
+        setContentView(R.layout.activity_menu_olahraga);
 
         // kita set default nya Home Fragment
-        loadFragment(new breakfast());
+        loadFragment(new indoor());
 
         // inisialisasi BottomNavigaionView
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bn_main_makanan);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bn_main_olahraga);
 
         // default navbar
-        bottomNavigationView.setSelectedItemId(R.id.breakfast);
+        bottomNavigationView.setSelectedItemId(R.id.indoor);
 
         // beri listener pada saat item/menu bottomnavigation terpilih
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
@@ -36,7 +36,7 @@ public class MenuMakan extends AppCompatActivity implements BottomNavigationView
     private boolean loadFragment(Fragment fragment) {
         if (fragment != null) {
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fl_container_makanan, fragment)
+                    .replace(R.id.fl_container_olahraga, fragment)
                     .commit();
             return true;
         }   return false;
@@ -46,14 +46,11 @@ public class MenuMakan extends AppCompatActivity implements BottomNavigationView
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         Fragment fragment = null;   switch (item.getItemId()){
-            case R.id.breakfast:
-                fragment = new breakfast();
+            case R.id.indoor:
+                fragment = new indoor();
                 break;
-            case R.id.lunch:
-                fragment = new lunch();
-                break;
-            case R.id.dinner:
-                fragment = new dinner();
+            case R.id.outdoor:
+                fragment = new outdoor();
                 break;
         }   return loadFragment(fragment);
     }
