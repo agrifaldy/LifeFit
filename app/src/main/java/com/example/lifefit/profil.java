@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -18,6 +20,7 @@ public class profil extends Fragment implements View.OnClickListener {
 
     private Button b_logout;
     View view;
+    private LinearLayout ll_logout;
 
     public profil() {
         // Required empty public constructor
@@ -29,8 +32,8 @@ public class profil extends Fragment implements View.OnClickListener {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_profil, container, false);
 
-        b_logout = (Button) view.findViewById(R.id.b_logout);
-        b_logout.setOnClickListener(this);
+        ll_logout = (LinearLayout) view.findViewById(R.id.ll_logout);
+        ll_logout.setOnClickListener(this);
         return view;
     }
 
@@ -45,7 +48,7 @@ public class profil extends Fragment implements View.OnClickListener {
     public void onClick(View view) {
 
         int i = view.getId();
-        if (i == R.id.b_logout) {
+        if (i == R.id.ll_logout) {
             logOut();
         }
     }

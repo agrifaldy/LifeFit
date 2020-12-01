@@ -16,6 +16,7 @@
         card_view:cardCornerRadius="10dp"
         card_view:cardElevation="5dp"
         card_view:cardUseCompatPadding="true"
+        android:foreground="?android:attr/selectableItemBackground"
         android:clickable="true"
         android:focusable="true"
         android:layout_marginTop="50dp"
@@ -33,6 +34,7 @@
                 android:layout_height="102dp"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
+                android:src="@drawable/ic_monitoring_kesehatan_foreground"
                 android:tag="image_tag" />
 
             <LinearLayout
@@ -79,7 +81,9 @@
         android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_below="@+id/cv_monitoring">
+        android:layout_below="@+id/cv_monitoring"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:clickable="true">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -92,6 +96,7 @@
                 android:layout_height="102dp"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
+                android:src="@drawable/ic_deteksi_penyakit_foreground"
                 android:tag="image_tag" />
 
             <LinearLayout
@@ -127,5 +132,13 @@
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
+    <ImageView
+        android:id="@+id/iv_ensiklopedida"
+        android:layout_width="256dp"
+        android:layout_height="188dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="69dp"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/ic_ensiklopediaicon_foreground" />
 
 </RelativeLayout>

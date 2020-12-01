@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     tools:context=".profil"
     android:orientation="vertical"
-    android:background="#424874">
+    android:background="#424874"
+    android:gravity="top">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -13,89 +14,130 @@
         android:id="@+id/tv_profil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Akun"
+        android:text="AKUN"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="#60a9a6"
-        android:layout_marginTop="20dp"
+        android:textSize="15sp"
+        android:layout_marginTop="40dp"
         android:layout_marginLeft="20dp"/>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:clickable="true">
 
         <ImageView
-            android:layout_width="82dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="20dp"
+            android:layout_width="62dp"
+            android:layout_height="30dp"
             android:src="@drawable/ic_akun"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
             android:text="Akun Saya"
-            android:textSize="20sp"/>
+            android:textSize="15sp"
+            android:textColor="#fff"
+            android:layout_marginTop="5dp"/>
 
     </LinearLayout>
-
-    <Button
-        android:id="@+id/b_logout"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:text="Logout"
-        android:layout_marginLeft="18.5dp"
-        android:textColor="#ff0000"/>
 
     <TextView
         android:id="@+id/tv_support"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Bantu Kami"
+        android:text="DUKUNG KAMI"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="#60a9a6"
-        android:layout_marginTop="30dp"
+        android:textSize="15sp"
+        android:layout_marginTop="40dp"
         android:layout_marginLeft="20dp"/>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:clickable="true">
 
         <ImageView
-            android:layout_width="83dp"
-            android:layout_height="47dp"
-            android:layout_marginTop="20dp"
+            android:layout_width="63dp"
+            android:layout_height="27dp"
             android:src="@drawable/ic_rate" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
             android:text="Feedback"
-            android:textSize="20sp"/>
+            android:textSize="15sp"
+            android:textColor="#fff"/>
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:clickable="true">
 
         <ImageView
-            android:layout_width="83dp"
-            android:layout_height="47dp"
-            android:layout_marginTop="20dp"
+            android:layout_width="63dp"
+            android:layout_height="27dp"
             android:src="@drawable/ic_share" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:text="Berbagi dengan"
-            android:textSize="20sp"/>
+            android:text="Berbagi dengan teman"
+            android:textSize="15sp"
+            android:textColor="#fff"/>
 
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/tv_pengaturan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PENGATURAN"
+        android:textSize="15sp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="#60a9a6"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="20dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/ll_logout"
+        android:layout_marginTop="30dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:clickable="true">
+        <ImageView
+            android:layout_width="63dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_logout_foreground" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Log Out"
+            android:textSize="15sp"
+            android:textColor="#fff"
+            android:layout_marginTop="10dp"/>
+    </LinearLayout>
 
 </LinearLayout>
