@@ -21,6 +21,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.lifefit.R;
@@ -47,6 +48,7 @@ public class indeks_massa_tubuh extends AppCompatActivity {
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference myRef = database.getReference("Bmi");
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    private TextView username;
 
     private List<Bmi> list = new ArrayList<>();
     private int year, month, day;
@@ -69,6 +71,10 @@ public class indeks_massa_tubuh extends AppCompatActivity {
                 showDialogAdd();
             }
         });
+
+        String nama = mAuth.getCurrentUser().getEmail();
+        username = findViewById(R.id.username);
+        username.setText(nama);
 
         readData();
     }
@@ -208,7 +214,7 @@ public class indeks_massa_tubuh extends AppCompatActivity {
                     Log.w("TAG", "Failed to read value.", error.toException());
                 }
             });
-        }
+    }
 
     public void toHalamanGrafik(View view) {
         Intent intent = new Intent(this, indeks_massa_tubuh_grafik.class);
