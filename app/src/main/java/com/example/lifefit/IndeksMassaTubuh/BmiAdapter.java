@@ -5,9 +5,11 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.lifefit.R;
@@ -26,6 +28,7 @@ public class BmiAdapter extends RecyclerView.Adapter<BmiAdapter.ViewHolder> {
     private List<Bmi> list;
     private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;
+    private CardView hasilIbm;
 
     public BmiAdapter(Context context, List<Bmi> list) {
         this.context = context;
@@ -54,12 +57,14 @@ public class BmiAdapter extends RecyclerView.Adapter<BmiAdapter.ViewHolder> {
             holder.tv_tanggal.setVisibility(View.VISIBLE);
             holder.tv_imt.setVisibility(View.VISIBLE);
             holder.tv_keterangan.setVisibility(View.VISIBLE);
+            hasilIbm.setVisibility(View.VISIBLE);
         } else {
             holder.tv_berat.setVisibility(View.GONE);
             holder.tv_tinggi.setVisibility(View.GONE);
             holder.tv_tanggal.setVisibility(View.GONE);
             holder.tv_imt.setVisibility(View.GONE);
             holder.tv_keterangan.setVisibility(View.GONE);
+            hasilIbm.setVisibility(View.GONE);
         }
     }
 
@@ -84,11 +89,13 @@ public class BmiAdapter extends RecyclerView.Adapter<BmiAdapter.ViewHolder> {
             tv_tanggal = itemView.findViewById(R.id.tv_tanggal);
             tv_imt = itemView.findViewById(R.id.tv_imt);
             tv_keterangan = itemView.findViewById(R.id.tv_keterangan);
-            if (mAuth.getCurrentUser().getUid().equals(list.get(position).getId())) {
-                itemView.setVisibility(View.VISIBLE);
+            hasilIbm = itemView.findViewById(R.id.cv_hasiIbm);
+
+            /**if (mAuth.getCurrentUser().getUid().equals(list.get(position).getId())) {
+                hasilIbm.setVisibility(View.VISIBLE);
             } else {
-                itemView.setVisibility(View.GONE);
-            }
+                hasilIbm.setVisibility(View.GONE);
+            }**/
 
         }
     }
