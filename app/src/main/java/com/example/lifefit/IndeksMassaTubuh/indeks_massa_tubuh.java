@@ -24,8 +24,11 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.lifefit.R;
+import com.example.lifefit.IndeksMassaTubuh.Bmi;
+import com.example.lifefit.IndeksMassaTubuh.BmiAdapter;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -43,6 +46,7 @@ public class indeks_massa_tubuh extends AppCompatActivity {
     private RecyclerView recyclerView;
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference myRef = database.getReference("Bmi");
+    private FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
     private List<Bmi> list = new ArrayList<>();
     private int year, month, day;
@@ -179,26 +183,32 @@ public class indeks_massa_tubuh extends AppCompatActivity {
     private  void readData(){
         // Read from the database
 
-        myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-                list.clear();
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
-                    Bmi value = snapshot.getValue(Bmi.class);
-                    list.add(0,value);
-                }
-                recyclerView.setAdapter(new BmiAdapter(indeks_massa_tubuh.this,list));
-            }
+            myRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    Bmi username = dataSnapshot.getValue(Bmi.class);
 
-            @Override
-            public void onCancelled(DatabaseError error) {
-                // Failed to read value
-                Log.w("TAG", "Failed to read value.", error.toException());
-            }
-        });
-    }
+                        // This method is called once with the initial value and again
+                        // whenever data at this location is updated.
+                        list.clear();
+                        for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+                            Bmi value = snapshot.getValue(Bmi.class);
+                            list.add(0,value);
+                        }
+                        recyclerView.setAdapter(new BmiAdapter(indeks_massa_tubuh.this,list));
+                    /**if (mAuth.getCurrentUser().getUid().equals(username.getId())){
+                        recyclerView.setVisibility(View.VISIBLE);
+                    }**/
+                    }
+
+
+                @Override
+                public void onCancelled(DatabaseError error) {
+                    // Failed to read value
+                    Log.w("TAG", "Failed to read value.", error.toException());
+                }
+            });
+        }
 
     public void toHalamanGrafik(View view) {
         Intent intent = new Intent(this, indeks_massa_tubuh_grafik.class);
