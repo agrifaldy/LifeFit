@@ -29,6 +29,7 @@
                     android:textStyle="bold"
                     android:textColor="#fff"
                     android:textSize="20dp"
+                    android:fontFamily="sans-serif-medium"
                     android:layout_marginStart="25dp"
                     android:layout_marginLeft="25dp"
                     android:layout_marginTop="30dp"/>
