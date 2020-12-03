@@ -15,6 +15,8 @@ import android.widget.TextView;
 import com.example.lifefit.IndeksMassaTubuh.page_monitoring;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.example.lifefit.User;
 
 
 public class monitoring extends Fragment {
@@ -33,16 +35,18 @@ public class monitoring extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        mDatabase = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
 
-        /**String emailUser = mAuth.getCurrentUser().getEmail();
-        tv_emailPengguna = getActivity().findViewById(R.id.tv_emailPengguna);
-        tv_emailPengguna.setText(emailUser);**/
+        String emailUser = mAuth.getCurrentUser().getEmail();
 
         getActivity().getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         View v = inflater.inflate(R.layout.fragment_monitoring, container, false);
         // Inflate the layout for this fragment
         cv_monitoring = v.findViewById(R.id.cv_monitoring);
+
+        tv_emailPengguna = v.findViewById(R.id.tv_emailPengguna);
+        tv_emailPengguna.setText(emailUser);
 
         cv_monitoring.setOnClickListener(new View.OnClickListener() {
             @Override
