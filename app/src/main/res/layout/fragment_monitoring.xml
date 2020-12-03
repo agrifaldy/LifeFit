@@ -29,8 +29,8 @@
                     android:textStyle="bold"
                     android:textColor="#fff"
                     android:textSize="20dp"
-                    android:layout_marginStart="40dp"
-                    android:layout_marginLeft="40dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginLeft="25dp"
                     android:layout_marginTop="30dp"/>
             </LinearLayout>
 
@@ -39,6 +39,7 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/nested_scroll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#fff"
@@ -221,8 +222,8 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:layout_marginRight="32dp"
-        android:layout_marginLeft="32dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginLeft="25dp"
         app:layout_anchor="@id/app_bar_layout"
         app:layout_anchorGravity="bottom|center"
         app:cardElevation="3dp"

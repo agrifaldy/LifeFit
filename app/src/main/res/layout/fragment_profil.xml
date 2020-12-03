@@ -1,144 +1,231 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".profil"
-    android:orientation="vertical"
-    android:background="#424874"
-    android:gravity="top">
+    tools:context=".monitoring"
+    android:background="#fff"
+    android:layout_gravity="bottom">
 
-    <!-- TODO: Update blank fragment layout -->
-
-    <TextView
-        android:id="@+id/tv_profil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="AKUN"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="#60a9a6"
-        android:textSize="15sp"
-        android:layout_marginTop="40dp"
-        android:layout_marginLeft="20dp"/>
-
-    <LinearLayout
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="30dp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:foreground="?android:attr/selectableItemBackground"
-        android:clickable="true">
+        android:layout_height="160dp">
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/background_page_monitoring"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SETTING"
+                    android:textStyle="bold"
+                    android:textColor="#fff"
+                    android:textSize="20dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="30dp"/>
+            </LinearLayout>
 
-        <ImageView
-            android:layout_width="62dp"
-            android:layout_height="30dp"
-            android:src="@drawable/ic_akun"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Akun Saya"
-            android:textSize="15sp"
-            android:textColor="#fff"
-            android:layout_marginTop="5dp"/>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/tv_support"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="DUKUNG KAMI"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="#60a9a6"
-        android:textSize="15sp"
-        android:layout_marginTop="40dp"
-        android:layout_marginLeft="20dp"/>
-
-    <LinearLayout
-        android:id="@+id/ll_feedback"
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nested_scroll"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="30dp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:foreground="?android:attr/selectableItemBackground"
-        android:clickable="true">
+        android:layout_height="450dp"
+        android:background="#fff"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <ImageView
-            android:layout_width="63dp"
-            android:layout_height="27dp"
-            android:src="@drawable/ic_rate" />
+    </androidx.core.widget.NestedScrollView>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Feedback"
-            android:textSize="15sp"
-            android:textColor="#fff"/>
-
-    </LinearLayout>
-
-    <LinearLayout
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="30dp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:foreground="?android:attr/selectableItemBackground"
-        android:clickable="true">
+        android:layout_height="600dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        app:layout_anchor="@id/nested_scroll"
+        app:layout_anchorGravity="center_vertical"
+        app:cardElevation="3dp"
+        app:cardCornerRadius="10dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_profil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="AKUN"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#1565C0"
+                android:textSize="15sp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="10dp"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="20dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="20dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true">
+                <ImageView
+                    android:id="@+id/iv_akun"
+                    android:layout_width="62dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_akun"
+                    android:layout_centerVertical="true"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Akun Saya"
+                    android:textSize="15sp"
+                    android:textColor="#000"
+                    android:layout_toRightOf="@+id/iv_akun"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@+id/iv_akun" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_next"
+                    android:background="@android:color/transparent"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
+            </RelativeLayout>
+            <TextView
+                android:id="@+id/tv_support"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="DUKUNG KAMI"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#1565C0"
+                android:textSize="15sp"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="10dp"/>
+            <RelativeLayout
+                android:id="@+id/rl_feedback"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="20dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="20dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true">
+                <ImageView
+                    android:id="@+id/iv_rate"
+                    android:layout_width="63dp"
+                    android:layout_height="27dp"
+                    android:src="@drawable/ic_rate"
+                    android:layout_centerVertical="true"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Feedback"
+                    android:textSize="15sp"
+                    android:textColor="#000"
+                    android:layout_toRightOf="@+id/iv_rate"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@+id/iv_rate" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_next"
+                    android:background="@android:color/transparent"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="20dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="20dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true">
+                <ImageView
+                    android:id="@+id/iv_share"
+                    android:layout_width="63dp"
+                    android:layout_height="27dp"
+                    android:src="@drawable/ic_share"
+                    android:layout_centerVertical="true"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Berbagi dengan teman"
+                    android:textSize="15sp"
+                    android:textColor="#000"
+                    android:layout_toRightOf="@+id/iv_share"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@+id/iv_share" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_next"
+                    android:background="@android:color/transparent"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
+            </RelativeLayout>
+            <TextView
+                android:id="@+id/tv_pengaturan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="KELUAR"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#1565C0"
+                android:textSize="15sp"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="10dp"/>
+            <LinearLayout
+                android:id="@+id/ll_logout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="13dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="13dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical">
+                <ImageView
+                    android:layout_width="63dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_logout_foreground" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Log Out"
+                    android:textSize="15sp"
+                    android:textColor="#000"/>
+            </LinearLayout>
 
-        <ImageView
-            android:layout_width="63dp"
-            android:layout_height="27dp"
-            android:src="@drawable/ic_share" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Berbagi dengan teman"
-            android:textSize="15sp"
-            android:textColor="#fff"/>
 
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/tv_pengaturan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="PENGATURAN"
-        android:textSize="15sp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="#60a9a6"
-        android:layout_marginTop="40dp"
-        android:layout_marginLeft="20dp"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:id="@+id/ll_logout"
-        android:layout_marginTop="30dp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:foreground="?android:attr/selectableItemBackground"
-        android:clickable="true">
-        <ImageView
-            android:layout_width="63dp"
-            android:layout_height="40dp"
-            android:src="@drawable/ic_logout_foreground" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Log Out"
-            android:textSize="15sp"
-            android:textColor="#fff"
-            android:layout_marginTop="10dp"/>
-    </LinearLayout>
-
-</LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
