@@ -86,7 +86,7 @@ public class UserSignupActivity extends AppCompatActivity implements View.OnClic
 
     //fungsi dipanggil ketika proses Authentikasi berhasil
     private void onAuthSuccess(FirebaseUser user) {
-        String username =et_nama.getText().toString();
+        String username = et_nama.getText().toString();
         String email = et_email.getText().toString();
         String password = et_password.getText().toString();
 
