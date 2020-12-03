@@ -73,13 +73,13 @@
                             android:layout_height="100dp"
                             android:layout_marginTop="30dp"
                             android:layout_marginBottom="10dp"
-                            android:src="@drawable/ic_dinnermenu_foreground"
+                            android:src="@drawable/saladbuah"
                             android:layout_gravity="center_horizontal"/>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Pancakes"
+                            android:text="Salad Buah"
                             android:textSize="30sp"
                             android:layout_gravity="center_horizontal"/>
 
@@ -117,13 +117,13 @@
                             android:layout_height="100dp"
                             android:layout_marginTop="30dp"
                             android:layout_marginBottom="10dp"
-                            android:src="@drawable/ic_dinnermenu_foreground"
+                            android:src="@drawable/yogurt"
                             android:layout_gravity="center_horizontal"/>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Oatmeal"
+                            android:text="Yogurt"
                             android:textSize="30sp"
                             android:layout_gravity="center_horizontal"/>
 
@@ -196,13 +196,13 @@
                             android:layout_height="100dp"
                             android:layout_marginTop="30dp"
                             android:layout_marginBottom="10dp"
-                            android:src="@drawable/ic_dinnermenu_foreground"
+                            android:src="@drawable/susu"
                             android:layout_gravity="center_horizontal"/>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Pancakes"
+                            android:text="Susu"
                             android:textSize="30sp"
                             android:layout_gravity="center_horizontal"/>
 
@@ -240,13 +240,13 @@
                             android:layout_height="100dp"
                             android:layout_marginTop="30dp"
                             android:layout_marginBottom="10dp"
-                            android:src="@drawable/ic_dinnermenu_foreground"
+                            android:src="@drawable/air"
                             android:layout_gravity="center_horizontal"/>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Oatmeal"
+                            android:text="Air Putih"
                             android:textSize="30sp"
                             android:layout_gravity="center_horizontal"/>
 

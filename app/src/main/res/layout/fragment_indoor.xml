@@ -45,24 +45,23 @@
                             android:layout_height="100dp"
                             android:layout_marginTop="30dp"
                             android:layout_marginBottom="10dp"
-                            android:src="@drawable/ic_indoor_foreground"
+                            android:src="@drawable/ic_barbel_foreground"
                             android:layout_gravity="center_horizontal"/>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Pancakes"
+                            android:text="Barbel"
                             android:textSize="30sp"
                             android:layout_gravity="center_horizontal"/>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="443 KCAL"
+                            android:text="Membakar 300 Kalori"
                             android:textSize="15sp"
                             android:layout_marginTop="10dp"
-                            android:layout_marginRight="10dp"
-                            android:layout_gravity="right"/>
+                            android:layout_gravity="center_horizontal"/>
 
 
                     </LinearLayout>
@@ -95,18 +94,17 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Oatmeal"
+                            android:text="IndoorBike"
                             android:textSize="30sp"
                             android:layout_gravity="center_horizontal"/>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="251 KCAL"
+                            android:text="Membakar 446 Kalori"
                             android:textSize="15sp"
                             android:layout_marginTop="10dp"
-                            android:layout_marginRight="10dp"
-                            android:layout_gravity="right"/>
+                            android:layout_gravity="center_horizontal"/>
 
                     </LinearLayout>
 
@@ -141,24 +139,23 @@
                             android:layout_height="100dp"
                             android:layout_marginTop="30dp"
                             android:layout_marginBottom="10dp"
-                            android:src="@drawable/ic_indoor_foreground"
+                            android:src="@drawable/ic_pushup_foreground"
                             android:layout_gravity="center_horizontal"/>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Pancakes"
+                            android:text="PushUp"
                             android:textSize="30sp"
                             android:layout_gravity="center_horizontal"/>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="443 KCAL"
+                            android:text="Membakar 260 Kalori"
                             android:textSize="15sp"
                             android:layout_marginTop="10dp"
-                            android:layout_marginRight="10dp"
-                            android:layout_gravity="right"/>
+                            android:layout_gravity="center_horizontal"/>
 
 
                     </LinearLayout>
@@ -185,24 +182,23 @@
                             android:layout_height="100dp"
                             android:layout_marginTop="30dp"
                             android:layout_marginBottom="10dp"
-                            android:src="@drawable/ic_indoor_foreground"
+                            android:src="@drawable/ic_situp_foreground"
                             android:layout_gravity="center_horizontal"/>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Oatmeal"
+                            android:text="SitUp"
                             android:textSize="30sp"
                             android:layout_gravity="center_horizontal"/>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="251 KCAL"
+                            android:text="Membakar 200 Kalori"
                             android:textSize="15sp"
                             android:layout_marginTop="10dp"
-                            android:layout_marginRight="10dp"
-                            android:layout_gravity="right"/>
+                            android:layout_gravity="center_horizontal"/>
 
                     </LinearLayout>
 
