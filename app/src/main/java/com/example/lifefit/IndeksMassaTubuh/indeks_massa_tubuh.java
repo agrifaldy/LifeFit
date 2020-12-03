@@ -48,7 +48,6 @@ public class indeks_massa_tubuh extends AppCompatActivity {
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference myRef = database.getReference("Bmi");
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
-    private TextView username;
 
     private List<Bmi> list = new ArrayList<>();
     private int year, month, day;
@@ -56,6 +55,7 @@ public class indeks_massa_tubuh extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_indeks_massa_tubuh);
 
         btnAdd = findViewById(R.id.btn_add);
@@ -71,10 +71,6 @@ public class indeks_massa_tubuh extends AppCompatActivity {
                 showDialogAdd();
             }
         });
-
-        String nama = mAuth.getCurrentUser().getEmail();
-        username = findViewById(R.id.username);
-        username.setText(nama);
 
         readData();
     }
