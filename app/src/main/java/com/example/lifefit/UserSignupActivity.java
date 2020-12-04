@@ -19,6 +19,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -66,7 +67,7 @@ public class UserSignupActivity extends AppCompatActivity implements View.OnClic
         }
 
         //showProgressDialog();
-        String username =et_nama.getText().toString();
+        final String username =et_nama.getText().toString();
         String email = et_email.getText().toString();
         String password = et_password.getText().toString();
 
@@ -79,6 +80,12 @@ public class UserSignupActivity extends AppCompatActivity implements View.OnClic
 
                         if (task.isSuccessful()) {
                             onAuthSuccess(task.getResult().getUser());
+                            FirebaseUser userData = FirebaseAuth.getInstance().getCurrentUser();
+
+                            UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                                    .setDisplayName(username).build();
+
+                            userData.updateProfile(profileUpdates);
                         } else {
                             Toast.makeText(UserSignupActivity.this, "Sign Up Failed",
                                     Toast.LENGTH_SHORT).show();

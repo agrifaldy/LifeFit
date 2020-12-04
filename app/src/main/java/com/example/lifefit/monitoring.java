@@ -38,13 +38,9 @@ public class monitoring extends Fragment {
         mDatabase = FirebaseDatabase.getInstance().getReference("users");
         mAuth = FirebaseAuth.getInstance();
 
-
-
         String emailUser = mAuth.getCurrentUser().getEmail();
 
         String namaUser = mAuth.getCurrentUser().getDisplayName();
-
-        //mAuth.getCurrentUser().updateProfile();
 
 
         getActivity().getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -52,8 +48,8 @@ public class monitoring extends Fragment {
         // Inflate the layout for this fragment
         cv_monitoring = v.findViewById(R.id.cv_monitoring);
 
-        /**tv_username = v.findViewById(R.id.tv_username);
-        tv_username.setText(namaUser);**/
+        tv_username = v.findViewById(R.id.tv_username);
+        tv_username.setText(namaUser);
 
         tv_emailPengguna = v.findViewById(R.id.tv_emailPengguna);
         tv_emailPengguna.setText(emailUser);
