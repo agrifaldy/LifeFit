@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TekananDarah.tensi_item"></activity>
+        <activity android:name=".TekananDarah.tensi_item"/>
         <activity android:name=".TekananDarah.tensi_input" />
         <activity android:name=".TekananDarah.tensi" />
         <activity android:name=".akun_saya_edit" />
