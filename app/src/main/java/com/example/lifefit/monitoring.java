@@ -21,6 +21,7 @@ import com.example.lifefit.User;
 
 public class monitoring extends Fragment {
 
+    private CardView cv_deteksi;
     private CardView cv_monitoring;
     private TextView tv_emailPengguna;
     private TextView tv_username;
@@ -47,6 +48,7 @@ public class monitoring extends Fragment {
         View v = inflater.inflate(R.layout.fragment_monitoring, container, false);
         // Inflate the layout for this fragment
         cv_monitoring = v.findViewById(R.id.cv_monitoring);
+        cv_deteksi = v.findViewById(R.id.cv_deteksi);
 
         tv_username = v.findViewById(R.id.tv_username);
         tv_username.setText(namaUser);
@@ -58,6 +60,13 @@ public class monitoring extends Fragment {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getActivity(),page_monitoring.class));
+            }
+        });
+
+        cv_deteksi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(),DeteksiPenyakit.class));
             }
         });
 

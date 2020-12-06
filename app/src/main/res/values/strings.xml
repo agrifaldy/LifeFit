@@ -22,4 +22,9 @@
     <string name="tv_eMakananD">Daftar Makanan dan Minuman yang sehat</string>
     <string name="tv_eOlahraga">Olahraga</string>
     <string name="tv_eOlahragaD">Daftar Olahraga yang simple</string>
+
+    <string name="tv_dDemam">Demam</string>
+    <string name="tv_dDemamD">Apakah anda merasa demam ?</string>
+    <string name="tv_dBatuk">Batuk</string>
+    <string name="tv_dBatukD">Apakah anda sedang mengalami batuk ?</string>
 </resources>

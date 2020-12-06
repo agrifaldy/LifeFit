@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".akun_saya"></activity>
+        <activity android:name=".DeteksiPenyakit"></activity>
+        <activity android:name=".akun_saya" />
         <activity android:name=".MenuOlahraga" />
         <activity android:name=".MenuMakan" />
         <activity android:name=".IndeksMassaTubuh.page_monitoring" />
