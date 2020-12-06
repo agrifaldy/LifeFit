@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -18,6 +19,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -38,6 +40,8 @@ public class UserSignupActivity extends AppCompatActivity implements View.OnClic
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_signup);
+
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         //variabel tadi untuk memanggil fungsi
         mDatabase = FirebaseDatabase.getInstance().getReference();
@@ -63,7 +67,7 @@ public class UserSignupActivity extends AppCompatActivity implements View.OnClic
         }
 
         //showProgressDialog();
-        String username =et_nama.getText().toString();
+        final String username =et_nama.getText().toString();
         String email = et_email.getText().toString();
         String password = et_password.getText().toString();
 
@@ -76,6 +80,12 @@ public class UserSignupActivity extends AppCompatActivity implements View.OnClic
 
                         if (task.isSuccessful()) {
                             onAuthSuccess(task.getResult().getUser());
+                            FirebaseUser userData = FirebaseAuth.getInstance().getCurrentUser();
+
+                            UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                                    .setDisplayName(username).build();
+
+                            userData.updateProfile(profileUpdates);
                         } else {
                             Toast.makeText(UserSignupActivity.this, "Sign Up Failed",
                                     Toast.LENGTH_SHORT).show();
@@ -86,7 +96,7 @@ public class UserSignupActivity extends AppCompatActivity implements View.OnClic
 
     //fungsi dipanggil ketika proses Authentikasi berhasil
     private void onAuthSuccess(FirebaseUser user) {
-        String username =et_nama.getText().toString();
+        String username = et_nama.getText().toString();
         String email = et_email.getText().toString();
         String password = et_password.getText().toString();
 

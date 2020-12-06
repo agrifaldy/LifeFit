@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Splash"
-    android:background="#424874"
+    android:background="@drawable/background_splash"
     >
 
     <ImageView
@@ -21,6 +21,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="30dp"
         android:layout_centerHorizontal="true"
+        android:textColor="#fff"
         android:text="Copyright by Fokus Sarjana" />
 
     <ProgressBar
