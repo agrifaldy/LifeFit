@@ -43,6 +43,8 @@ public class monitoring extends Fragment {
 
         String namaUser = mAuth.getCurrentUser().getDisplayName();
 
+        //test
+
 
         getActivity().getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         View v = inflater.inflate(R.layout.fragment_monitoring, container, false);
