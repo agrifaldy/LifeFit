@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.WindowManager;
 
 import com.example.lifefit.R;
+import com.example.lifefit.TekananDarah.tensi;
 
 public class page_monitoring extends AppCompatActivity {
 
@@ -20,6 +21,11 @@ public class page_monitoring extends AppCompatActivity {
 
     public void toIndeksMassaTubuh(View view) {
         Intent intent = new Intent(this, indeks_massa_tubuh.class);
+        startActivity(intent);
+    }
+
+    public void toTensi(View view) {
+        Intent intent = new Intent(this, tensi.class);
         startActivity(intent);
     }
 }

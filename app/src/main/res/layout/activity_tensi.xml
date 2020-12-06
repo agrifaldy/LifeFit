@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".IndeksMassaTubuh.indeks_massa_tubuh"
+    tools:context=".TekananDarah.tensi"
     android:background="@android:color/transparent">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -37,7 +37,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Indeks Massa Tubuh"
+                        android:text="Tensi"
                         android:textColor="#fff"
                         android:textSize="20sp"
                         android:gravity="center"
@@ -88,22 +88,21 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view"
+        android:id="@+id/recycler_view_tensi"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#fff"
-        tools:listitem="@layout/activity_indeks_massa_tubuh_item"
+        tools:listitem="@layout/activity_tensi_item"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
     </androidx.recyclerview.widget.RecyclerView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btn_add"
+        android:id="@+id/btn_add_tensi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_margin="15dp"
         android:src="@drawable/ic_tambah"/>
-
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

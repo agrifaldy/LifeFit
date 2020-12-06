@@ -17,14 +17,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Massa Tubuh"
+            android:text="Tensi"
             android:textSize="17sp"
             android:layout_centerInParent="true"
             android:textColor="#fff"
             android:textStyle="bold"/>
 
         <ImageButton
-            android:id="@+id/btn_close"
+            android:id="@+id/btn_close_tensi"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:padding="15dp"
@@ -36,21 +36,21 @@
     </RelativeLayout>
 
     <EditText
-        android:id="@+id/et_berat"
+        android:id="@+id/et_tekanan_atas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
-        android:hint="Berat"
+        android:hint="Tekanan Atas"
         android:inputType="number"
         android:background="@android:drawable/editbox_background_normal"
         android:padding="15dp"/>
 
     <EditText
-        android:id="@+id/et_tinggi"
+        android:id="@+id/et_tekanan_bawah"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
-        android:hint="Tinggi"
+        android:hint="Tekanan Bawah"
         android:inputType="number"
         android:background="@android:drawable/editbox_background_normal"
         android:padding="15dp"/>
@@ -59,7 +59,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <EditText
-            android:id="@+id/et_tanggal"
+            android:id="@+id/et_tanggal_tensi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
@@ -82,7 +82,7 @@
 
 
     <Button
-        android:id="@+id/btn_add"
+        android:id="@+id/btn_simpan_tensi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/background_button_bmi"
