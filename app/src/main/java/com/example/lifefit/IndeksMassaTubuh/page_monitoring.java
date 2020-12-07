@@ -9,6 +9,7 @@ import android.view.WindowManager;
 
 import com.example.lifefit.R;
 import com.example.lifefit.TekananDarah.tensi;
+import com.example.lifefit.DenyutJantung.denyut_jantung;
 
 public class page_monitoring extends AppCompatActivity {
 
@@ -26,6 +27,11 @@ public class page_monitoring extends AppCompatActivity {
 
     public void toTensi(View view) {
         Intent intent = new Intent(this, tensi.class);
+        startActivity(intent);
+    }
+
+    public void toDenyutJantung(View view) {
+        Intent intent = new Intent(this, denyut_jantung.class);
         startActivity(intent);
     }
 }

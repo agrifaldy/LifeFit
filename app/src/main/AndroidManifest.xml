@@ -11,10 +11,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TekananDarah.tensi_input"></activity>
+        <activity android:name=".DenyutJantung.denyut_jantung_item"></activity>
+        <activity android:name=".DenyutJantung.denyut_jantung_input" />
+        <activity android:name=".DenyutJantung.denyut_jantung" />
+        <activity android:name=".TekananDarah.tensi_input" />
         <activity android:name=".TekananDarah.tensi" />
         <activity android:name=".akun_saya_edit" />
-        <activity android:name=".DeteksiPenyakit"/>
+        <activity android:name=".DeteksiPenyakit" />
         <activity android:name=".akun_saya" />
         <activity android:name=".MenuOlahraga" />
         <activity android:name=".MenuMakan" />
