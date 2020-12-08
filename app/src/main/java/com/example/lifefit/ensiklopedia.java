@@ -18,6 +18,7 @@ public class ensiklopedia extends Fragment implements View.OnClickListener{
 
     private CardView cv_makanan;
     private CardView cv_olahraga;
+    private CardView cv_penyakit;
     View view;
 
     public ensiklopedia() {
@@ -34,6 +35,14 @@ public class ensiklopedia extends Fragment implements View.OnClickListener{
         cv_makanan.setOnClickListener(this);
         cv_olahraga = (CardView) view.findViewById(R.id.cv_olahraga);
         cv_olahraga.setOnClickListener(this);
+
+        cv_penyakit = view.findViewById(R.id.cv_penyakit);
+        cv_penyakit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(),penyakit_ringan.class));
+            }
+        });
         return view;
     }
 

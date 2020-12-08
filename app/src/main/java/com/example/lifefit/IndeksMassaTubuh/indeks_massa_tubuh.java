@@ -1,5 +1,7 @@
 package com.example.lifefit.IndeksMassaTubuh;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -211,6 +213,8 @@ public class indeks_massa_tubuh extends AppCompatActivity {
                 }
             });
     }
+
+
 
     public void toHalamanGrafik(View view) {
         Intent intent = new Intent(this, indeks_massa_tubuh_grafik.class);

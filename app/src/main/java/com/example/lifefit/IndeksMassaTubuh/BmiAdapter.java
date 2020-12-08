@@ -1,18 +1,26 @@
 package com.example.lifefit.IndeksMassaTubuh;
 
 
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.lifefit.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -20,18 +28,19 @@ import com.google.firebase.database.FirebaseDatabase;
 import org.w3c.dom.Text;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 public class BmiAdapter extends RecyclerView.Adapter<BmiAdapter.ViewHolder> {
 
     private Context context;
     private List<Bmi> list;
-    private DatabaseReference mDatabase;
+    private DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("Bmi");
     private FirebaseAuth mAuth;
     private CardView hasilIbm;
+    private Activity activity;
 
     public LinearLayout.LayoutParams params;
-    public LinearLayout rootView;
 
     public BmiAdapter(Context context, List<Bmi> list) {
         this.context = context;
@@ -41,7 +50,6 @@ public class BmiAdapter extends RecyclerView.Adapter<BmiAdapter.ViewHolder> {
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        mDatabase = FirebaseDatabase.getInstance().getReference("Bmi");
         mAuth = FirebaseAuth.getInstance();
         hasilIbm = parent.findViewById(R.id.cv_hasiIbm);
         View view = LayoutInflater.from(context).inflate(R.layout.activity_indeks_massa_tubuh_item, parent, false);
@@ -49,7 +57,27 @@ public class BmiAdapter extends RecyclerView.Adapter<BmiAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
+
+        holder.btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                }).setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                }).setMessage("Apakah anda yakin mau menghapus?");
+                builder.show();
+            }
+        });
+
         holder.tv_berat.setText(list.get(position).getBerat());
         holder.tv_tinggi.setText(list.get(position).getTinggi());
         holder.tv_tanggal.setText(list.get(position).getTanggal());
@@ -88,6 +116,7 @@ public class BmiAdapter extends RecyclerView.Adapter<BmiAdapter.ViewHolder> {
         int position;
 
         private TextView tv_berat, tv_tinggi, tv_tanggal, tv_imt, tv_keterangan;
+        private CardView btnDelete, btnEdit;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             params = new LinearLayout.LayoutParams(0, 0);
@@ -96,7 +125,10 @@ public class BmiAdapter extends RecyclerView.Adapter<BmiAdapter.ViewHolder> {
             tv_tanggal = itemView.findViewById(R.id.tv_tanggal);
             tv_imt = itemView.findViewById(R.id.tv_imt);
             tv_keterangan = itemView.findViewById(R.id.tv_keterangan);
+            btnDelete = itemView.findViewById(R.id.btn_deleteBmi);
+            btnEdit = itemView.findViewById(R.id.btn_editBmi);
             hasilIbm = itemView.findViewById(R.id.cv_hasiIbm);
+
 
             /**if (mAuth.getCurrentUser().getUid().equals(list.get(position).getId())) {
                 hasilIbm.setVisibility(View.VISIBLE);
@@ -105,5 +137,8 @@ public class BmiAdapter extends RecyclerView.Adapter<BmiAdapter.ViewHolder> {
             }**/
 
         }
+
+
     }
+
 }

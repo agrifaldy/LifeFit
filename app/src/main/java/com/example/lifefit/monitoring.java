@@ -23,6 +23,7 @@ public class monitoring extends Fragment {
 
     private CardView cv_deteksi;
     private CardView cv_monitoring;
+    private CardView cv_toAkunSaya;
     private TextView tv_emailPengguna;
     private TextView tv_username;
     private DatabaseReference mDatabase;
@@ -48,6 +49,7 @@ public class monitoring extends Fragment {
         // Inflate the layout for this fragment
         cv_monitoring = v.findViewById(R.id.cv_monitoring);
         cv_deteksi = v.findViewById(R.id.cv_deteksi);
+        cv_toAkunSaya = v.findViewById(R.id.cv_toAkunSaya);
 
         tv_username = v.findViewById(R.id.tv_username);
         tv_username.setText(namaUser);
@@ -66,6 +68,13 @@ public class monitoring extends Fragment {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getActivity(),DeteksiPenyakit.class));
+            }
+        });
+
+        cv_toAkunSaya.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(),akun_saya.class));
             }
         });
 

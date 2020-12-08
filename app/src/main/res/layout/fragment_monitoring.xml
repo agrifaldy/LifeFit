@@ -312,6 +312,7 @@
                     </LinearLayout>
 
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/cv_toAkunSaya"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_alignParentEnd="true"
