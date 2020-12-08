@@ -27,4 +27,11 @@
     <string name="tv_dDemamD">Apakah anda merasa demam ?</string>
     <string name="tv_dBatuk">Batuk</string>
     <string name="tv_dBatukD">Apakah anda sedang mengalami batuk ?</string>
+    <string name="isi_flu">   Flu merupakan penyakit yang disebabkan oleh infeksi virus yang dapat menyerang hidung, tenggorokan, dan paru-paru. Flu atau influenza ini sangat umum terjadi di musim pancaroba. Penyakit ini sangat mudah menular ke orang lain, terutama ketika 3-4 hari pertama setelah pengidapnya terinfeksi virus flu, Gejala-gejala flu yang biasa dirasakan pengidapnya adalah demam, sakit kepala, batuk-batuk, pegal-pegal, kehilangan nafsu makan, serta sakit tenggorokan.
+        \n\nGejala flu akan bertambah parah selama 2-4 hari sebelum akhirnya membaik dan sembuh.
+        \n\nFlu dan pilek adalah dua kondisi yang berbeda. Pilek mumnya muncul secara bertahap dengan gejala yang lebih ringan, sehingga tidak terlalu berdampak kepada rutinitas pengidapnya. Sedangkan flu tak seperti itu. Penyakit ini cenderung menyebabkan gejala yang lebih parah, sehingga bisa mengganggu aktivitas pengidapnya. Di samping itu, masa inkubasi flu juga lebih singkat.</string>
+    <string name="pencegahan_flu">1. Rajin mencuci tangan dengan air dan sabun, atau hand-sanitizer berbahan dasar alkohol.
+        \n\n2. Tidak menyentuh mulut, hidung, dan mata, sebelum mencuci tangan.
+        \n\n3. Membersihkan permukaan benda yang sering disentuh, dengan cairan disinfektan.
+        \n\n4. Tidak berbagi makanan atau penggunaan benda pribadi, seperti gelas atau botol minum.</string>
 </resources>

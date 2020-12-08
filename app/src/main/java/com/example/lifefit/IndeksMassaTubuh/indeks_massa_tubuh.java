@@ -214,8 +214,6 @@ public class indeks_massa_tubuh extends AppCompatActivity {
             });
     }
 
-
-
     public void toHalamanGrafik(View view) {
         Intent intent = new Intent(this, indeks_massa_tubuh_grafik.class);
         startActivity(intent);

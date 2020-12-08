@@ -67,7 +67,8 @@
                         android:layout_marginTop="20dp"
                         android:paddingLeft="20dp"
                         android:paddingRight="20dp"
-                        android:drawableLeft="@drawable/ic_chart"/>
+                        android:drawableLeft="@drawable/ic_chart"
+                        android:onClick="toHalamanGrafik"/>
                 </LinearLayout>
             </LinearLayout>
 

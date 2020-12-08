@@ -11,8 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Flu"></activity>
-        <activity android:name=".penyakit_ringan"/>
+        <activity android:name=".penyakit_sakit_tenggorokan"></activity>
+        <activity android:name=".penyakit_demam" />
+        <activity android:name=".penyakit_flu" />
+        <activity android:name=".Flu" />
+        <activity android:name=".penyakit_ringan" />
         <activity android:name=".DenyutJantung.denyut_jantung_item" />
         <activity android:name=".DenyutJantung.denyut_jantung_input" />
         <activity android:name=".DenyutJantung.denyut_jantung" />
