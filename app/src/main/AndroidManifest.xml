@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DenyutJantung.denyut_jantung_item"></activity>
+        <activity android:name=".Flu"></activity>
+        <activity android:name=".DenyutJantung.denyut_jantung_item" />
         <activity android:name=".DenyutJantung.denyut_jantung_input" />
         <activity android:name=".DenyutJantung.denyut_jantung" />
         <activity android:name=".TekananDarah.tensi_input" />
