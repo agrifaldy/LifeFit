@@ -34,4 +34,12 @@
         \n\n2. Tidak menyentuh mulut, hidung, dan mata, sebelum mencuci tangan.
         \n\n3. Membersihkan permukaan benda yang sering disentuh, dengan cairan disinfektan.
         \n\n4. Tidak berbagi makanan atau penggunaan benda pribadi, seperti gelas atau botol minum.</string>
+    <string name="deskripsi_demam">Demam adalah kondisi meningkatnya suhu tubuh hingga lebih dari 380C. Demam menandakan adanya penyakit atau kondisi lain di dalam tubuh.
+        \n\nDemam umumnya terjadi sebagai reaksi dari sistem imun dalam melawan infeksi virus, bakteri, jamur, atau parasit penyebab penyakit. Beberapa penyakit yang sering menyebabkan demam adalah flu, radang tenggorokan, dan infeksi saluran kemih.
+        \n\nSelain penyakit, ada beberapa kondisi yang dapat menyebabkan terjadinya demam, yaitu paparan cuaca dan suhu panas yang berlebihan, siklus menstruasi, reaksi setelah pemberian imunisasi pada anak, serta efek samping obat-obat tertentu.
+        \n\nMeskipun kadang mengkhawatirkan, sebagian besar demam yang disebabkan oleh infeksi virus akan sembuh dengan sendirinya. Namun, jika demam sudah mencapai suhu lebih dari 390C, diperlukan penanganan untuk mengatasi ketidaknyamanan akibat demam dan mengobati penyebabnya.</string>
+    <string name="pencegahan_demam">1. Rajin mencuci tangan.
+        \n\n2. Menjaga kebersihan rumah.
+        \n\n3. Tidak berbagi penggunaan alat makan dan minum dengan orang lain.
+        \n\n4. Tidak berbagi penggunaan barang-barang pribadi, seperti handuk, pakaian, atau sikat gigi, dengan orang lain. Menjaga dan meningkatkan sistem kekebalan tubuh dengan istirahat yang cukup, pola makan bersih, sehat, dan bergizi seimbang, olahraga dan aktivitas fisik secara teratur, serta konsumsi air putih dalam jumlah yang cukup.</string>
 </resources>

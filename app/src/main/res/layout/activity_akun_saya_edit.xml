@@ -62,13 +62,13 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp">
                     <com.mikhaellopez.circularimageview.CircularImageView
-                        android:id="@+id/iv_camera"
+                        android:id="@+id/ci_image"
                         android:layout_width="105dp"
                         android:layout_height="105dp"
                         android:layout_gravity="center"
-                        android:background="@drawable/profile" />
+                        android:background="@drawable/profile"/>
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/civ_camera"
+                        android:id="@+id/upload_image"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_gravity="bottom|right"

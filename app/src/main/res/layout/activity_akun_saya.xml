@@ -257,9 +257,10 @@
             app:layout_anchorGravity="top|center"
             app:cardElevation="20dp"
             app:cardCornerRadius="60dp">
-            <ImageView
-                android:layout_width="105dp"
-                android:layout_height="105dp"
+            <com.mikhaellopez.circularimageview.CircularImageView
+                android:id="@+id/ci_image_akunsaya"
+                android:layout_width="115dp"
+                android:layout_height="115dp"
                 android:src="@drawable/profile"
                 android:layout_gravity="center_vertical|center_horizontal"/>
         </androidx.cardview.widget.CardView>
