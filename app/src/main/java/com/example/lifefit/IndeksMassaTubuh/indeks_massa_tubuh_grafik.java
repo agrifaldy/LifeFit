@@ -33,6 +33,8 @@ import java.util.Map;
 public class indeks_massa_tubuh_grafik extends AppCompatActivity {
 
     PieChart pieChart;
+    private DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("Bmi");
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,7 @@ public class indeks_massa_tubuh_grafik extends AppCompatActivity {
         pieChart = findViewById(R.id.pieChart);
         initPieChart();
         showPieChart();
+        //readData();
 
     }
 
@@ -52,7 +55,7 @@ public class indeks_massa_tubuh_grafik extends AppCompatActivity {
 
         //initializing data
         Map<String, Integer> typeAmountMap = new HashMap<>();
-        typeAmountMap.put("Toys",200);
+        typeAmountMap.put("",200);
         typeAmountMap.put("Snacks",230);
         typeAmountMap.put("Clothes",100);
         typeAmountMap.put("Stationary",500);
@@ -125,5 +128,31 @@ public class indeks_massa_tubuh_grafik extends AppCompatActivity {
 
         }
     }
+
+    /**private  void readData(){
+        // Read from the database
+
+        mDatabase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (mAuth.getCurrentUser().getUid().equals(mDatabase.child("id").child("mAuth.getCurrentUser().getUid()"))) {
+                    // This method is called once with the initial value and again
+                    // whenever data at this location is updated.
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+                        Bmi value = snapshot.getValue(Bmi.class);
+
+                    }
+
+                }
+            }
+
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w("TAG", "Failed to read value.", error.toException());
+            }
+        });
+    }**/
 
 }
