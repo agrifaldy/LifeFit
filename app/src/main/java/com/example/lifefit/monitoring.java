@@ -34,6 +34,7 @@ public class monitoring extends Fragment {
     private CardView cv_toAkunSaya;
     private TextView tv_emailPengguna;
     private TextView tv_username;
+    private TextView sapa;
     private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;
     FirebaseFirestore fStore;
@@ -80,6 +81,9 @@ public class monitoring extends Fragment {
 
         tv_username = v.findViewById(R.id.tv_username);
         tv_username.setText(namaUser);
+
+        sapa = v.findViewById(R.id.sapa);
+        sapa.setText("Hi " +namaUser);
 
         tv_emailPengguna = v.findViewById(R.id.tv_emailPengguna);
         tv_emailPengguna.setText(emailUser);
