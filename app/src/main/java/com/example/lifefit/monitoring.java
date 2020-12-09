@@ -23,9 +23,13 @@ import com.example.lifefit.User;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.jakewharton.picasso.OkHttp3Downloader;
 import com.mikhaellopez.circularimageview.CircularImageView;
+import com.squareup.picasso.Callback;
+import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
@@ -64,8 +68,19 @@ public class monitoring extends Fragment {
         StorageReference profileRef = storageReference.child("users/"+mAuth.getCurrentUser().getUid()+"/profile.jpg");
         profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
-            public void onSuccess(Uri uri) {
-                Picasso.get().load(uri).into(profileImageMonitoring);
+            public void onSuccess(final Uri uri) {
+                Picasso.get().load(uri).fetch(new Callback() {
+                    @Override
+                    public void onSuccess() {
+                        Picasso.get().load(uri).networkPolicy(NetworkPolicy.OFFLINE).into(profileImageMonitoring);
+
+                    }
+
+                    @Override
+                    public void onError(Exception e) {
+
+                    }
+                });
             }
         });
 
@@ -92,13 +107,13 @@ public class monitoring extends Fragment {
         int timeOfDay = c.get(Calendar.HOUR_OF_DAY);
 
         if(timeOfDay >= 0 && timeOfDay < 12){
-            sapa.setText("Selamat pagi,  " +namaUser);
+            sapa.setText("Selamat pagi, " +namaUser);
         }else if(timeOfDay >= 12 && timeOfDay < 16){
-            sapa.setText("Selamat siang,  " +namaUser);
-        }else if(timeOfDay >= 16 && timeOfDay < 21){
-            sapa.setText("Selamat sore,  " +namaUser);
-        }else if(timeOfDay >= 21 && timeOfDay < 24){
-            sapa.setText("Selamat malam,  " +namaUser);
+            sapa.setText("Selamat siang, " +namaUser);
+        }else if(timeOfDay >= 16 && timeOfDay < 19){
+            sapa.setText("Selamat sore, " +namaUser);
+        }else if(timeOfDay >= 19 && timeOfDay < 24){
+            sapa.setText("Selamat malam, " +namaUser);
         }
 
         tv_emailPengguna = v.findViewById(R.id.tv_emailPengguna);

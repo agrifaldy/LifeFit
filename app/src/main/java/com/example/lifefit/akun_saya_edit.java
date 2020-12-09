@@ -72,6 +72,7 @@ public class akun_saya_edit extends AppCompatActivity {
         profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
+                Picasso.get().load(uri).fetch();
                 Picasso.get().load(uri).into(profileImage);
             }
         });
@@ -123,6 +124,7 @@ public class akun_saya_edit extends AppCompatActivity {
                 fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
+                        Picasso.get().load(uri).fetch();
                         Picasso.get().load(uri).into(profileImage);
                     }
                 });
