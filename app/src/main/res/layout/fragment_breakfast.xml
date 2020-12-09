@@ -1,282 +1,342 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="fill_parent"
-    android:background="#424874">
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    android:background="#fff"
+    tools:context=".breakfast"
+    android:orientation="vertical">
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        tools:context=".lunch"
-        android:orientation="vertical"
-        android:background="#424874">
-
+        android:layout_height="match_parent">
         <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:orientation="vertical">
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="fill_parent"
+            <TextView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="100dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_gravity="center_horizontal"
-                card_view:cardCornerRadius="10dp"
-                card_view:cardElevation="5dp"
-                card_view:cardUseCompatPadding="true">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Makanan"
-                        android:textSize="30sp"
-                        android:textColor="#000000"
-                        android:layout_margin="10dp"/>
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
+                android:text="MAKANAN"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:fontFamily="sans-serif-light"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:gravity="center_horizontal">
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cv_contohMakanan"
-                    android:layout_width="200dp"
+                    android:layout_width="170dp"
                     android:layout_height="250dp"
-                    card_view:cardCornerRadius="10dp"
-                    card_view:cardElevation="5dp"
-                    card_view:cardUseCompatPadding="true"
+                    card_view:cardCornerRadius="5dp"
+                    card_view:cardElevation="3dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginLeft="5dp">
-
-                    <LinearLayout
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="8dp">
+                    <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical">
 
                         <ImageView
                             android:id="@+id/iv_contohMakanan"
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
-                            android:layout_marginTop="30dp"
-                            android:layout_marginBottom="10dp"
-                            android:src="@drawable/pancakes"
-                            android:layout_gravity="center_horizontal"/>
+                            android:layout_width="match_parent"
+                            android:layout_height="150dp"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@drawable/oatmeal"
+                            android:scaleType="centerCrop"/>
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Pancakes"
-                            android:textSize="30sp"
-                            android:layout_gravity="center_horizontal"/>
-
+                            android:id="@+id/tv_contohMakanan"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:text="Oatmeal"
+                            android:textSize="15sp"
+                            android:layout_below="@id/iv_contohMakanan"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="443 KCAL"
-                            android:textSize="15sp"
+                            android:textSize="18sp"
+                            android:textColor="#000"
                             android:layout_marginTop="10dp"
-                            android:layout_marginRight="10dp"
-                            android:layout_gravity="right"/>
-
-
-                    </LinearLayout>
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginBottom="10dp"/>
+                    </RelativeLayout>
                 </androidx.cardview.widget.CardView>
-
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cv_contohMakanan2"
-                    android:layout_width="200dp"
+                    android:layout_width="170dp"
                     android:layout_height="250dp"
-                    card_view:cardCornerRadius="10dp"
-                    card_view:cardElevation="5dp"
-                    card_view:cardUseCompatPadding="true"
+                    card_view:cardCornerRadius="5dp"
+                    card_view:cardElevation="3dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginRight="5dp">
-
-                    <LinearLayout
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginBottom="8dp">
+                    <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical">
 
                         <ImageView
                             android:id="@+id/iv_contohMakanan2"
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
-                            android:layout_marginTop="30dp"
-                            android:layout_marginBottom="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="150dp"
+                            android:layout_gravity="center_horizontal"
                             android:src="@drawable/oatmeal"
-                            android:layout_gravity="center_horizontal"/>
+                            android:scaleType="centerCrop"/>
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:id="@+id/tv_contohMakanan2"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
                             android:text="Oatmeal"
-                            android:textSize="30sp"
-                            android:layout_gravity="center_horizontal"/>
-
+                            android:textSize="15sp"
+                            android:layout_below="@id/iv_contohMakanan2"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="251 KCAL"
-                            android:textSize="15sp"
+                            android:text="443 KCAL"
+                            android:textSize="18sp"
+                            android:textColor="#000"
                             android:layout_marginTop="10dp"
-                            android:layout_marginRight="10dp"
-                            android:layout_gravity="right"/>
-
-                    </LinearLayout>
-
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginBottom="10dp"/>
+                    </RelativeLayout>
                 </androidx.cardview.widget.CardView>
-
             </LinearLayout>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_gravity="center_horizontal"
-                card_view:cardCornerRadius="10dp"
-                card_view:cardElevation="5dp"
-                card_view:cardUseCompatPadding="true">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Minuman"
-                        android:textSize="30sp"
-                        android:textColor="#000000"
-                        android:layout_margin="10dp"/>
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:gravity="center_horizontal">
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cv_contohMakanan3"
-                    android:layout_width="200dp"
+                    android:layout_width="170dp"
                     android:layout_height="250dp"
-                    card_view:cardCornerRadius="10dp"
-                    card_view:cardElevation="5dp"
-                    card_view:cardUseCompatPadding="true"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="5dp">
-
-                    <LinearLayout
+                    card_view:cardCornerRadius="5dp"
+                    card_view:cardElevation="3dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="8dp">
+                    <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical">
 
                         <ImageView
                             android:id="@+id/iv_contohMakanan3"
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
-                            android:layout_marginTop="30dp"
-                            android:layout_marginBottom="10dp"
-                            android:src="@drawable/smoothie"
-                            android:layout_gravity="center_horizontal"/>
+                            android:layout_width="match_parent"
+                            android:layout_height="150dp"
+                            android:layout_gravity="center_horizontal"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/oatmeal" />
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Smoothie"
-                            android:textSize="30sp"
-                            android:layout_gravity="center_horizontal"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="36,8 KCAL"
+                            android:id="@+id/tv_contohMakanan3"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:text="Oatmeal"
                             android:textSize="15sp"
+                            android:layout_below="@id/iv_contohMakanan3"
+                            android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
-                            android:layout_marginRight="10dp"
-                            android:layout_gravity="right"/>
-
-
-                    </LinearLayout>
+                            android:layout_marginRight="10dp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="443 KCAL"
+                            android:textSize="18sp"
+                            android:textColor="#000"
+                            android:layout_marginTop="10dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginBottom="10dp"/>
+                    </RelativeLayout>
                 </androidx.cardview.widget.CardView>
-
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cv_contohMakanan4"
-                    android:layout_width="200dp"
+                    android:layout_width="170dp"
                     android:layout_height="250dp"
-                    card_view:cardCornerRadius="10dp"
-                    card_view:cardElevation="5dp"
-                    card_view:cardUseCompatPadding="true"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="5dp">
-
-                    <LinearLayout
+                    card_view:cardCornerRadius="5dp"
+                    card_view:cardElevation="3dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginBottom="8dp">
+                    <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical">
 
                         <ImageView
                             android:id="@+id/iv_contohMakanan4"
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
-                            android:layout_marginTop="30dp"
-                            android:layout_marginBottom="10dp"
-                            android:src="@drawable/tehjahe"
-                            android:layout_gravity="center_horizontal"/>
+                            android:layout_width="match_parent"
+                            android:layout_height="150dp"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@drawable/oatmeal"
+                            android:scaleType="centerCrop"/>
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Teh Jahe"
-                            android:textSize="30sp"
-                            android:layout_gravity="center_horizontal"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="3 KCAL"
+                            android:id="@+id/tv_contohMakanan4"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:text="Oatmeal"
                             android:textSize="15sp"
+                            android:layout_below="@id/iv_contohMakanan4"
+                            android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
-                            android:layout_marginRight="10dp"
-                            android:layout_gravity="right"/>
-
-                    </LinearLayout>
-
+                            android:layout_marginRight="10dp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="443 KCAL"
+                            android:textSize="18sp"
+                            android:textColor="#000"
+                            android:layout_marginTop="10dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginBottom="10dp"/>
+                    </RelativeLayout>
                 </androidx.cardview.widget.CardView>
-
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal">
 
-            <ImageView
-                android:id="@+id/iv_ensiklopedida"
-                android:layout_width="256dp"
-                android:layout_height="188dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="30dp"
-                android:layout_marginBottom="100dp"
-                android:src="@drawable/ic_breakfastmenu_foreground"/>
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cv_contohMakanan5"
+                    android:layout_width="170dp"
+                    android:layout_height="250dp"
+                    card_view:cardCornerRadius="5dp"
+                    card_view:cardElevation="3dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="8dp">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
 
+                        <ImageView
+                            android:id="@+id/iv_contohMakanan5"
+                            android:layout_width="match_parent"
+                            android:layout_height="150dp"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@drawable/oatmeal"
+                            android:scaleType="centerCrop"/>
+
+                        <TextView
+                            android:id="@+id/tv_contohMakanan5"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:text="Oatmeal"
+                            android:textSize="15sp"
+                            android:layout_below="@id/iv_contohMakanan5"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="443 KCAL"
+                            android:textSize="18sp"
+                            android:textColor="#000"
+                            android:layout_marginTop="10dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginBottom="10dp"/>
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cv_contohMakanan6"
+                    android:layout_width="170dp"
+                    android:layout_height="250dp"
+                    card_view:cardCornerRadius="5dp"
+                    card_view:cardElevation="3dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginBottom="8dp">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/iv_contohMakanan6"
+                            android:layout_width="match_parent"
+                            android:layout_height="150dp"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@drawable/oatmeal"
+                            android:scaleType="centerCrop"/>
+
+                        <TextView
+                            android:id="@+id/tv_contohMakanan6"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:text="Oatmeal"
+                            android:textSize="15sp"
+                            android:layout_below="@id/iv_contohMakanan6"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="443 KCAL"
+                            android:textSize="18sp"
+                            android:textColor="#000"
+                            android:layout_marginTop="10dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginBottom="10dp"/>
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="MINUMAN"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:fontFamily="sans-serif-light"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginBottom="10dp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                />
         </LinearLayout>
+    </ScrollView>
 
-    </RelativeLayout>
-
-</ScrollView>
+</LinearLayout>

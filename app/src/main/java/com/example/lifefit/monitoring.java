@@ -4,8 +4,13 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager2.widget.CompositePageTransformer;
+import androidx.viewpager2.widget.MarginPageTransformer;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,7 +36,9 @@ import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 
 public class monitoring extends Fragment {
@@ -118,6 +125,49 @@ public class monitoring extends Fragment {
 
         tv_emailPengguna = v.findViewById(R.id.tv_emailPengguna);
         tv_emailPengguna.setText(emailUser);
+
+
+
+        //
+        ViewPager2 newsViewPager = v.findViewById(R.id.newsViewPager);
+        List<ModelNews> modelNews = new ArrayList<>();
+
+        ModelNews modelNews1 = new ModelNews();
+        modelNews1.imageUrl = "https://asset.kompas.com/crops/zU8c-nW-gYdZNpWul4TKvV1MMOE=/93x1:1000x606/750x500/data/photo/2019/02/04/719295795.jpg";
+        modelNews1.title = "10 Gejala Keracunan Makanan yang Perlu Diwaspadai";
+        modelNews.add(modelNews1);
+
+        ModelNews modelNews2 = new ModelNews();
+        modelNews2.imageUrl = "https://asset.kompas.com/crops/3k9uT4AxthensHqrltKfPbvtFQ4=/0x11:900x611/750x500/data/photo/2019/04/04/115867469.jpg";
+        modelNews2.title = "11 Makanan untuk Bantu Terlihat Awet Muda";
+        modelNews.add(modelNews2);
+
+        ModelNews modelNews3 = new ModelNews();
+        modelNews3.imageUrl = "https://asset.kompas.com/crops/rPvJAQP8POgdwJMyLt2BkhR7ap4=/0x0:1000x667/750x500/data/photo/2020/05/31/5ed373e36fdac.jpg";
+        modelNews3.title = "4 Bahaya Susu Sapi Jika Dikonsumsi Berlebihan";
+        modelNews.add(modelNews3);
+
+        newsViewPager.setAdapter(new ModelNewsAdapter(modelNews));
+
+        newsViewPager.setClipToPadding(false);
+        newsViewPager.setClipChildren(false);
+        newsViewPager.setOffscreenPageLimit(3);
+        newsViewPager.getChildAt(0).setOverScrollMode(RecyclerView.OVER_SCROLL_NEVER);
+
+        CompositePageTransformer compositePageTransformer = new CompositePageTransformer();
+        compositePageTransformer.addTransformer(new MarginPageTransformer(40));
+        compositePageTransformer.addTransformer(new ViewPager2.PageTransformer() {
+            @Override
+            public void transformPage(@NonNull View page, float position) {
+                float r = 1 - Math.abs(position);
+                page.setScaleY(0.95f + r * 0.05f);
+            }
+        });
+
+        newsViewPager.setPageTransformer(compositePageTransformer);
+        //
+
+
 
         cv_monitoring.setOnClickListener(new View.OnClickListener() {
             @Override
