@@ -17,6 +17,7 @@ import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -35,18 +36,15 @@ public class indeks_massa_tubuh_grafik extends AppCompatActivity {
 
     private DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("Bmi");
     private FirebaseAuth mAuth;
-    private List<Bmi> list;
+    private List<indeks_massa_tubuh_grafik> list;
     BarChart barChart;
-
-    /**public indeks_massa_tubuh_grafik(List<Bmi> list) {
-        this.list = list;
-    }**/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_indeks_massa_tubuh_grafik);
+        readData();
         showBartChart();
 
     }
@@ -58,33 +56,16 @@ public class indeks_massa_tubuh_grafik extends AppCompatActivity {
 
     private void showBartChart () {
 
-        mDatabase.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-                //if (mAuth.getCurrentUser().getUid().equals(value.getId())) {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
-                    //Bmi value = snapshot.getValue(Bmi.class);
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError error) {
-                // Failed to read value
-                Log.w("TAG", "Failed to read value.", error.toException());
-            }
-        });
-
         BarChart barChart = (BarChart) findViewById(R.id.barChart);
 
         ArrayList<BarEntry> entries = new ArrayList<>();
-        entries.add(new BarEntry(2014, 420));
-        entries.add(new BarEntry(2015, 475));
+        entries.add(new BarEntry(2014, 140));
+
+        /**entries.add(new BarEntry(2015, 475));
         entries.add(new BarEntry(2016, 508));
         entries.add(new BarEntry(2017, 660));
         entries.add(new BarEntry(2018, 550));
-        entries.add(new BarEntry(2019, 563));
+        entries.add(new BarEntry(2019, 563));**/
 
         BarDataSet bardataset = new BarDataSet(entries, "Tinggi");
 
@@ -107,4 +88,29 @@ public class indeks_massa_tubuh_grafik extends AppCompatActivity {
 
         barChart.animateY(2000, Easing.EaseInOutQuad);
     }
+
+    private  void readData(){
+        // Read from the database
+
+        mDatabase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+                    //indeks_massa_tubuh_grafik value = snapshot.getValue(indeks_massa_tubuh_grafik.class);
+                    //list.add(0,value);
+                }
+
+            }
+
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w("TAG", "Failed to read value.", error.toException());
+            }
+        });
+    }
+
 }

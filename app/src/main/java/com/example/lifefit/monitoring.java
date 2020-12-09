@@ -26,6 +26,9 @@ import com.google.firebase.storage.StorageReference;
 import com.mikhaellopez.circularimageview.CircularImageView;
 import com.squareup.picasso.Picasso;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 
 public class monitoring extends Fragment {
 
@@ -41,6 +44,7 @@ public class monitoring extends Fragment {
     FirebaseUser user;
     StorageReference storageReference;
     CircularImageView profileImageMonitoring;
+
 
     public monitoring() {
         // Required empty public constructor
@@ -83,7 +87,19 @@ public class monitoring extends Fragment {
         tv_username.setText(namaUser);
 
         sapa = v.findViewById(R.id.sapa);
-        sapa.setText("Hi " +namaUser);
+
+        Calendar c = Calendar.getInstance();
+        int timeOfDay = c.get(Calendar.HOUR_OF_DAY);
+
+        if(timeOfDay >= 0 && timeOfDay < 12){
+            sapa.setText("Selamat pagi,  " +namaUser);
+        }else if(timeOfDay >= 12 && timeOfDay < 16){
+            sapa.setText("Selamat siang,  " +namaUser);
+        }else if(timeOfDay >= 16 && timeOfDay < 21){
+            sapa.setText("Selamat sore,  " +namaUser);
+        }else if(timeOfDay >= 21 && timeOfDay < 24){
+            sapa.setText("Selamat malam,  " +namaUser);
+        }
 
         tv_emailPengguna = v.findViewById(R.id.tv_emailPengguna);
         tv_emailPengguna.setText(emailUser);
