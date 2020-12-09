@@ -6,9 +6,9 @@
     android:layout_height = "match_parent"
     tools:context = ".IndeksMassaTubuh.indeks_massa_tubuh_grafik">
 
-    <com.github.mikephil.charting.charts.PieChart
+    <com.github.mikephil.charting.charts.BarChart
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/pieChart"/>
+        android:id="@+id/barChart"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
