@@ -44,7 +44,17 @@ public class DeteksiPenyakit extends AppCompatActivity implements View.OnClickLi
 
         if (demamIya.isChecked() && batukIya.isChecked()){
             if (i == R.id.submitDeteksi) {
-                Intent intent = new Intent(this, Flu.class);
+                Intent intent = new Intent(this, penyakit_flu.class);
+                startActivity(intent);
+            }
+        } else if (demamIya.isChecked() && batukTidak.isChecked()){
+            if (i == R.id.submitDeteksi) {
+                Intent intent = new Intent(this, penyakit_demam.class);
+                startActivity(intent);
+            }
+        } else if (demamIya.isChecked()){
+            if (i == R.id.submitDeteksi) {
+                Intent intent = new Intent(this, penyakit_demam.class);
                 startActivity(intent);
             }
         }
