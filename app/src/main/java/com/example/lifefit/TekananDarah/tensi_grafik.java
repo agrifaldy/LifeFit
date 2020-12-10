@@ -26,9 +26,9 @@ public class tensi_grafik extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference reference;
 
-    SimpleDateFormat sdf = new SimpleDateFormat("yy-MM-dd");
+    SimpleDateFormat sdf = new SimpleDateFormat("yy/MM/dd");
     GraphView graphView;
-    BarGraphSeries series;
+    LineGraphSeries series;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,13 +36,15 @@ public class tensi_grafik extends AppCompatActivity {
         setContentView(R.layout.activity_tensi_grafik);
 
         graphView = (GraphView) findViewById(R.id.graph);
-        series = new BarGraphSeries();
+        series = new LineGraphSeries();
         graphView.addSeries(series);
 
         database = FirebaseDatabase.getInstance();
         reference = database.getReference("TekananDarah");
 
-        graphView.getGridLabelRenderer().setNumHorizontalLabels(5);
+//        graphView.getGridLabelRenderer().setNumHorizontalLabels(5);
+//        graphView.getViewport().setScalable(true);
+//        graphView.getViewport().setScalableY(true);
 
         graphView.getGridLabelRenderer().setLabelFormatter(new DefaultLabelFormatter(){
             @Override
