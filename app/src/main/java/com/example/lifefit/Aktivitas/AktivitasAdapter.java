@@ -86,6 +86,7 @@ public class AktivitasAdapter extends RecyclerView.Adapter<AktivitasAdapter.View
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            params = new LinearLayout.LayoutParams(0, 0);
             tv_aktivitas_makan = itemView.findViewById(R.id.tv_aktivitas_makan);
             tv_aktivitas_minum = itemView.findViewById(R.id.tv_aktivitas_minum);
             tv_aktivitas_tidur = itemView.findViewById(R.id.tv_aktivitas_tidur);
