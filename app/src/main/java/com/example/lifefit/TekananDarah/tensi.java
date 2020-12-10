@@ -34,8 +34,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -115,7 +118,7 @@ public class tensi extends AppCompatActivity {
                         calendar.set(Calendar.YEAR, year);
                         calendar.set(Calendar.MONTH, month);
                         calendar.set(Calendar.DAY_OF_MONTH, day);
-                        String currentDate = DateFormat.getDateInstance(DateFormat.LONG).format(calendar.getTime());
+                        String currentDate = DateFormat.getDateInstance(DateFormat.SHORT).format(calendar.getTime());
 
                         tgl.setText(currentDate);
                     }
@@ -127,44 +130,60 @@ public class tensi extends AppCompatActivity {
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (TextUtils.isEmpty(ta.getText())){
-                    ta.setError("Tidak boleh kosong");
-                } else if (TextUtils.isEmpty(tb.getText())){
-                    tb.setError("Tidak boleh kosong");
-                } else if (TextUtils.isEmpty(tgl.getText())){
-                    tgl.setError("Tidak boleh kosong");
-                } else {
-                    String tekA = ta.getText().toString();
-                    String tekB = tb.getText().toString();
-                    String tglT = tgl.getText().toString();
 
-                    int a = Integer.parseInt(tekA);
-                    int b = Integer.parseInt(tekB);
 
-                    String keterangan = null;
+                    try {
 
-                    if(a < 121 && b < 80) {
-                        keterangan = "Tekanan darah normal";
-                    }else if(a > 120 && a < 140 || b > 79 && b < 90) {
-                        keterangan = "Pra Hipertensi";
-                    }else if(a > 139 && a < 160 || b > 89 && b < 100) {
-                        keterangan = "Hipertensi tingkat I";
-                    }else if(a > 159 && a < 181 || b > 99 && b < 111) {
-                        keterangan = "Hipertensi tingkat II";
-                    }else if(a > 181 || b > 110 ) {
-                        keterangan = "Hipertensi Krisis";
+                        if (TextUtils.isEmpty(ta.getText())){
+                            ta.setError("Tidak boleh kosong");
+                        } else if (TextUtils.isEmpty(tb.getText())){
+                            tb.setError("Tidak boleh kosong");
+                        } else if (TextUtils.isEmpty(tgl.getText())){
+                            tgl.setError("Tidak boleh kosong");
+                        } else {
+                            String tekA = ta.getText().toString();
+                            String tekB = tb.getText().toString();
+                            String tglT = tgl.getText().toString();
+
+                        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                        Date date = sdf.parse(tglT);
+
+                        long startDate = date.getTime();
+
+                        int a = Integer.parseInt(tekA);
+                        int b = Integer.parseInt(tekB);
+
+                        String keterangan = null;
+
+                        if(a < 121 && b < 80) {
+                            keterangan = "Tekanan darah normal";
+                        }else if(a > 120 && a < 140 || b > 79 && b < 90) {
+                            keterangan = "Pra Hipertensi";
+                        }else if(a > 139 && a < 160 || b > 89 && b < 100) {
+                            keterangan = "Hipertensi tingkat I";
+                        }else if(a > 159 && a < 181 || b > 99 && b < 111) {
+                            keterangan = "Hipertensi tingkat II";
+                        }else if(a > 181 || b > 110 ) {
+                            keterangan = "Hipertensi Krisis";
+                        }
+
+                        addDataToFirebase(a, tekB, startDate, keterangan);
+                        dialog.dismiss();
+
+                        }
+                    } catch (ParseException e) {
+                        e.printStackTrace();
                     }
 
-                    addDataToFirebase(tekA, tekB, tglT, keterangan);
-                    dialog.dismiss();
-                }
+
+
             }
         });
 
         dialog.show();
     }
 
-    private void addDataToFirebase(String tknanA, String tknanB, String Tanggal, String ket){
+    private void addDataToFirebase(int tknanA, String tknanB, long Tanggal, String ket){
         String id = myRef.push().getKey();
         TekananDarah tekananDarah = new TekananDarah(id, tknanA, tknanB, Tanggal, ket);
 
@@ -202,5 +221,10 @@ public class tensi extends AppCompatActivity {
                 Log.w("TAG", "Failed to read value.", error.toException());
             }
         });
+    }
+
+    public void toTensiGrafik(View view) {
+        Intent intent = new Intent(this, tensi_grafik.class);
+        startActivity(intent);
     }
 }

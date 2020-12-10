@@ -37,16 +37,15 @@ public class TekananDarahAdapter extends RecyclerView.Adapter<TekananDarahAdapte
     public TekananDarahAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         mDatabase = FirebaseDatabase.getInstance().getReference("TekananDarah");
         mAuth = FirebaseAuth.getInstance();
-        hasilTensi = parent.findViewById(R.id.cv_hasilTensi);
         View view = LayoutInflater.from(context).inflate(R.layout.activity_tensi_item, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull TekananDarahAdapter.ViewHolder holder, int position) {
-        holder.tv_tekananAtas.setText(list.get(position).getTekananAtas());
+        holder.tv_tekananAtas.setText(list.get(position).getTekananAtas()+"");
         holder.tv_tekananBawah.setText(list.get(position).getTekananBawah());
-        holder.tv_tanggalTensi.setText(list.get(position).getTanggal());
+        holder.tv_tanggalTensi.setText((int) list.get(position).getTanggal()+"");
         holder.tv_keteranganTensi.setText(list.get(position).getKeterangan());
 
         if (mAuth.getCurrentUser().getUid().equals(list.get(position).getId())){

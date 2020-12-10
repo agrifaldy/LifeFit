@@ -4,22 +4,27 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class TekananDarah {
     private String id;
-    private String tekananAtas;
+    private int tekananAtas;
     private String tekananBawah;
-    private String tanggal;
+    private long tanggal;
     private String keterangan;
     private FirebaseAuth mAuth;
 
     public TekananDarah() {
     }
 
-    public TekananDarah(String id, String tekananAtas, String tekananBawah, String tanggal, String keterangan) {
+    public TekananDarah(String id, int tekananAtas, String tekananBawah, long tanggal, String keterangan) {
         mAuth = FirebaseAuth.getInstance();
         this.id = mAuth.getCurrentUser().getUid();
         this.tekananAtas = tekananAtas;
         this.tekananBawah = tekananBawah;
         this.tanggal = tanggal;
         this.keterangan = keterangan;
+    }
+
+    public TekananDarah(long tanggal, int tekananAtas) {
+        this.tanggal = tanggal;
+        this.tekananAtas = tekananAtas;
     }
 
     public String getId() {
@@ -30,11 +35,11 @@ public class TekananDarah {
         this.id = id;
     }
 
-    public String getTekananAtas() {
+    public int getTekananAtas() {
         return tekananAtas;
     }
 
-    public void setTekananAtas(String tekananAtas) {
+    public void setTekananAtas(int tekananAtas) {
         this.tekananAtas = tekananAtas;
     }
 
@@ -46,11 +51,11 @@ public class TekananDarah {
         this.tekananBawah = tekananBawah;
     }
 
-    public String getTanggal() {
+    public long getTanggal() {
         return tanggal;
     }
 
-    public void setTanggal(String tanggal) {
+    public void setTanggal(long tanggal) {
         this.tanggal = tanggal;
     }
 

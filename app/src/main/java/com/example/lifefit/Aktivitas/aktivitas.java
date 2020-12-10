@@ -58,7 +58,7 @@ public class aktivitas extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_aktivitas);
-
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         btnAddAktivitas = findViewById(R.id.btn_add_aktivitas);
         recyclerViewAktivitas = findViewById(R.id.recycler_view_aktivitas);
 

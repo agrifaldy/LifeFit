@@ -12,6 +12,7 @@ import com.example.lifefit.Aktivitas.aktivitas;
 import com.example.lifefit.R;
 import com.example.lifefit.TekananDarah.tensi;
 import com.example.lifefit.DenyutJantung.denyut_jantung;
+import com.example.lifefit.TekananDarah.tensi_grafik;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
