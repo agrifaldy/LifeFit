@@ -3,8 +3,8 @@
     package="com.example.lifefit">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -13,7 +13,10 @@
         android:roundIcon="@mipmap/ic_detak_jantung_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".penyakit_sakit_tenggorokan"></activity>
+        <activity android:name=".Aktivitas.aktivitas_item"></activity>
+        <activity android:name=".Aktivitas.aktivitas_input" />
+        <activity android:name=".Aktivitas.aktivitas" />
+        <activity android:name=".penyakit_sakit_tenggorokan" />
         <activity android:name=".penyakit_demam" />
         <activity android:name=".penyakit_flu" />
         <activity android:name=".Flu" />

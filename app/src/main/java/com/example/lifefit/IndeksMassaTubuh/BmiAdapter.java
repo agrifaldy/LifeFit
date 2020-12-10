@@ -42,10 +42,16 @@ public class BmiAdapter extends RecyclerView.Adapter<BmiAdapter.ViewHolder> {
 
     public LinearLayout.LayoutParams params;
 
+//    private OnCallBack onCallBack;
+
     public BmiAdapter(Context context, List<Bmi> list) {
         this.context = context;
         this.list = list;
     }
+
+//    public void setOnCallBack(OnCallBack onCallBack) {
+//        this.onCallBack = onCallBack;
+//    }
 
     @NonNull
     @Override
@@ -77,6 +83,13 @@ public class BmiAdapter extends RecyclerView.Adapter<BmiAdapter.ViewHolder> {
                 builder.show();
             }
         });
+
+//        holder.btnEdit.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                onCallBack.onButtonEditClick(list.get(position));
+//            }
+//        });
 
         holder.tv_berat.setText(list.get(position).getBerat());
         holder.tv_tinggi.setText(list.get(position).getTinggi());
@@ -140,5 +153,9 @@ public class BmiAdapter extends RecyclerView.Adapter<BmiAdapter.ViewHolder> {
 
 
     }
+
+//    public interface OnCallBack {
+//        void onButtonEditClick(Bmi bmi);
+//    }
 
 }

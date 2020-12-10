@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="20dp"
+    android:elevation="15dp"
+    android:layout_gravity="center"
+    android:background="#fff"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@drawable/background_color">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Aktivitas"
+            android:textSize="17sp"
+            android:layout_centerInParent="true"
+            android:textColor="#fff"
+            android:textStyle="bold"/>
+
+        <ImageButton
+            android:id="@+id/btn_close_aktivitas"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:padding="15dp"
+            android:src="@drawable/ic_close"
+            android:background="@android:color/transparent"
+            android:tint="#fff"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:text="Berapa kali anda makan dalam sehari?"/>
+    <EditText
+        android:id="@+id/et_aktivitas_makan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="15dp"
+        android:inputType="number"
+        android:background="@android:drawable/editbox_background_normal"
+        android:padding="15dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:text="Berapa gelas anda minum dalam sehari?"/>
+    <EditText
+        android:id="@+id/et_aktivitas_minum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="15dp"
+        android:inputType="number"
+        android:background="@android:drawable/editbox_background_normal"
+        android:padding="15dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:text="Berapa jam anda tidur dalam sehari?"/>
+    <EditText
+        android:id="@+id/et_aktivitas_tidur"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="15dp"
+        android:inputType="number"
+        android:background="@android:drawable/editbox_background_normal"
+        android:padding="15dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:text="Berapa menit anda olahraga dalam sehari?"/>
+    <EditText
+        android:id="@+id/et_aktivitas_olahraga"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="15dp"
+        android:inputType="number"
+        android:background="@android:drawable/editbox_background_normal"
+        android:padding="15dp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/textview_tgl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:text="Tanggal"/>
+        <EditText
+            android:id="@+id/et_aktivitas_tanggal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_below="@id/textview_tgl"
+            android:hint="Tanggal"
+            android:inputType="date"
+            android:background="@android:drawable/editbox_background_normal"
+            android:padding="15dp"/>
+        <ImageView
+            android:id="@+id/ib_tanggal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="25dp"
+            android:layout_marginEnd="25dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/textview_tgl"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_calendar"/>
+    </RelativeLayout>
+
+
+    <Button
+        android:id="@+id/btn_simpan_aktivitas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_button_bmi"
+        android:textColor="#fff"
+        android:layout_margin="15dp"
+        android:textAllCaps="false"
+        android:layout_gravity="end"
+        android:textSize="16sp"
+        android:text="Simpan"/>
+
+</LinearLayout>
