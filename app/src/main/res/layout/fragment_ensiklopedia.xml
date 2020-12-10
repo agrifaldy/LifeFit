@@ -38,21 +38,24 @@
                     android:id="@+id/tv_subtitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textStyle="bold"
                     android:layout_marginTop="10dp"
                     android:layout_marginStart="25dp"
                     android:layout_marginLeft="25dp"
-                    android:text="Blablabala"
+                    android:text="Apa itu ensiklopedia ?"
                     android:textColor="#fff"
                     android:layout_below="@id/tv_title_ensiklopedia"/>
                 <TextView
                     android:id="@+id/tv_subtitle2"
-                    android:layout_width="wrap_content"
+                    android:layout_width="220dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"
                     android:layout_marginLeft="25dp"
-                    android:text="Blablaba bla dan ini itu"
+                    android:text="Pada ensiklopedia anda dapat melihat daftar penyakit ringan, saran menu makananan minuman dan olahraga yang sehat"
                     android:textColor="#fff"
-                    android:layout_below="@id/tv_subtitle"/>
+                    android:textSize="11sp"
+                    android:layout_below="@id/tv_subtitle"
+                    android:justificationMode="inter_word"/>
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
