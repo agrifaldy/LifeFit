@@ -35,6 +35,7 @@ public class AdapterCardSlide extends RecyclerView.Adapter<AdapterCardSlide.View
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.imageView.setImageResource(mainModels.get(position).getLangLogo());
         holder.textView.setText(mainModels.get(position).getLangName());
+        holder.kal.setText(mainModels.get(position).getLangKal());
     }
 
     @Override
@@ -46,12 +47,14 @@ public class AdapterCardSlide extends RecyclerView.Adapter<AdapterCardSlide.View
 
         ImageView imageView;
         TextView textView;
+        TextView kal;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             imageView = itemView.findViewById(R.id.image_view);
             textView = itemView.findViewById(R.id.text_view);
+            kal = itemView.findViewById(R.id.kal);
         }
     }
 }

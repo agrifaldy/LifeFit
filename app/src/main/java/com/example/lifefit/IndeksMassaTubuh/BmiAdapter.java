@@ -74,7 +74,7 @@ public class BmiAdapter extends RecyclerView.Adapter<BmiAdapter.ViewHolder> {
                     public void onClick(DialogInterface dialogInterface, int i) {
 
                         if (mAuth.getCurrentUser().getUid().equals(list.get(position).getId())){
-                            //mDatabase.orderByKey().removeEventListener();
+
                         }
 
                     }

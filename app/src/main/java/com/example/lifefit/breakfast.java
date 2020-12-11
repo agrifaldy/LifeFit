@@ -35,13 +35,15 @@ public class breakfast extends Fragment {
         view = inflater.inflate(R.layout.fragment_breakfast, container, false);
         recyclerView = view.findViewById(R.id.recycler_view2);
 
-        Integer[] langLogo = {R.drawable.susu, R.drawable.susu, R.drawable.susu, R.drawable.susu, R.drawable.susu, R.drawable.susu};
+        Integer[] langLogo = {R.drawable.air, R.drawable.tehhijau, R.drawable.susu};
 
-        String[] langName = {"Susu", "Susu", "Susu", "Susu", "Susu", "Susu"};
+        String[] langName = {"Air", "Teh Hijau", "Susu"};
+
+        String[] langKal = {"0 KKAL", "2 KKAL", "42,3 KKAL"};
 
         mainModels = new ArrayList<>();
         for (int i=0; i<langLogo.length; i++){
-            ModelCardSlide model = new ModelCardSlide(langLogo[i],langName[i]);
+            ModelCardSlide model = new ModelCardSlide(langLogo[i],langName[i], langKal[i]);
             mainModels.add(model);
         }
 

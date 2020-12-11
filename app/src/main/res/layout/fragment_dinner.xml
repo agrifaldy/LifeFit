@@ -70,7 +70,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="443 KCAL"
+                            android:text="50 KCAL"
                             android:textSize="18sp"
                             android:textColor="#000"
                             android:layout_marginTop="10dp"
@@ -98,14 +98,14 @@
                             android:layout_width="match_parent"
                             android:layout_height="150dp"
                             android:layout_gravity="center_horizontal"
-                            android:src="@drawable/saladbuah"
+                            android:src="@drawable/yogurt"
                             android:scaleType="centerCrop"/>
 
                         <TextView
                             android:id="@+id/tv_contohMakanan2"
                             android:layout_width="match_parent"
                             android:layout_height="45dp"
-                            android:text="Salad Buah"
+                            android:text="Yogurt"
                             android:textSize="15sp"
                             android:layout_below="@id/iv_contohMakanan2"
                             android:layout_marginLeft="10dp"
@@ -114,7 +114,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="443 KCAL"
+                            android:text="58,8 KCAL"
                             android:textSize="18sp"
                             android:textColor="#000"
                             android:layout_marginTop="10dp"
@@ -151,13 +151,13 @@
                             android:layout_height="150dp"
                             android:layout_gravity="center_horizontal"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/saladbuah" />
+                            android:src="@drawable/supayam" />
 
                         <TextView
                             android:id="@+id/tv_contohMakanan3"
                             android:layout_width="match_parent"
                             android:layout_height="45dp"
-                            android:text="Salad Buah"
+                            android:text="Sup Ayam"
                             android:textSize="15sp"
                             android:layout_below="@id/iv_contohMakanan3"
                             android:layout_marginLeft="10dp"
@@ -166,7 +166,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="443 KCAL"
+                            android:text="36,1 KCAL"
                             android:textSize="18sp"
                             android:textColor="#000"
                             android:layout_marginTop="10dp"
@@ -194,14 +194,14 @@
                             android:layout_width="match_parent"
                             android:layout_height="150dp"
                             android:layout_gravity="center_horizontal"
-                            android:src="@drawable/saladbuah"
+                            android:src="@drawable/buncis"
                             android:scaleType="centerCrop"/>
 
                         <TextView
                             android:id="@+id/tv_contohMakanan4"
                             android:layout_width="match_parent"
                             android:layout_height="45dp"
-                            android:text="Salad Buah"
+                            android:text="Sayur Buncis"
                             android:textSize="15sp"
                             android:layout_below="@id/iv_contohMakanan4"
                             android:layout_marginLeft="10dp"
@@ -210,7 +210,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="443 KCAL"
+                            android:text="30,8 KCAL"
                             android:textSize="18sp"
                             android:textColor="#000"
                             android:layout_marginTop="10dp"
@@ -246,14 +246,14 @@
                             android:layout_width="match_parent"
                             android:layout_height="150dp"
                             android:layout_gravity="center_horizontal"
-                            android:src="@drawable/saladbuah"
+                            android:src="@drawable/pisang"
                             android:scaleType="centerCrop"/>
 
                         <TextView
                             android:id="@+id/tv_contohMakanan5"
                             android:layout_width="match_parent"
                             android:layout_height="45dp"
-                            android:text="Salad Buah"
+                            android:text="Pisang"
                             android:textSize="15sp"
                             android:layout_below="@id/iv_contohMakanan5"
                             android:layout_marginLeft="10dp"
@@ -262,7 +262,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="443 KCAL"
+                            android:text="88,7 KCAL"
                             android:textSize="18sp"
                             android:textColor="#000"
                             android:layout_marginTop="10dp"
@@ -290,14 +290,14 @@
                             android:layout_width="match_parent"
                             android:layout_height="150dp"
                             android:layout_gravity="center_horizontal"
-                            android:src="@drawable/saladbuah"
+                            android:src="@drawable/udang"
                             android:scaleType="centerCrop"/>
 
                         <TextView
                             android:id="@+id/tv_contohMakanan6"
                             android:layout_width="match_parent"
                             android:layout_height="45dp"
-                            android:text="Salad Buah"
+                            android:text="Masakan Udang"
                             android:textSize="15sp"
                             android:layout_below="@id/iv_contohMakanan6"
                             android:layout_marginLeft="10dp"
@@ -306,7 +306,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="443 KCAL"
+                            android:text="99,2 KCAL"
                             android:textSize="18sp"
                             android:textColor="#000"
                             android:layout_marginTop="10dp"

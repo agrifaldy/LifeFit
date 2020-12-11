@@ -35,13 +35,15 @@ public class lunch extends Fragment {
 
         recyclerView = view.findViewById(R.id.recycler_view3);
 
-        Integer[] langLogo = {R.drawable.smoothie, R.drawable.smoothie, R.drawable.smoothie, R.drawable.smoothie, R.drawable.smoothie, R.drawable.smoothie};
+        Integer[] langLogo = {R.drawable.air, R.drawable.tehhijau, R.drawable.susu, R.drawable.juscranberry};
 
-        String[] langName = {"Smoothie", "Smoothie", "Smoothie", "Smoothie", "Smoothie", "Smoothie"};
+        String[] langName = {"Air", "Teh Hijau", "Susu", "Jus"};
+
+        String[] langKal = {"0 KKAL", "2 KKAL", "42,3 KKAL", "54,5 KKAL"};
 
         mainModels = new ArrayList<>();
         for (int i=0; i<langLogo.length; i++){
-            ModelCardSlide model = new ModelCardSlide(langLogo[i],langName[i]);
+            ModelCardSlide model = new ModelCardSlide(langLogo[i],langName[i], langKal[i]);
             mainModels.add(model);
         }
 
