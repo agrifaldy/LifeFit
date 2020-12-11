@@ -7,6 +7,7 @@
     tools:context = ".IndeksMassaTubuh.indeks_massa_tubuh_grafik">
 
     <com.github.mikephil.charting.charts.BarChart
+        android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/barChart"/>
