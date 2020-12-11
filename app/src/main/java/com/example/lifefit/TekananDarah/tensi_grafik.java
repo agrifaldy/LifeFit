@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.lifefit.R;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -25,6 +26,7 @@ public class tensi_grafik extends AppCompatActivity {
 
     FirebaseDatabase database;
     DatabaseReference reference;
+    FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
     SimpleDateFormat sdf = new SimpleDateFormat("yy/MM/dd");
     GraphView graphView;
@@ -66,8 +68,10 @@ public class tensi_grafik extends AppCompatActivity {
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+
                 DataPoint[] dp = new DataPoint[(int) snapshot.getChildrenCount()];
                 int index = 0;
+
 
                 for (DataSnapshot myDataSnapshot : snapshot.getChildren()){
                     TekananDarah pointValue = myDataSnapshot.getValue(TekananDarah.class);

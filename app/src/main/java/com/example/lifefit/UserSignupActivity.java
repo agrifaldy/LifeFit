@@ -99,9 +99,11 @@ public class UserSignupActivity extends AppCompatActivity implements View.OnClic
         String username = et_nama.getText().toString();
         String email = et_email.getText().toString();
         String password = et_password.getText().toString();
+        String nomorTelepon = "-";
+        String pekerjaan = "-";
 
         // membuat User baru
-        writeNewUser(user.getUid(), username, email, password);
+        writeNewUser(user.getUid(), username, email, password, nomorTelepon, pekerjaan);
 
         // Go to Login
         startActivity(new Intent(UserSignupActivity.this, UserLoginActivity.class));
@@ -137,8 +139,8 @@ public class UserSignupActivity extends AppCompatActivity implements View.OnClic
     }
 
     // menulis ke Database
-    private void writeNewUser(String userId, String username, String email, String password) {
-        User user = new User(userId, username, email, password);
+    private void writeNewUser(String userId, String username, String email, String password, String nomorTelepon, String pekerjaan) {
+        User user = new User(userId, username, email, password, nomorTelepon, pekerjaan);
 
         mDatabase.child("users").child(userId).setValue(user);
     }

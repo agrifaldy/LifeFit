@@ -73,6 +73,10 @@ public class BmiAdapter extends RecyclerView.Adapter<BmiAdapter.ViewHolder> {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
+                        if (mAuth.getCurrentUser().getUid().equals(list.get(position).getId())){
+                            //mDatabase.orderByKey().removeEventListener();
+                        }
+
                     }
                 }).setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
                     @Override

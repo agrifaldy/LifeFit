@@ -7,6 +7,7 @@ import androidx.cardview.widget.CardView;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -18,6 +19,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.github.mikephil.charting.animation.Easing;
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -36,20 +43,24 @@ import com.google.firebase.storage.UploadTask;
 import com.mikhaellopez.circularimageview.CircularImageView;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class akun_saya_edit extends AppCompatActivity {
 
     public static final String TAG = "TAG";
-    EditText et_username, et_email, et_notelp;
-    String username, email, phone;
+    EditText et_username, et_email, et_notelp, et_pekerjaan;
+    String username, email, phone, password, pekerjaan;
+    TextView passwordx;
     Button btn_simpan;
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
     FirebaseUser user;
     String DISPLAY_NAME = null;
     String EMAIL = null;
+    private DatabaseReference mDatabase;
+    private FirebaseAuth mAuth;
 
     CircularImageView profileImage;
     CardView changeProfileImage;
@@ -61,6 +72,9 @@ public class akun_saya_edit extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_akun_saya_edit);
+
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mAuth = FirebaseAuth.getInstance();
 
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
@@ -81,18 +95,30 @@ public class akun_saya_edit extends AppCompatActivity {
         username = data.getStringExtra("usernameP");
         email = data.getStringExtra("emailP");
         phone = data.getStringExtra("phoneP");
+        password = data.getStringExtra("passwordP");
+        pekerjaan = data.getStringExtra("pekerjaanP");
+
+
+        passwordx = findViewById(R.id.passwordx);
+        passwordx.setText(password);
 
         et_username = findViewById(R.id.et_username);
+        et_username.setText(username);
         et_email = findViewById(R.id.et_email);
+        et_email.setText(email);
         et_notelp = findViewById(R.id.et_notelp);
+        et_notelp.setText(phone);
+        et_pekerjaan = findViewById(R.id.et_pekerjaan);
+        et_pekerjaan.setText(pekerjaan);
         btn_simpan = findViewById(R.id.btn_update);
+
 
         profileImage = findViewById(R.id.ci_image);
         changeProfileImage = findViewById(R.id.upload_image);
 
-        et_username.setText(username);
+        /**et_username.setText(username);
         et_email.setText(email);
-        et_notelp.setText(phone);
+        et_notelp.setText(phone);**/
 
         changeProfileImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,6 +127,31 @@ public class akun_saya_edit extends AppCompatActivity {
                 startActivityForResult(openGalleryIntent, 1000);
             }
         });
+
+        btn_simpan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String userId = mAuth.getCurrentUser().getUid();
+                username = et_username.getText().toString();
+                email = et_email.getText().toString();
+                String password = passwordx.getText().toString();
+                String nomorTelepon = et_notelp.getText().toString();
+                String pekerjaan = et_pekerjaan.getText().toString();
+
+                User user1 = new User(userId, username, email, password, nomorTelepon, pekerjaan);
+
+                FirebaseUser userData = FirebaseAuth.getInstance().getCurrentUser();
+
+                UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder().setDisplayName(username).build();
+                userData.updateProfile(profileUpdates);
+
+                mDatabase.child("users").child(userId).setValue(user1);
+
+                startActivity(new Intent(getApplicationContext(), akun_saya.class));
+            }
+        });
+
     }
 
     @Override
@@ -138,27 +189,20 @@ public class akun_saya_edit extends AppCompatActivity {
         });
     }
 
-    public void updateProfile(View view){
-        DISPLAY_NAME = et_username.getText().toString();
+    /**public void updateProfile(String userId, String username, String email, String password, String nomorTelepon, String pekerjaan){
 
-        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-        UserProfileChangeRequest request = new UserProfileChangeRequest.Builder()
-                .setDisplayName(DISPLAY_NAME)
-                .build();
-        firebaseUser.updateProfile(request)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        Toast.makeText(akun_saya_edit.this, "Succesfully update profile", Toast.LENGTH_SHORT).show();
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.e(TAG, "onFailure: ", e.getCause());
-                    }
-                });
-    }
+        userId = mAuth.getCurrentUser().getUid();
+        username = et_username.getText().toString();
+        email = et_email.getText().toString();
+        password = passwordx.getText().toString();
+        nomorTelepon = et_notelp.getText().toString();
+        pekerjaan = et_pekerjaan.getText().toString();
+
+        User user1 = new User(userId, username, email, password, nomorTelepon, pekerjaan);
+
+
+        mDatabase.child("users").child(userId).setValue(user1);
+    }**/
 
     public void handleImageClick(View view) {
 
