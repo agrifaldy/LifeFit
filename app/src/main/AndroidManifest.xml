@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_detak_jantung_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TekananDarah.tensi_grafik"></activity>
+        <activity android:name=".hasil_deteksi_flu"></activity>
+        <activity android:name=".TekananDarah.tensi_grafik" />
         <activity android:name=".Aktivitas.aktivitas_item" />
         <activity android:name=".Aktivitas.aktivitas_input" />
         <activity android:name=".Aktivitas.aktivitas" />

@@ -41,7 +41,7 @@ public class dinner extends Fragment {
 
         String[] langName = {"Air", "Teh Jahe", "Susu", "Smoothie"};
 
-        String[] langKal = {"0 KKAL", "4 KKAL", "42,3 KKAL", "36,8 KKAL"};
+        String[] langKal = {"0 KCAL", "4 KCAL", "42,3 KCAL", "36,8 KCAL"};
 
         mainModels = new ArrayList<>();
         for (int i=0; i<langLogo.length; i++){

@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -22,6 +23,9 @@ import com.example.lifefit.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -35,7 +39,7 @@ public class BmiAdapter extends RecyclerView.Adapter<BmiAdapter.ViewHolder> {
 
     private Context context;
     private List<Bmi> list;
-    private DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("Bmi");
+    private DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference().child("Bmi");
     private FirebaseAuth mAuth;
     private CardView hasilIbm;
     private Activity activity;
@@ -62,9 +66,10 @@ public class BmiAdapter extends RecyclerView.Adapter<BmiAdapter.ViewHolder> {
         return new ViewHolder(view);
     }
 
+    ArrayList<String> keylist = new ArrayList<>();
+
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
-
         holder.btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -16,8 +16,12 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class TekananDarahAdapter extends RecyclerView.Adapter<TekananDarahAdapter.ViewHolder> {
 
@@ -42,11 +46,30 @@ public class TekananDarahAdapter extends RecyclerView.Adapter<TekananDarahAdapte
         return new ViewHolder(view);
     }
 
+    private String getFormate(String date) {
+        String formattedDate = null;
+
+        try {
+            String[] dates = date.split("\\(|\\)");
+            Long timeInMillis = Long.parseLong(dates[1]);
+
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTimeInMillis(timeInMillis);
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            formattedDate = simpleDateFormat.format(calendar.getTime());
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+        return formattedDate;
+    }
+
     @Override
     public void onBindViewHolder(@NonNull TekananDarahAdapter.ViewHolder holder, int position) {
+        TekananDarah tekananDarah = list.get(position);
         holder.tv_tekananAtas.setText(list.get(position).getTekananAtas()+"");
         holder.tv_tekananBawah.setText(list.get(position).getTekananBawah());
-        holder.tv_tanggalTensi.setText((int) list.get(position).getTanggal()+"");
+        holder.tv_tanggalTensi.setText(getFormate(tekananDarah.getTanggal()+""));
         holder.tv_keteranganTensi.setText(list.get(position).getKeterangan());
 
         if (mAuth.getCurrentUser().getUid().equals(list.get(position).getId())){

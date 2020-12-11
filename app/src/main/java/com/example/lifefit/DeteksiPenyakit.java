@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.RadioButton;
 
@@ -18,11 +19,18 @@ public class DeteksiPenyakit extends AppCompatActivity implements View.OnClickLi
     private RadioButton demamTidak;
     private RadioButton batukIya;
     private RadioButton batukTidak;
-    private CardView submitDeteksi;
+    private RadioButton lendirtIya;
+    private RadioButton lendirtTidak;
+    private RadioButton sakitkIya;
+    private RadioButton sakitkTidak;
+    private RadioButton hidungtIya;
+    private RadioButton hidungtTidak;
+    private Button submitDeteksi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_deteksi_penyakit);
 
         demamIya = (RadioButton) findViewById(R.id.demamIya);
@@ -33,7 +41,20 @@ public class DeteksiPenyakit extends AppCompatActivity implements View.OnClickLi
         batukIya.setOnClickListener(this);
         batukTidak = (RadioButton) findViewById(R.id.batukTidak);
         batukTidak.setOnClickListener(this);
-        submitDeteksi = (CardView) findViewById(R.id.submitDeteksi);
+        lendirtIya = (RadioButton) findViewById(R.id.lendirtIya);
+        lendirtIya.setOnClickListener(this);
+        lendirtTidak = (RadioButton) findViewById(R.id.lendirtTidak);
+        lendirtTidak.setOnClickListener(this);
+        sakitkIya = (RadioButton) findViewById(R.id.sakitkIya);
+        sakitkIya.setOnClickListener(this);
+        sakitkTidak = (RadioButton) findViewById(R.id.sakitkTidak);
+        sakitkTidak.setOnClickListener(this);
+        hidungtIya = (RadioButton) findViewById(R.id.hidungtIya);
+        hidungtIya.setOnClickListener(this);
+        hidungtTidak = (RadioButton) findViewById(R.id.hidungtTidak);
+        hidungtTidak.setOnClickListener(this);
+
+        submitDeteksi = (Button) findViewById(R.id.submitDeteksi);
         submitDeteksi.setOnClickListener(this);
 
     }
@@ -42,9 +63,9 @@ public class DeteksiPenyakit extends AppCompatActivity implements View.OnClickLi
 
         int i = v.getId();
 
-        if (demamIya.isChecked() && batukIya.isChecked()){
+        if (demamIya.isChecked() && batukIya.isChecked() && lendirtTidak.isChecked() && sakitkTidak.isChecked() && hidungtIya.isChecked()){
             if (i == R.id.submitDeteksi) {
-                Intent intent = new Intent(this, penyakit_flu.class);
+                Intent intent = new Intent(this, hasil_deteksi_flu.class);
                 startActivity(intent);
             }
         } else if (demamIya.isChecked() && batukTidak.isChecked()){

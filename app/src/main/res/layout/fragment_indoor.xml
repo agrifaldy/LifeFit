@@ -62,7 +62,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Membakar 446 kalori"
+                            android:text="Membakar 600 kalori/jam"
                             android:textSize="15sp"
                             android:layout_marginTop="10dp"
                             android:layout_alignParentBottom="true"
@@ -90,14 +90,14 @@
                             android:layout_width="match_parent"
                             android:layout_height="150dp"
                             android:layout_gravity="center_horizontal"
-                            android:src="@drawable/indoor_bike"
+                            android:src="@drawable/indoor_pushup"
                             android:scaleType="centerCrop"/>
 
                         <TextView
                             android:id="@+id/tv_contohMakanan2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Indoor Bike"
+                            android:text="Push Up"
                             android:textSize="18sp"
                             android:textColor="#000"
                             android:fontFamily="sans-serif"
@@ -108,7 +108,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Membakar 446 kalori"
+                            android:text="Membakar 780 kalori/jam"
                             android:textSize="15sp"
                             android:layout_marginTop="10dp"
                             android:layout_alignParentBottom="true"
@@ -145,13 +145,13 @@
                             android:layout_height="150dp"
                             android:layout_gravity="center_horizontal"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/indoor_bike" />
+                            android:src="@drawable/indoor_skipping" />
 
                         <TextView
                             android:id="@+id/tv_contohMakanan3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Indoor Bike"
+                            android:text="Skipping"
                             android:textSize="18sp"
                             android:textColor="#000"
                             android:fontFamily="sans-serif"
@@ -162,7 +162,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Membakar 446 kalori"
+                            android:text="Membakar 1.200 kalori/jam"
                             android:textSize="15sp"
                             android:layout_marginTop="10dp"
                             android:layout_alignParentBottom="true"
@@ -190,14 +190,14 @@
                             android:layout_width="match_parent"
                             android:layout_height="150dp"
                             android:layout_gravity="center_horizontal"
-                            android:src="@drawable/indoor_bike"
+                            android:src="@drawable/indoor_yoga"
                             android:scaleType="centerCrop"/>
 
                         <TextView
                             android:id="@+id/tv_contohMakanan4"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Indoor Bike"
+                            android:text="Yoga"
                             android:textSize="18sp"
                             android:textColor="#000"
                             android:fontFamily="sans-serif"
@@ -208,7 +208,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Membakar 446 kalori"
+                            android:text="Membakar 600 kalori/jam"
                             android:textSize="15sp"
                             android:layout_marginTop="10dp"
                             android:layout_alignParentBottom="true"
@@ -244,14 +244,14 @@
                             android:layout_width="match_parent"
                             android:layout_height="150dp"
                             android:layout_gravity="center_horizontal"
-                            android:src="@drawable/indoor_bike"
+                            android:src="@drawable/indoor_tenismeja"
                             android:scaleType="centerCrop"/>
 
                         <TextView
                             android:id="@+id/tv_contohMakanan5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Indoor Bike"
+                            android:text="Tenis Meja"
                             android:textSize="18sp"
                             android:textColor="#000"
                             android:fontFamily="sans-serif"
@@ -262,7 +262,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Membakar 446 kalori"
+                            android:text="Membakar 544 kalori/jam"
                             android:textSize="15sp"
                             android:layout_marginTop="10dp"
                             android:layout_alignParentBottom="true"
@@ -290,14 +290,14 @@
                             android:layout_width="match_parent"
                             android:layout_height="150dp"
                             android:layout_gravity="center_horizontal"
-                            android:src="@drawable/indoor_bike"
+                            android:src="@drawable/indoor_treadmill"
                             android:scaleType="centerCrop"/>
 
                         <TextView
                             android:id="@+id/tv_contohMakanan6"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Indoor Bike"
+                            android:text="Treadmill"
                             android:textSize="18sp"
                             android:textColor="#000"
                             android:fontFamily="sans-serif"
@@ -308,7 +308,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Membakar 446 kalori"
+                            android:text="Membakar 455 kalori/jam"
                             android:textSize="15sp"
                             android:layout_marginTop="10dp"
                             android:layout_alignParentBottom="true"

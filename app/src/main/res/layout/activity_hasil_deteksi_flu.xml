@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".hasil_deteksi_flu">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/viewOne"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_weight="0.6"
+                    android:background="@drawable/background_color"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/tool"
+                        android:layout_width="match_parent"
+                        android:layout_height="?attr/actionBarSize">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginLeft="20dp"
+                                android:padding="5dp"
+                                android:background="@android:color/transparent"
+                                android:src="@drawable/ic_home"
+                                android:foreground="?android:attr/selectableItemBackground"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:onClick="toMonitoring"/>
+                        </RelativeLayout>
+                    </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="Hasil Deteksi"
+                        android:textColor="#fff"
+                        android:textSize="40sp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/tanggalDeteksi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="13sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="Tanggal"
+                        android:textColor="#fff"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_gravity="center_horizontal"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/viewTwo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.4"
+                    android:background="#fff"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="30dp"
+                        app:cardElevation="5dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Penyakit yang anda derita \n adalah"
+                                android:gravity="center_horizontal"
+                                android:layout_marginTop="20dp"
+                                android:textSize="15sp"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Flu"
+                                android:textSize="40sp"
+                                android:fontFamily="sans-serif-condensed"
+                                android:textStyle="bold"
+                                android:textColor="#000"
+                                android:gravity="center_horizontal"
+                                android:layout_marginTop="5dp"/>
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="30dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginBottom="10dp"
+                                app:cardElevation="5dp"
+                                app:cardCornerRadius="5dp">
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="vertical"
+                                    android:background="@drawable/background_color"
+                                    android:padding="10dp">
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Solusi :"
+                                        android:textColor="#fff"
+                                        android:fontFamily="sans-serif"
+                                        android:textSize="15sp"
+                                        android:layout_marginBottom="5dp"/>
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="@string/solusi_deteksi_flu"
+                                        android:textColor="#fff"
+                                        android:fontFamily="sans-serif"
+                                        android:textSize="13sp"/>
+                                </LinearLayout>
+                            </androidx.cardview.widget.CardView>
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </ScrollView>
+
+
+
+</LinearLayout>

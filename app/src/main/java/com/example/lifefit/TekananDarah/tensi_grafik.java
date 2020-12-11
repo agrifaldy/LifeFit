@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.WindowManager;
 
 import com.example.lifefit.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -14,6 +15,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.jjoe64.graphview.DefaultLabelFormatter;
 import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.helper.StaticLabelsFormatter;
 import com.jjoe64.graphview.series.BarGraphSeries;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.DataPointInterface;
@@ -35,6 +37,7 @@ public class tensi_grafik extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_tensi_grafik);
 
         graphView = (GraphView) findViewById(R.id.graph);
@@ -44,9 +47,7 @@ public class tensi_grafik extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         reference = database.getReference("TekananDarah");
 
-//        graphView.getGridLabelRenderer().setNumHorizontalLabels(5);
-//        graphView.getViewport().setScalable(true);
-//        graphView.getViewport().setScalableY(true);
+        graphView.getGridLabelRenderer().setNumHorizontalLabels(5);
 
         graphView.getGridLabelRenderer().setLabelFormatter(new DefaultLabelFormatter(){
             @Override
@@ -89,4 +90,5 @@ public class tensi_grafik extends AppCompatActivity {
             }
         });
     }
+
 }

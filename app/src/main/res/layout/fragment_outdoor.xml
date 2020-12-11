@@ -61,7 +61,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Membakar 396 kalori"
+                            android:text="Membakar 596 kalori/jam"
                             android:textSize="15sp"
                             android:layout_marginTop="10dp"
                             android:layout_alignParentBottom="true"
@@ -89,14 +89,14 @@
                             android:layout_width="match_parent"
                             android:layout_height="150dp"
                             android:layout_gravity="center_horizontal"
-                            android:src="@drawable/jogging"
+                            android:src="@drawable/outdoor_basket"
                             android:scaleType="centerCrop"/>
 
                         <TextView
                             android:id="@+id/tv_contohMakanan2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Jogging"
+                            android:text="Basket"
                             android:textSize="18sp"
                             android:textColor="#000"
                             android:fontFamily="sans-serif"
@@ -107,7 +107,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Membakar 396 kalori"
+                            android:text="Membakar 728 kalori/jam"
                             android:textSize="15sp"
                             android:layout_marginTop="10dp"
                             android:layout_alignParentBottom="true"
@@ -144,13 +144,13 @@
                             android:layout_height="150dp"
                             android:layout_gravity="center_horizontal"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/jogging" />
+                            android:src="@drawable/outdoor_berkuda" />
 
                         <TextView
                             android:id="@+id/tv_contohMakanan3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Jogging"
+                            android:text="Berkuda"
                             android:textSize="18sp"
                             android:textColor="#000"
                             android:fontFamily="sans-serif"
@@ -161,7 +161,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Membakar 396 kalori"
+                            android:text="Membakar 500 kalori/jam"
                             android:textSize="15sp"
                             android:layout_marginTop="10dp"
                             android:layout_alignParentBottom="true"
@@ -189,14 +189,14 @@
                             android:layout_width="match_parent"
                             android:layout_height="150dp"
                             android:layout_gravity="center_horizontal"
-                            android:src="@drawable/jogging"
+                            android:src="@drawable/outdoor_renang"
                             android:scaleType="centerCrop"/>
 
                         <TextView
                             android:id="@+id/tv_contohMakanan4"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Jogging"
+                            android:text="Renang"
                             android:textSize="18sp"
                             android:textColor="#000"
                             android:fontFamily="sans-serif"
@@ -207,7 +207,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Membakar 396 kalori"
+                            android:text="Membakar 900 kalori/jam"
                             android:textSize="15sp"
                             android:layout_marginTop="10dp"
                             android:layout_alignParentBottom="true"
@@ -243,14 +243,14 @@
                             android:layout_width="match_parent"
                             android:layout_height="150dp"
                             android:layout_gravity="center_horizontal"
-                            android:src="@drawable/jogging"
+                            android:src="@drawable/outdoor_sepakbola"
                             android:scaleType="centerCrop"/>
 
                         <TextView
                             android:id="@+id/tv_contohMakanan5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Jogging"
+                            android:text="Sepak Bola"
                             android:textSize="18sp"
                             android:textColor="#000"
                             android:fontFamily="sans-serif"
@@ -261,7 +261,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Membakar 396 kalori"
+                            android:text="Membakar 700 kalori/jam"
                             android:textSize="15sp"
                             android:layout_marginTop="10dp"
                             android:layout_alignParentBottom="true"
@@ -289,14 +289,14 @@
                             android:layout_width="match_parent"
                             android:layout_height="150dp"
                             android:layout_gravity="center_horizontal"
-                            android:src="@drawable/jogging"
+                            android:src="@drawable/outdoor_sepeda"
                             android:scaleType="centerCrop"/>
 
                         <TextView
                             android:id="@+id/tv_contohMakanan6"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Jogging"
+                            android:text="Bersepeda"
                             android:textSize="18sp"
                             android:textColor="#000"
                             android:fontFamily="sans-serif"
@@ -307,7 +307,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Membakar 396 kalori"
+                            android:text="Membakar 588 kalori/jam"
                             android:textSize="15sp"
                             android:layout_marginTop="10dp"
                             android:layout_alignParentBottom="true"
