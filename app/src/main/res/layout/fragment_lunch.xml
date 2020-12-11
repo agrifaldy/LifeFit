@@ -70,7 +70,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="443 KCAL"
+                            android:text="153 KCAL"
                             android:textSize="18sp"
                             android:textColor="#000"
                             android:layout_marginTop="10dp"
@@ -98,14 +98,14 @@
                             android:layout_width="match_parent"
                             android:layout_height="150dp"
                             android:layout_gravity="center_horizontal"
-                            android:src="@drawable/nasikare"
+                            android:src="@drawable/gadogado"
                             android:scaleType="centerCrop"/>
 
                         <TextView
                             android:id="@+id/tv_contohMakanan2"
                             android:layout_width="match_parent"
                             android:layout_height="45dp"
-                            android:text="Nasi Kare"
+                            android:text="Gado - gado"
                             android:textSize="15sp"
                             android:layout_below="@id/iv_contohMakanan2"
                             android:layout_marginLeft="10dp"
@@ -114,7 +114,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="443 KCAL"
+                            android:text="300 KCAL"
                             android:textSize="18sp"
                             android:textColor="#000"
                             android:layout_marginTop="10dp"
@@ -151,13 +151,13 @@
                             android:layout_height="150dp"
                             android:layout_gravity="center_horizontal"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/nasikare" />
+                            android:src="@drawable/saladayam" />
 
                         <TextView
                             android:id="@+id/tv_contohMakanan3"
                             android:layout_width="match_parent"
                             android:layout_height="45dp"
-                            android:text="Nasi Kare"
+                            android:text="Salad Ayam"
                             android:textSize="15sp"
                             android:layout_below="@id/iv_contohMakanan3"
                             android:layout_marginLeft="10dp"
@@ -166,7 +166,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="443 KCAL"
+                            android:text="48 KCAL"
                             android:textSize="18sp"
                             android:textColor="#000"
                             android:layout_marginTop="10dp"
@@ -196,7 +196,7 @@
                             android:layout_height="150dp"
                             android:layout_gravity="center_horizontal"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/nasikare" />
+                            android:src="@drawable/mashedpotato" />
 
                         <TextView
                             android:id="@+id/tv_contohMakanan4"
@@ -206,7 +206,7 @@
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
                             android:layout_marginRight="10dp"
-                            android:text="Nasi Kare"
+                            android:text="Mashed Potato"
                             android:textSize="15sp" />
 
                         <TextView
@@ -216,7 +216,7 @@
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
                             android:layout_marginBottom="10dp"
-                            android:text="443 KCAL"
+                            android:text="88,4 KCAL"
                             android:textColor="#000"
                             android:textSize="18sp" />
                     </RelativeLayout>
@@ -248,14 +248,14 @@
                             android:layout_width="match_parent"
                             android:layout_height="150dp"
                             android:layout_gravity="center_horizontal"
-                            android:src="@drawable/nasikare"
+                            android:src="@drawable/nasituna"
                             android:scaleType="centerCrop"/>
 
                         <TextView
                             android:id="@+id/tv_contohMakanan5"
                             android:layout_width="match_parent"
                             android:layout_height="45dp"
-                            android:text="Nasi Kare"
+                            android:text="Nasi Keju Tuna"
                             android:textSize="15sp"
                             android:layout_below="@id/iv_contohMakanan5"
                             android:layout_marginLeft="10dp"
@@ -264,7 +264,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="443 KCAL"
+                            android:text="451 KCAL"
                             android:textSize="18sp"
                             android:textColor="#000"
                             android:layout_marginTop="10dp"
@@ -292,14 +292,14 @@
                             android:layout_width="match_parent"
                             android:layout_height="150dp"
                             android:layout_gravity="center_horizontal"
-                            android:src="@drawable/nasikare"
+                            android:src="@drawable/tempura"
                             android:scaleType="centerCrop"/>
 
                         <TextView
                             android:id="@+id/tv_contohMakanan6"
                             android:layout_width="match_parent"
                             android:layout_height="45dp"
-                            android:text="Nasi Kare"
+                            android:text="Udang Tempura"
                             android:textSize="15sp"
                             android:layout_below="@id/iv_contohMakanan6"
                             android:layout_marginLeft="10dp"
@@ -308,7 +308,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="443 KCAL"
+                            android:text="16 KCAL"
                             android:textSize="18sp"
                             android:textColor="#000"
                             android:layout_marginTop="10dp"
