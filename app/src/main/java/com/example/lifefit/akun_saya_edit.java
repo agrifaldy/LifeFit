@@ -148,7 +148,7 @@ public class akun_saya_edit extends AppCompatActivity {
 
                 mDatabase.child("users").child(userId).setValue(user1);
 
-                startActivity(new Intent(getApplicationContext(), akun_saya.class));
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 finish();
             }
         });

@@ -124,6 +124,10 @@ public class UserLoginActivity extends AppCompatActivity implements View.OnClick
         }
     }
 
-
+    @Override
+    public void onBackPressed() {
+        android.os.Process.killProcess(android.os.Process.myPid());
+        finish();
+    }
 
 }

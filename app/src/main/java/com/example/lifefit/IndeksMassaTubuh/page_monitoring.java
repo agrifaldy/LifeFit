@@ -62,6 +62,8 @@ public class page_monitoring extends AppCompatActivity {
             quote.setText("\"Makan dengan sehat, tidur dengan baik, bernapas dengan dalam, bergerak dengan harmoni\". -Jean Pierre Barral");
         }else if(quoteHarian == 6){
             quote.setText("\"Jaga tubuhmu. Itulah satu-satunya tempat yang kamu miliki untuk hidup\". -Jim Rohn");
+        }else if(quoteHarian == 7){
+            quote.setText("\"Seseorang yang terlalu sibuk untuk menjaga kesehatannya seperti mekanik yang terlalu sibuk untuk merawat peralatannya\". -Spanish Proverb");
         }
 
     }
