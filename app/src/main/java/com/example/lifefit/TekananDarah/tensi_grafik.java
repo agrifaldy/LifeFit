@@ -39,56 +39,6 @@ public class tensi_grafik extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_tensi_grafik);
-
-        graphView = (GraphView) findViewById(R.id.graph);
-        series = new LineGraphSeries();
-        graphView.addSeries(series);
-
-        database = FirebaseDatabase.getInstance();
-        reference = database.getReference("TekananDarah");
-
-        graphView.getGridLabelRenderer().setNumHorizontalLabels(5);
-
-        graphView.getGridLabelRenderer().setLabelFormatter(new DefaultLabelFormatter(){
-            @Override
-            public String formatLabel(double value, boolean isValueX) {
-                if(isValueX){
-                    return sdf.format(new Date((long) value));
-                } else {
-                    return super.formatLabel(value, isValueX);
-                }
-            }
-        });
-
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-        reference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                DataPoint[] dp = new DataPoint[(int) snapshot.getChildrenCount()];
-                int index = 0;
-
-
-                for (DataSnapshot myDataSnapshot : snapshot.getChildren()){
-                    TekananDarah pointValue = myDataSnapshot.getValue(TekananDarah.class);
-
-                    dp[index] = new DataPoint(pointValue.getTanggal(), pointValue.getTekananAtas());
-                    index++;
-                }
-
-                series.resetData(dp);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
     }
 
 }

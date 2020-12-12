@@ -46,30 +46,11 @@ public class TekananDarahAdapter extends RecyclerView.Adapter<TekananDarahAdapte
         return new ViewHolder(view);
     }
 
-    private String getFormate(String date) {
-        String formattedDate = null;
-
-        try {
-            String[] dates = date.split("\\(|\\)");
-            Long timeInMillis = Long.parseLong(dates[1]);
-
-            Calendar calendar = Calendar.getInstance();
-            calendar.setTimeInMillis(timeInMillis);
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
-            formattedDate = simpleDateFormat.format(calendar.getTime());
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-
-        return formattedDate;
-    }
-
     @Override
     public void onBindViewHolder(@NonNull TekananDarahAdapter.ViewHolder holder, int position) {
-        TekananDarah tekananDarah = list.get(position);
-        holder.tv_tekananAtas.setText(list.get(position).getTekananAtas()+"");
+        holder.tv_tekananAtas.setText(list.get(position).getTekananAtas());
         holder.tv_tekananBawah.setText(list.get(position).getTekananBawah());
-        holder.tv_tanggalTensi.setText(getFormate(tekananDarah.getTanggal()+""));
+        holder.tv_tanggalTensi.setText(list.get(position).getTanggal());
         holder.tv_keteranganTensi.setText(list.get(position).getKeterangan());
 
         if (mAuth.getCurrentUser().getUid().equals(list.get(position).getId())){
