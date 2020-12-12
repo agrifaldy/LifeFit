@@ -86,7 +86,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Silahkan menjawab pernyaan sesuai gelaja yang anda alami"
+                android:text="Jawablah pertanyaan berikut"
                 android:textSize="18sp"
                 android:fontFamily="sans-serif"
                 android:textColor="#000"
@@ -111,7 +111,7 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
                     android:layout_gravity="center_vertical"
-                    android:background="@drawable/background_color">
+                    android:background="#fff">
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -131,7 +131,7 @@
                             android:text="@string/tv_dDemamD"
                             android:textSize="20sp"
                             android:textStyle="bold"
-                            android:textColor="#fff"
+                            android:textColor="#000"
                             android:textAppearance="?android:attr/textAppearanceSmall"/>
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -149,8 +149,8 @@
                                     android:layout_height="wrap_content"
                                     android:text="Iya"
                                     android:layout_marginLeft="15dp"
-                                    android:textColor="#ffffff"
-                                    android:buttonTint="#ffffff"
+                                    android:textColor="#000"
+                                    android:buttonTint="#000"
                                     android:layout_marginStart="15dp" />
                                 <RadioButton
                                     android:id="@+id/demamTidak"
@@ -158,8 +158,8 @@
                                     android:layout_height="wrap_content"
                                     android:text="Tidak"
                                     android:layout_marginLeft="15dp"
-                                    android:textColor="#ffffff"
-                                    android:buttonTint="#ffffff"
+                                    android:textColor="#000"
+                                    android:buttonTint="#000"
                                     android:layout_marginStart="15dp"
                                     android:layout_marginTop="5dp"
                                     android:layout_marginBottom="10dp"/>
@@ -183,7 +183,7 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
                     android:layout_gravity="center_vertical"
-                    android:background="@drawable/background_color">
+                    android:background="#fff">
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -203,7 +203,7 @@
                             android:text="@string/tv_dBatukD"
                             android:textSize="20sp"
                             android:textStyle="bold"
-                            android:textColor="#fff"
+                            android:textColor="#000"
                             android:textAppearance="?android:attr/textAppearanceSmall"/>
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -221,8 +221,8 @@
                                     android:layout_height="wrap_content"
                                     android:text="Iya"
                                     android:layout_marginLeft="15dp"
-                                    android:textColor="#ffffff"
-                                    android:buttonTint="#ffffff"
+                                    android:textColor="#000"
+                                    android:buttonTint="#000"
                                     android:layout_marginStart="15dp" />
                                 <RadioButton
                                     android:id="@+id/batukTidak"
@@ -230,8 +230,8 @@
                                     android:layout_height="wrap_content"
                                     android:text="Tidak"
                                     android:layout_marginLeft="15dp"
-                                    android:textColor="#ffffff"
-                                    android:buttonTint="#ffffff"
+                                    android:textColor="#000"
+                                    android:buttonTint="#000"
                                     android:layout_marginStart="15dp"
                                     android:layout_marginTop="5dp"
                                     android:layout_marginBottom="10dp"/>
@@ -255,7 +255,7 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
                     android:layout_gravity="center_vertical"
-                    android:background="@drawable/background_color">
+                    android:background="#fff">
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -275,7 +275,7 @@
                             android:text="Apakah terdapat lendir di tenggorokan anda?"
                             android:textSize="20sp"
                             android:textStyle="bold"
-                            android:textColor="#fff"
+                            android:textColor="#000"
                             android:textAppearance="?android:attr/textAppearanceSmall"/>
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -293,8 +293,8 @@
                                     android:layout_height="wrap_content"
                                     android:text="Iya"
                                     android:layout_marginLeft="15dp"
-                                    android:textColor="#ffffff"
-                                    android:buttonTint="#ffffff"
+                                    android:textColor="#000"
+                                    android:buttonTint="#000"
                                     android:layout_marginStart="15dp" />
                                 <RadioButton
                                     android:id="@+id/lendirtTidak"
@@ -302,8 +302,8 @@
                                     android:layout_height="wrap_content"
                                     android:text="Tidak"
                                     android:layout_marginLeft="15dp"
-                                    android:textColor="#ffffff"
-                                    android:buttonTint="#ffffff"
+                                    android:textColor="#000"
+                                    android:buttonTint="#000"
                                     android:layout_marginStart="15dp"
                                     android:layout_marginTop="5dp"
                                     android:layout_marginBottom="10dp"/>
@@ -327,7 +327,7 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
                     android:layout_gravity="center_vertical"
-                    android:background="@drawable/background_color">
+                    android:background="#fff">
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -347,7 +347,7 @@
                             android:text="Apakah anda mengalami pusing kepala?"
                             android:textSize="20sp"
                             android:textStyle="bold"
-                            android:textColor="#fff"
+                            android:textColor="#000"
                             android:textAppearance="?android:attr/textAppearanceSmall"/>
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -365,8 +365,8 @@
                                     android:layout_height="wrap_content"
                                     android:text="Iya"
                                     android:layout_marginLeft="15dp"
-                                    android:textColor="#ffffff"
-                                    android:buttonTint="#ffffff"
+                                    android:textColor="#000"
+                                    android:buttonTint="#000"
                                     android:layout_marginStart="15dp" />
                                 <RadioButton
                                     android:id="@+id/sakitkTidak"
@@ -374,8 +374,8 @@
                                     android:layout_height="wrap_content"
                                     android:text="Tidak"
                                     android:layout_marginLeft="15dp"
-                                    android:textColor="#ffffff"
-                                    android:buttonTint="#ffffff"
+                                    android:textColor="#000"
+                                    android:buttonTint="#000"
                                     android:layout_marginStart="15dp"
                                     android:layout_marginTop="5dp"
                                     android:layout_marginBottom="10dp"/>
@@ -399,7 +399,7 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
                     android:layout_gravity="center_vertical"
-                    android:background="@drawable/background_color">
+                    android:background="#fff">
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -419,7 +419,7 @@
                             android:text="Apakah hidung anda tersumbat?"
                             android:textSize="20sp"
                             android:textStyle="bold"
-                            android:textColor="#fff"
+                            android:textColor="#000"
                             android:textAppearance="?android:attr/textAppearanceSmall"/>
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -437,8 +437,8 @@
                                     android:layout_height="wrap_content"
                                     android:text="Iya"
                                     android:layout_marginLeft="15dp"
-                                    android:textColor="#ffffff"
-                                    android:buttonTint="#ffffff"
+                                    android:textColor="#000"
+                                    android:buttonTint="#000"
                                     android:layout_marginStart="15dp" />
                                 <RadioButton
                                     android:id="@+id/hidungtTidak"
@@ -446,8 +446,8 @@
                                     android:layout_height="wrap_content"
                                     android:text="Tidak"
                                     android:layout_marginLeft="15dp"
-                                    android:textColor="#ffffff"
-                                    android:buttonTint="#ffffff"
+                                    android:textColor="#000"
+                                    android:buttonTint="#000"
                                     android:layout_marginStart="15dp"
                                     android:layout_marginTop="5dp"
                                     android:layout_marginBottom="10dp"/>

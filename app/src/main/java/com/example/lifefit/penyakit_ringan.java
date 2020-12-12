@@ -34,4 +34,7 @@ public class penyakit_ringan extends AppCompatActivity {
         Intent intent = new Intent(this, penyakit_sakit_tenggorokan.class);
         startActivity(intent);
     }
+
+    public void backToEnsiklopedia(View view) {
+    }
 }

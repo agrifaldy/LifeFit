@@ -1,7 +1,9 @@
 package com.example.lifefit.TekananDarah;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -50,6 +52,8 @@ public class tensi extends AppCompatActivity {
     private List<TekananDarah> list = new ArrayList<>();
     private int year, month, day;
 
+    TekananDarahAdapter adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +64,23 @@ public class tensi extends AppCompatActivity {
         recyclerViewTensi = findViewById(R.id.recycler_view_tensi);
 
         recyclerViewTensi.setLayoutManager(new LinearLayoutManager(this));
+
+        adapter =  new TekananDarahAdapter(this, list);
+
+        recyclerViewTensi.setAdapter(adapter);
+
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                list.remove(viewHolder.getAdapterPosition());
+                adapter.notifyDataSetChanged();
+            }
+        }).attachToRecyclerView(recyclerViewTensi);
 
         //button click
         btnAddTensi.setOnClickListener(new View.OnClickListener() {

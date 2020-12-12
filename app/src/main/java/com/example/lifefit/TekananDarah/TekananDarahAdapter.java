@@ -1,11 +1,13 @@
 package com.example.lifefit.TekananDarah;
 
+import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -31,6 +33,7 @@ public class TekananDarahAdapter extends RecyclerView.Adapter<TekananDarahAdapte
     private FirebaseAuth mAuth;
     private CardView hasilTensi;
     public LinearLayout.LayoutParams params;
+    Activity activity;
 
     public TekananDarahAdapter(Context context, List<TekananDarah> list) {
         this.context = context;
@@ -47,7 +50,7 @@ public class TekananDarahAdapter extends RecyclerView.Adapter<TekananDarahAdapte
     }
 
     @Override
-    public void onBindViewHolder(@NonNull TekananDarahAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final TekananDarahAdapter.ViewHolder holder, int position) {
         holder.tv_tekananAtas.setText(list.get(position).getTekananAtas());
         holder.tv_tekananBawah.setText(list.get(position).getTekananBawah());
         holder.tv_tanggalTensi.setText(list.get(position).getTanggal());
@@ -67,6 +70,13 @@ public class TekananDarahAdapter extends RecyclerView.Adapter<TekananDarahAdapte
             hasilTensi.setVisibility(View.INVISIBLE);
             hasilTensi.setLayoutParams(params);
         }
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
     }
 
     @Override
