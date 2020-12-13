@@ -113,7 +113,7 @@
                             android:layout_centerVertical="true"
                             android:layout_toEndOf="@+id/iv_akun"
                             android:layout_toRightOf="@+id/iv_akun"
-                            android:fontFamily="@font/roboto_light"
+                            android:fontFamily="@font/roboto"
                             android:text="Akun Saya"
                             android:textColor="#000"
                             android:textSize="15sp" />
@@ -162,7 +162,7 @@
                             android:layout_centerVertical="true"
                             android:layout_toEndOf="@+id/iv_rate"
                             android:layout_toRightOf="@+id/iv_rate"
-                            android:fontFamily="@font/roboto_light"
+                            android:fontFamily="@font/roboto"
                             android:text="Feedback"
                             android:textColor="#000"
                             android:textSize="15sp" />
@@ -198,7 +198,7 @@
                             android:layout_centerVertical="true"
                             android:layout_toEndOf="@+id/iv_share"
                             android:layout_toRightOf="@+id/iv_share"
-                            android:fontFamily="@font/roboto_light"
+                            android:fontFamily="@font/roboto"
                             android:text="Berbagi dengan teman"
                             android:textColor="#000"
                             android:textSize="15sp" />
@@ -214,7 +214,7 @@
                         android:id="@+id/tv_about_us"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Tentang Kami"
+                        android:text="TENTANG KAMI"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:textColor="#1565C0"
                         android:textSize="15sp"
@@ -247,7 +247,7 @@
                             android:layout_centerVertical="true"
                             android:layout_toEndOf="@+id/iv_about_us"
                             android:layout_toRightOf="@+id/iv_about_us"
-                            android:fontFamily="@font/roboto_light"
+                            android:fontFamily="@font/roboto"
                             android:text="Tentang Kami"
                             android:textColor="#000"
                             android:textSize="15sp" />
@@ -292,7 +292,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/roboto_light"
+                            android:fontFamily="@font/roboto"
                             android:text="Log Out"
                             android:textColor="#000"
                             android:textSize="15sp" />

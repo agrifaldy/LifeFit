@@ -109,8 +109,8 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="35dp"
                 android:layout_marginRight="35dp"
-                android:fontFamily="@font/playfair_display_bold"
-                android:text="Jawablah pertanyaan berikut"
+                android:fontFamily="@font/roboto"
+                android:text="Jawablah pertanyaan berikut!"
                 android:textColor="#333333"
                 android:textSize="16sp" />
 
