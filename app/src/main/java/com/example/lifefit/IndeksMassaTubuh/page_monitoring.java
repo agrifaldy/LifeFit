@@ -9,6 +9,7 @@ import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.example.lifefit.Aktivitas.aktivitas;
+import com.example.lifefit.MainActivity;
 import com.example.lifefit.R;
 import com.example.lifefit.TekananDarah.tensi;
 import com.example.lifefit.DenyutJantung.denyut_jantung;
@@ -86,5 +87,9 @@ public class page_monitoring extends AppCompatActivity {
     public void toAktivitas(View view) {
         Intent intent = new Intent(this, aktivitas.class);
         startActivity(intent);
+    }
+
+    public void toDashboard(View view) {
+        finish();
     }
 }

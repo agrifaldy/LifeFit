@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
@@ -22,6 +23,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.example.lifefit.IndeksMassaTubuh.page_monitoring;
 import com.example.lifefit.R;
 import com.example.lifefit.TekananDarah.TekananDarah;
 import com.example.lifefit.TekananDarah.TekananDarahAdapter;
@@ -195,5 +197,9 @@ public class denyut_jantung extends AppCompatActivity {
                 Log.w("TAG", "Failed to read value.", error.toException());
             }
         });
+    }
+
+    public void backToPageMonitoringb(View view) {
+        finish();
     }
 }

@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".hasil_deteksi_flu"
+    tools:context=".hasil_deteksi_sehat"
+    android:orientation="vertical"
     android:background="#fff">
 
     <ScrollView
@@ -101,61 +102,31 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:orientation="vertical">
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="Anda mengalami penyakit"
-                                android:gravity="center_horizontal"
-                                android:layout_marginTop="20dp"
-                                android:textSize="15sp"/>
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="5dp"
+                                android:layout_marginTop="20dp"
                                 android:fontFamily="@font/archivo_narrow_bold"
                                 android:gravity="center_horizontal"
-                                android:text="Flu"
+                                android:text="Anda sedang baik-baik saja"
                                 android:textColor="#333333"
-                                android:textSize="40sp"
+                                android:textSize="30sp"
                                 android:textStyle="bold"
                                 android:layout_marginLeft="20dp"
-                                android:layout_marginRight="20dp"/>
+                                android:layout_marginRight="20dp" />
 
-                            <androidx.cardview.widget.CardView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="30dp"
-                                android:layout_marginRight="10dp"
-                                android:layout_marginLeft="10dp"
-                                android:layout_marginBottom="10dp"
-                                app:cardElevation="5dp"
-                                app:cardCornerRadius="5dp">
-                                <LinearLayout
+                                <TextView
                                     android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:orientation="vertical"
-                                    android:background="@drawable/background_color"
-                                    android:padding="10dp">
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="Cara mengobatinya :"
-                                        android:textColor="#fff"
-                                        android:fontFamily="sans-serif"
-                                        android:textSize="15sp"
-                                        android:layout_marginBottom="10dp"/>
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="@string/solusi_deteksi_flu"
-                                        android:textColor="#fff"
-                                        android:fontFamily="sans-serif"
-                                        android:textSize="13sp"
-                                        android:letterSpacing="0.02"
-                                        android:lineSpacingExtra="5dp"/>
-                                </LinearLayout>
-                            </androidx.cardview.widget.CardView>
+                                    android:layout_height="wrap_content"
+                                    android:text="Teruskan pola hidup anda yang baik dan tetaplah sehat"
+                                    android:textSize="15sp"
+                                    android:layout_marginRight="30dp"
+                                    android:layout_marginLeft="30dp"
+                                    android:layout_marginTop="20dp"
+                                    android:layout_marginBottom="20dp"
+                                    android:textAlignment="center"
+                                    android:gravity="center_horizontal" />
                         </LinearLayout>
 
                     </androidx.cardview.widget.CardView>
@@ -166,7 +137,5 @@
 
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
     </ScrollView>
-
-
 
 </LinearLayout>

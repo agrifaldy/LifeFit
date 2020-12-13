@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".hasil_deteksi_flu"
+    tools:context=".hasil_deteksi_sinusitis"
+    android:orientation="vertical"
     android:background="#fff">
 
     <ScrollView
@@ -19,8 +20,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:background="#fff">
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:id="@+id/viewOne"
@@ -115,7 +115,7 @@
                                 android:layout_marginTop="5dp"
                                 android:fontFamily="@font/archivo_narrow_bold"
                                 android:gravity="center_horizontal"
-                                android:text="Flu"
+                                android:text="Sinusitis"
                                 android:textColor="#333333"
                                 android:textSize="40sp"
                                 android:textStyle="bold"
@@ -148,12 +148,12 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="@string/solusi_deteksi_flu"
+                                        android:text="@string/solusi_deteksi_sinusitis"
                                         android:textColor="#fff"
                                         android:fontFamily="sans-serif"
                                         android:textSize="13sp"
                                         android:letterSpacing="0.02"
-                                        android:lineSpacingExtra="5dp"/>
+                                        android:lineSpacingExtra="5dp" />
                                 </LinearLayout>
                             </androidx.cardview.widget.CardView>
                         </LinearLayout>
@@ -166,7 +166,5 @@
 
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
     </ScrollView>
-
-
 
 </LinearLayout>

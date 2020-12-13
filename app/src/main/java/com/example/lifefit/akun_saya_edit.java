@@ -208,4 +208,8 @@ public class akun_saya_edit extends AppCompatActivity {
     public void handleImageClick(View view) {
 
     }
+
+    public void backToAkunSaya(View view) {
+        finish();
+    }
 }

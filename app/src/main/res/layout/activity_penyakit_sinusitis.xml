@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".penyakit_flu"
+    tools:context=".penyakit_sinusitis"
     android:orientation="vertical">
 
     <ScrollView
@@ -19,7 +19,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="220dp"
                 android:orientation="vertical"
-                android:background="@drawable/deskripsi_flu">
+                android:background="@drawable/deskripsi_sinusitis">
                 <RelativeLayout
                     android:id="@+id/tool"
                     android:layout_width="match_parent"
@@ -33,7 +33,7 @@
                         android:layout_centerVertical="true"
                         android:layout_marginStart="10dp"
                         android:layout_marginLeft="10dp"
-                        android:onClick="backToPenyakitRingana"/>
+                        android:onClick="backToPenyakitRingane"/>
                 </RelativeLayout>
             </LinearLayout>
             <LinearLayout
@@ -56,7 +56,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/playfair_display_black"
-                    android:text="Penyakit Flu"
+                    android:text="Sinusitis"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:textColor="#000"/>
@@ -79,7 +79,7 @@
                     android:layout_marginBottom="15dp"
                     android:fontFamily="@font/roboto"
                     android:justificationMode="inter_word"
-                    android:text="@string/isi_flu"
+                    android:text="@string/deskripsi_sinusitis"
                     android:textColor="#000"
                     android:textSize="15sp"
                     android:letterSpacing="0.02"
@@ -100,7 +100,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto"
                     android:justificationMode="inter_word"
-                    android:text="@string/pencegahan_flu"
+                    android:text="@string/pencegahan_sinusitis"
                     android:textColor="#000"
                     android:textSize="15sp"
                     android:layout_marginLeft="15dp"
@@ -110,7 +110,5 @@
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
-
-
 
 </LinearLayout>

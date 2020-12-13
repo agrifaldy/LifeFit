@@ -95,7 +95,7 @@
                 android:layout_marginTop="30dp"
                 android:fontFamily="@font/roboto_light"
                 android:text="Daftar Ensiklopedia"
-                android:textColor="#000"
+                android:textColor="#333333"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -239,7 +239,8 @@
                             android:text="@string/tv_eMakanan"
                             android:textAppearance="?android:attr/textAppearanceLarge"
                             android:textSize="18sp"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            android:textColor="#333333"/>
 
                         <TextView
                             android:id="@+id/tv_eMakananD"
@@ -255,7 +256,7 @@
                             android:fontFamily="@font/roboto_light"
                             android:text="@string/tv_eMakananD"
                             android:textAppearance="?android:attr/textAppearanceSmall"
-                            android:textColor="#000" />
+                            android:textColor="#333333" />
 
                     </LinearLayout>
                 </LinearLayout>

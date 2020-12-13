@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
@@ -27,6 +28,7 @@ import com.example.lifefit.DenyutJantung.denyut_jantung;
 import com.example.lifefit.IndeksMassaTubuh.Bmi;
 import com.example.lifefit.IndeksMassaTubuh.BmiAdapter;
 import com.example.lifefit.IndeksMassaTubuh.indeks_massa_tubuh;
+import com.example.lifefit.IndeksMassaTubuh.page_monitoring;
 import com.example.lifefit.R;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -213,5 +215,9 @@ public class aktivitas extends AppCompatActivity {
                 Log.w("TAG", "Failed to read value.", error.toException());
             }
         });
+    }
+
+    public void backToPageMonitoringd(View view) {
+        finish();
     }
 }

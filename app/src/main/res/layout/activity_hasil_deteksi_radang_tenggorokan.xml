@@ -5,8 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".hasil_deteksi_flu"
-    android:background="#fff">
+    tools:context=".hasil_deteksi_radang_tenggorokan">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -115,7 +114,7 @@
                                 android:layout_marginTop="5dp"
                                 android:fontFamily="@font/archivo_narrow_bold"
                                 android:gravity="center_horizontal"
-                                android:text="Flu"
+                                android:text="Radang Tenggorokan"
                                 android:textColor="#333333"
                                 android:textSize="40sp"
                                 android:textStyle="bold"
@@ -148,7 +147,7 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="@string/solusi_deteksi_flu"
+                                        android:text="@string/solusi_deteksi_radangtenggorokan"
                                         android:textColor="#fff"
                                         android:fontFamily="sans-serif"
                                         android:textSize="13sp"
@@ -166,7 +165,5 @@
 
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
     </ScrollView>
-
-
 
 </LinearLayout>

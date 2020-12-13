@@ -25,22 +25,23 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_back"
-                android:background="@android:color/transparent"
-                android:layout_centerVertical="true"/>
+                android:src="@drawable/ic_back_v2"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:layout_centerVertical="true"
+                android:onClick="backToEnsiklopedia"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Olahraga"
-                android:textStyle="bold"
-                android:textColor="#fff"
-                android:textSize="20sp"
-                android:fontFamily="sans-serif-medium"
+                android:layout_centerInParent="true"
                 android:layout_marginStart="25dp"
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="10dp"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"/>
+                android:fontFamily="sans-serif-black"
+                android:text="Olahraga"
+                android:textColor="#fff"
+                android:textSize="20sp"
+                android:textStyle="bold" />
         </RelativeLayout>
     </androidx.appcompat.widget.Toolbar>
 

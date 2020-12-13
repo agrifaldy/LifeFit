@@ -13,7 +13,12 @@
         android:roundIcon="@mipmap/ic_detak_jantung_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".hasil_deteksi_flu"></activity>
+        <activity android:name=".penyakit_sinusitis"></activity>
+        <activity android:name=".hasil_deteksi_sehat" />
+        <activity android:name=".hasil_deteksi_sinusitis" />
+        <activity android:name=".hasil_deteksi_radang_tenggorokan" />
+        <activity android:name=".penyakit_pusing" />
+        <activity android:name=".hasil_deteksi_flu" />
         <activity android:name=".TekananDarah.tensi_grafik" />
         <activity android:name=".Aktivitas.aktivitas_item" />
         <activity android:name=".Aktivitas.aktivitas_input" />
@@ -37,9 +42,11 @@
         <activity android:name=".IndeksMassaTubuh.indeks_massa_tubuh_grafik" />
         <activity android:name=".IndeksMassaTubuh.indeks_massa_tubuh_input" />
         <activity android:name=".IndeksMassaTubuh.indeks_massa_tubuh" />
-        <activity android:name=".UserLoginActivity"/>
+        <activity android:name=".UserLoginActivity" />
         <activity android:name=".UserSignupActivity" />
-        <activity android:name=".Splash" android:noHistory="true">
+        <activity
+            android:name=".Splash"
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

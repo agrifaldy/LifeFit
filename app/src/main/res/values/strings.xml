@@ -24,23 +24,71 @@
     <string name="tv_eOlahragaD">Daftar Olahraga yang sehat bagi tubuh</string>
 
     <string name="tv_dDemam">Demam</string>
-    <string name="tv_dDemamD">Apakah anda merasa demam ?</string>
+    <string name="tv_dDemamD">Apakah anda merasa demam?</string>
     <string name="tv_dBatuk">Batuk</string>
-    <string name="tv_dBatukD">Apakah anda sedang mengalami batuk ?</string>
+    <string name="tv_dBatukD">Apakah anda sedang mengalami batuk?</string>
     <string name="isi_flu">   Flu merupakan penyakit yang disebabkan oleh infeksi virus yang dapat menyerang hidung, tenggorokan, dan paru-paru. Flu atau influenza ini sangat umum terjadi di musim pancaroba. Penyakit ini sangat mudah menular ke orang lain, terutama ketika 3-4 hari pertama setelah pengidapnya terinfeksi virus flu, Gejala-gejala flu yang biasa dirasakan pengidapnya adalah demam, sakit kepala, batuk-batuk, pegal-pegal, kehilangan nafsu makan, serta sakit tenggorokan.
         \n\nGejala flu akan bertambah parah selama 2-4 hari sebelum akhirnya membaik dan sembuh.
         \n\nFlu dan pilek adalah dua kondisi yang berbeda. Pilek mumnya muncul secara bertahap dengan gejala yang lebih ringan, sehingga tidak terlalu berdampak kepada rutinitas pengidapnya. Sedangkan flu tak seperti itu. Penyakit ini cenderung menyebabkan gejala yang lebih parah, sehingga bisa mengganggu aktivitas pengidapnya. Di samping itu, masa inkubasi flu juga lebih singkat.</string>
-    <string name="pencegahan_flu">1. Rajin mencuci tangan dengan air dan sabun, atau hand-sanitizer berbahan dasar alkohol.
-        \n\n2. Tidak menyentuh mulut, hidung, dan mata, sebelum mencuci tangan.
-        \n\n3. Membersihkan permukaan benda yang sering disentuh, dengan cairan disinfektan.
-        \n\n4. Tidak berbagi makanan atau penggunaan benda pribadi, seperti gelas atau botol minum.</string>
+    <string name="pencegahan_flu">1.Rajin mencuci tangan dengan air dan sabun, atau hand-sanitizer berbahan dasar alkohol.
+        \n2.Tidak menyentuh mulut, hidung, dan mata, sebelum mencuci tangan.
+        \n3.Membersihkan permukaan benda yang sering disentuh, dengan cairan disinfektan.
+        \n4.Tidak berbagi makanan atau penggunaan benda pribadi, seperti gelas atau botol minum.</string>
     <string name="deskripsi_demam">Demam adalah kondisi meningkatnya suhu tubuh hingga lebih dari 380C. Demam menandakan adanya penyakit atau kondisi lain di dalam tubuh.
         \n\nDemam umumnya terjadi sebagai reaksi dari sistem imun dalam melawan infeksi virus, bakteri, jamur, atau parasit penyebab penyakit. Beberapa penyakit yang sering menyebabkan demam adalah flu, radang tenggorokan, dan infeksi saluran kemih.
         \n\nSelain penyakit, ada beberapa kondisi yang dapat menyebabkan terjadinya demam, yaitu paparan cuaca dan suhu panas yang berlebihan, siklus menstruasi, reaksi setelah pemberian imunisasi pada anak, serta efek samping obat-obat tertentu.
         \n\nMeskipun kadang mengkhawatirkan, sebagian besar demam yang disebabkan oleh infeksi virus akan sembuh dengan sendirinya. Namun, jika demam sudah mencapai suhu lebih dari 390C, diperlukan penanganan untuk mengatasi ketidaknyamanan akibat demam dan mengobati penyebabnya.</string>
-    <string name="pencegahan_demam">1. Rajin mencuci tangan.
-        \n\n2. Menjaga kebersihan rumah.
-        \n\n3. Tidak berbagi penggunaan alat makan dan minum dengan orang lain.
-        \n\n4. Tidak berbagi penggunaan barang-barang pribadi, seperti handuk, pakaian, atau sikat gigi, dengan orang lain. Menjaga dan meningkatkan sistem kekebalan tubuh dengan istirahat yang cukup, pola makan bersih, sehat, dan bergizi seimbang, olahraga dan aktivitas fisik secara teratur, serta konsumsi air putih dalam jumlah yang cukup.</string>
-    <string name="solusi_deteksi_flu">1. Mulai Perbanyak Minum Air \n2. Berkumur dengan Air Garam \n3. Menggunakan Semprot Hidung \n4. Konsumsi Obat \n5. Istirahat \n6. Penuhi Kebutuhan Gizi</string>
+    <string name="pencegahan_demam">1.Rajin mencuci tangan.
+        \n2.Menjaga kebersihan rumah.
+        \n3.Tidak berbagi penggunaan alat makan dan minum dengan orang lain.
+        \n4.Tidak berbagi penggunaan barang-barang pribadi, seperti handuk, pakaian, atau sikat gigi, dengan orang lain. Menjaga dan meningkatkan sistem kekebalan tubuh dengan istirahat yang cukup, pola makan bersih, sehat, dan bergizi seimbang, olahraga dan aktivitas fisik secara teratur, serta konsumsi air putih dalam jumlah yang cukup.</string>
+    <string name="solusi_deteksi_flu">1. Mulai Perbanyak Minum Air
+        \n2. Berkumur dengan Air Garam
+        \n3. Menggunakan Semprot Hidung
+        \n4. Konsumsi Obat
+        \n5. Istirahat
+        \n6. Penuhi Kebutuhan Gizi</string>
+    <string name="deskripsi_sakitT">Sakit tenggorokan adalah kondisi saat tenggorokan terasa kering, perih, dan nyeri. Kondisi ini merupakan gejala dari penyakit atau gangguan kesehatan tertentu yang menyebabkan rasa sakit ketika menelan atau berbicara. Penyebab paling umum dari tenggorokan yang sakit saat menelan adalah infeksi virus dan bakteri.
+        \n\nNyeri tenggorokan yang disebabkan oleh virus yang menyerang sistem pernapasan, seperti virus pilek, flu ataupun virus SARS-CoV-2 yang menyebabkan COVID-19. Sedangkan sakit tenggorokan yang disebabkan bakteri dikenal juga dengan strep throat yaitu infeksi tenggorokan akibat bakteri streptokokus.
+        \n\nSelain karena virus dan infeksi bakteri, rasa nyeri dan tidak nyaman pada tenggorokan juga sering disebabkan oleh alergi, sinusitis, dan faktor lingkungan misalnya udara kering.
+        \n\nJika disebabkan infeksi ringan, nyeri tenggorokan biasanya akan mereda dengan sendirinya. Namun, sakit tenggorokan yang berlangsung kronis atau jangka panjang dapat menjadi tanda dari penyakit yang lebih serius.</string>
+    <string name="pencegahan_sakitT">1.Tidak merokok dan menghindari asap rokok
+        \n2. Membatasi konsumsi alkohol dan kafein
+        \n3. Perbanyak minum air
+        \n4. Hindari makanan pedas
+        \n5. Tingkatkan daya tahan tubuh
+        \n6. Rajin cuci tangan
+        \n7. Hindari orang yang sedang sakit pilek atau batuk.</string>
+    <string name="deskripsi_pusing">Pusing adalah sensasi seperti melayang, berputar, kliyengan, atau merasa akan pingsan. Pusing bisa dialami oleh siapa saja dan sensasinya dapat dirasakan berbeda antara satu orang dengan orang lainnya.
+        \n\nSebenarnya, kepala pusing bukanlah suatu penyakit, melainkan gejala dari suatu kondisi perubahan tubuh atau penyakit tertentu. Pusing merupakan gejala yang sering terjadi, namun jarang menjadi tanda dari suatu kondisi yang berbahaya. Meskipun demikian, gejala ini tetap memerlukan pemeriksaan dokter, terutama jika terjadi secara terus-menerus dan berkepanjangan.</string>
+    <string name="pencegahan_pusing">1.Tidur cukup dan teratur, 7-8 jam per hari.
+        \n2.Makan teratur dengan gizi yang seimbang.
+        \n3.Kurangi konsumsi minuman berkafein.
+        \n4.Kenali dan hindari pemicu sakit kepala.
+        \n5.Batasi konsumsi obat sakit kepala yang dijual bebas.
+        \n6.Lakukan olahraga secara Lakukan teknik relaksasi, seperti yoga atau meditasi.
+        \n7.Kelola stres dengan baik.</string>
+    <string name="solusi_deteksi_sinusitis">1. Bersihkan saluran hidung dengan menggunakan air garam untuk membilasnya.
+        \n2. Kompres area hidung dengan menggunakan air hangat.
+        \n3. Hirup uap dari air panas dalam wadah mangkuk besar.
+        \n4. Tidur dengan kepala diangkat.
+        \n5. Meminum obat dekongestan tablet.
+        \n6. Memakai semprotan dekongestan.</string>
+    <string name="solusi_deteksi_radangtenggorokan">1. Perbanyak minum air putih
+        \n2. Mengonsumsi makanan lembut
+        \n3. Berkumur dengan air garam
+        \n4. Menghirup udara lembap
+        \n5. Jangan terlalu banyak bersuara
+        \n6. Berhenti merokok
+        \n7. Mandi air hangat</string>
+    <string name="deskripsi_sinusitis">Sinusitis adalah peradangan yang terjadi pada dinding sinus. Sinus itu sendiri merupakan rongga kosong yang terletak di tulang pipi (maxillary), bagian bawah dahi (frontal), bagian belakang rongga hidung (sphenoid), serta di antara hidung dan matang (ethmoid).
+        \n\nSalah satu tugas sinus adalah untuk menghasilkan mukus (cairang lengket dan tebal) di hidung. Mukus turut bekerja untuk mencegah masuknya kuman, allergen penyebab alergi, dan benda-benda asing yang dapat menyebabkan infeksi dalam tubuh.
+        \n\nPada beberapa kasus, sinusitis bisa menyebabkan komplikasi berupa infeksi tulang. Selain itu, pada kasus yang sangat jarang (sekitar satu dari 10.000 kasus), infeksi dapat menyebar ke daerah sekitar mata, tulang, darah atau otak.</string>
+    <string name="pencegahan_sinusitis">1.Jika sinusitis disebabkan oleh alergi, maka hindari paparan alergen dan konsultasikan dengan dokter mengenai cara mengendalikan gejala alergi.
+        \n2.Berhenti merokok atau hindari asap rokok jika Anda perokok pasif.
+        \n3.Jagalah kebersihan tangan, terutama sebelum makan.
+        \n4.Lakukan vaksinasi flu setiap tahun untuk menjaga kekebalan tubuh dari flu.
+        \n5.Konsumsi makanan sehat, seperti buah dan sayuran.
+        \n6.Gunakan pelembab udara, terutama ketika cuaca panas.
+        \n7.Kurangi kontak secara langsung dengan penderita pilek dan flu.</string>
 </resources>

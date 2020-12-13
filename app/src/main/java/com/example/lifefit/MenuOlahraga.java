@@ -7,6 +7,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.WindowManager;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -61,6 +62,10 @@ public class MenuOlahraga extends AppCompatActivity {
 //        // beri listener pada saat item/menu bottomnavigation terpilih
 //        bottomNavigationView.setOnNavigationItemSelectedListener(this);
 
+    }
+
+    public void backToEnsiklopedia(View view) {
+        finish();
     }
 
 //    // method untuk load fragment yang sesuai

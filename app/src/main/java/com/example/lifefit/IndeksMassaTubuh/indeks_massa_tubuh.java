@@ -320,4 +320,8 @@ public class indeks_massa_tubuh extends AppCompatActivity {
         Intent intent = new Intent(this, indeks_massa_tubuh_grafik.class);
         startActivity(intent);
     }
+
+    public void backToPageMonitoringa(View view) {
+        finish();
+    }
 }

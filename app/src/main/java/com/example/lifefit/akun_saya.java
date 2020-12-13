@@ -147,4 +147,7 @@ public class akun_saya extends AppCompatActivity {
     }
 
 
+    public void backToProfile(View view) {
+        finish();
+    }
 }

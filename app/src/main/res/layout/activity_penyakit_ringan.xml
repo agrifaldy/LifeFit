@@ -63,9 +63,10 @@
                                     android:layout_centerVertical="true"/>
                             </RelativeLayout>
                             <ImageView
-                                android:layout_width="match_parent"
+                                android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:src="@drawable/ic_penyakit_foreground"/>
+                                android:src="@drawable/ic_penyakit_foreground"
+                                android:layout_gravity="center"/>
                         </LinearLayout>
                     </LinearLayout>
                     <LinearLayout
@@ -73,12 +74,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="0.4"
-                        android:background="@drawable/background_monitoring"
+                        android:background="@drawable/background_penyakit_ringan"
                         android:orientation="horizontal">
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_marginTop="30dp"
                             android:paddingBottom="30dp"
                             android:orientation="vertical">
                             <TextView
@@ -91,7 +91,7 @@
                                 android:textColor="#000"
                                 android:textSize="18sp"
                                 android:textStyle="bold"
-                                android:layout_marginTop="20dp"/>
+                                android:layout_marginTop="30dp"/>
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -107,11 +107,7 @@
                                     android:layout_height="110dp"
                                     app:cardCornerRadius="10dp"
                                     app:cardElevation="5dp"
-                                    app:cardUseCompatPadding="true"
-                                    android:foreground="?android:attr/selectableItemBackground"
-                                    android:clickable="true"
-                                    android:focusable="true"
-                                    android:onClick="toPenyakitFlu">
+                                    app:cardUseCompatPadding="true">
                                     <LinearLayout
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
@@ -138,7 +134,7 @@
                                                 android:layout_height="wrap_content"
                                                 android:textSize="15sp"
                                                 android:fontFamily="@font/roboto_bold"
-                                                android:text="Penyakit FLu"
+                                                android:text="FLu"
                                                 android:textStyle="bold"
                                                 android:textColor="#fff"
                                                 android:layout_marginLeft="10dp"
@@ -157,14 +153,22 @@
                                                 android:layout_marginStart="10dp"
                                                 android:layout_below="@id/tvflu"
                                                 android:textAppearance="?android:attr/textAppearanceLarge"/>
-                                            <ImageView
-                                                android:layout_width="wrap_content"
+<!--                                            <ImageView-->
+<!--                                                android:layout_width="wrap_content"-->
+<!--                                                android:layout_height="wrap_content"-->
+<!--                                                android:src="@drawable/ic_next_pr"-->
+<!--                                                android:layout_alignParentRight="true"-->
+<!--                                                android:layout_alignParentBottom="true"-->
+<!--                                                android:layout_marginRight="5dp"-->
+<!--                                                android:layout_marginBottom="10dp"/>-->
+                                            <LinearLayout
+                                                android:id="@+id/satu"
+                                                android:layout_width="20dp"
                                                 android:layout_height="wrap_content"
-                                                android:src="@drawable/ic_next_pr"
-                                                android:layout_alignParentRight="true"
                                                 android:layout_alignParentBottom="true"
-                                                android:layout_marginRight="5dp"
-                                                android:layout_marginBottom="10dp"/>
+                                                android:layout_alignParentRight="true"
+                                                android:layout_marginRight="50dp"
+                                                android:orientation="vertical"/>
                                         </RelativeLayout>
                                     </LinearLayout>
                                 </androidx.cardview.widget.CardView>
@@ -185,11 +189,7 @@
                                     android:layout_height="110dp"
                                     app:cardCornerRadius="10dp"
                                     app:cardElevation="5dp"
-                                    app:cardUseCompatPadding="true"
-                                    android:foreground="?android:attr/selectableItemBackground"
-                                    android:clickable="true"
-                                    android:focusable="true"
-                                    android:onClick="toPenyakitDemam">
+                                    app:cardUseCompatPadding="true">
                                     <LinearLayout
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
@@ -216,7 +216,7 @@
                                                 android:layout_height="wrap_content"
                                                 android:textSize="15sp"
                                                 android:fontFamily="@font/roboto_bold"
-                                                android:text="Penyakit Demam"
+                                                android:text="Demam"
                                                 android:textStyle="bold"
                                                 android:textColor="#fff"
                                                 android:layout_marginLeft="10dp"
@@ -235,14 +235,22 @@
                                                 android:layout_marginStart="10dp"
                                                 android:layout_below="@id/tvdemam"
                                                 android:textAppearance="?android:attr/textAppearanceLarge"/>
-                                            <ImageView
-                                                android:layout_width="wrap_content"
+<!--                                            <ImageView-->
+<!--                                                android:layout_width="wrap_content"-->
+<!--                                                android:layout_height="wrap_content"-->
+<!--                                                android:src="@drawable/ic_next_pr"-->
+<!--                                                android:layout_alignParentRight="true"-->
+<!--                                                android:layout_alignParentBottom="true"-->
+<!--                                                android:layout_marginRight="5dp"-->
+<!--                                                android:layout_marginBottom="10dp"/>-->
+                                            <LinearLayout
+                                                android:id="@+id/dua"
+                                                android:layout_width="20dp"
                                                 android:layout_height="wrap_content"
-                                                android:src="@drawable/ic_next_pr"
-                                                android:layout_alignParentRight="true"
                                                 android:layout_alignParentBottom="true"
-                                                android:layout_marginRight="5dp"
-                                                android:layout_marginBottom="10dp"/>
+                                                android:layout_alignParentRight="true"
+                                                android:layout_marginRight="50dp"
+                                                android:orientation="vertical"/>
                                         </RelativeLayout>
                                     </LinearLayout>
                                 </androidx.cardview.widget.CardView>
@@ -263,11 +271,7 @@
                                     android:layout_height="110dp"
                                     app:cardCornerRadius="10dp"
                                     app:cardElevation="5dp"
-                                    app:cardUseCompatPadding="true"
-                                    android:foreground="?android:attr/selectableItemBackground"
-                                    android:clickable="true"
-                                    android:focusable="true"
-                                    android:onClick="toPenyakitSakitTenggorokan">
+                                    app:cardUseCompatPadding="true">
                                     <LinearLayout
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
@@ -313,14 +317,22 @@
                                                 android:layout_marginStart="10dp"
                                                 android:layout_below="@id/tvsakittenggorokan"
                                                 android:textAppearance="?android:attr/textAppearanceLarge"/>
-                                            <ImageView
-                                                android:layout_width="wrap_content"
+<!--                                            <ImageView-->
+<!--                                                android:layout_width="wrap_content"-->
+<!--                                                android:layout_height="wrap_content"-->
+<!--                                                android:src="@drawable/ic_next_pr"-->
+<!--                                                android:layout_alignParentRight="true"-->
+<!--                                                android:layout_alignParentBottom="true"-->
+<!--                                                android:layout_marginRight="5dp"-->
+<!--                                                android:layout_marginBottom="10dp"/>-->
+                                            <LinearLayout
+                                                android:id="@+id/tiga"
+                                                android:layout_width="20dp"
                                                 android:layout_height="wrap_content"
-                                                android:src="@drawable/ic_next_pr"
-                                                android:layout_alignParentRight="true"
                                                 android:layout_alignParentBottom="true"
-                                                android:layout_marginRight="5dp"
-                                                android:layout_marginBottom="10dp"/>
+                                                android:layout_alignParentRight="true"
+                                                android:layout_marginRight="50dp"
+                                                android:orientation="vertical"/>
                                         </RelativeLayout>
                                     </LinearLayout>
                                 </androidx.cardview.widget.CardView>
@@ -341,11 +353,7 @@
                                     android:layout_height="110dp"
                                     app:cardCornerRadius="10dp"
                                     app:cardElevation="5dp"
-                                    app:cardUseCompatPadding="true"
-                                    android:foreground="?android:attr/selectableItemBackground"
-                                    android:clickable="true"
-                                    android:focusable="true"
-                                    android:onClick="toPenyakitSakitTenggorokan">
+                                    app:cardUseCompatPadding="true">
                                     <LinearLayout
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
@@ -391,14 +399,97 @@
                                                 android:layout_marginStart="10dp"
                                                 android:layout_below="@id/tvmigrain"
                                                 android:textAppearance="?android:attr/textAppearanceLarge"/>
-                                            <ImageView
+<!--                                            <ImageView-->
+<!--                                                android:layout_width="wrap_content"-->
+<!--                                                android:layout_height="wrap_content"-->
+<!--                                                android:src="@drawable/ic_next_pr"-->
+<!--                                                android:layout_alignParentRight="true"-->
+<!--                                                android:layout_alignParentBottom="true"-->
+<!--                                                android:layout_marginRight="5dp"-->
+<!--                                                android:layout_marginBottom="10dp"/>-->
+                                            <LinearLayout
+                                                android:id="@+id/empat"
+                                                android:layout_width="20dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_alignParentBottom="true"
+                                                android:layout_alignParentRight="true"
+                                                android:layout_marginRight="50dp"
+                                                android:orientation="vertical"/>
+                                        </RelativeLayout>
+                                    </LinearLayout>
+                                </androidx.cardview.widget.CardView>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:paddingLeft="30dp"
+                                android:paddingStart="30dp"
+                                android:paddingRight="30dp"
+                                android:paddingEnd="30dp"
+                                android:paddingTop="10dp">
+                                <androidx.cardview.widget.CardView
+                                    android:id="@+id/cv_sinusitis"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="110dp"
+                                    app:cardCornerRadius="10dp"
+                                    app:cardElevation="5dp"
+                                    app:cardUseCompatPadding="true">
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:orientation="horizontal"
+                                        android:background="@drawable/background_color">
+                                        <LinearLayout
+                                            android:layout_width="35dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="20dp"
+                                            android:orientation="horizontal"/>
+                                        <LinearLayout
+                                            android:id="@+id/card_center5"
+                                            android:layout_width="60dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="25dp"
+                                            android:orientation="horizontal"/>
+                                        <RelativeLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:orientation="vertical">
+                                            <TextView
+                                                android:id="@+id/tvsinusitis"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
-                                                android:src="@drawable/ic_next_pr"
-                                                android:layout_alignParentRight="true"
+                                                android:textSize="15sp"
+                                                android:fontFamily="@font/roboto_bold"
+                                                android:text="Sinusitis"
+                                                android:textStyle="bold"
+                                                android:textColor="#fff"
+                                                android:layout_marginLeft="10dp"
+                                                android:layout_marginStart="10dp"
+                                                android:layout_marginTop="10dp"
+                                                android:textAppearance="?android:attr/textAppearanceLarge"/>
+                                            <TextView
+                                                android:layout_width="150dp"
+                                                android:layout_height="40dp"
+                                                android:textSize="13sp"
+                                                android:fontFamily="@font/roboto"
+                                                android:text="Artikel mengenai sinusitis"
+                                                android:textColor="#fff"
+                                                android:layout_marginTop="5dp"
+                                                android:layout_marginLeft="10dp"
+                                                android:layout_marginStart="10dp"
+                                                android:layout_below="@id/tvsinusitis"
+                                                android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+                                            <LinearLayout
+                                                android:id="@+id/lima"
+                                                android:layout_width="20dp"
+                                                android:layout_height="wrap_content"
                                                 android:layout_alignParentBottom="true"
-                                                android:layout_marginRight="5dp"
-                                                android:layout_marginBottom="10dp"/>
+                                                android:layout_alignParentRight="true"
+                                                android:layout_marginRight="50dp"
+                                                android:orientation="vertical"/>
                                         </RelativeLayout>
                                     </LinearLayout>
                                 </androidx.cardview.widget.CardView>
@@ -423,6 +514,18 @@
                         android:src="@drawable/flu"/>
                 </androidx.cardview.widget.CardView>
 
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:text="Lihat"
+                    android:textColor="#fff"
+                    android:textAllCaps="false"
+                    app:layout_anchor="@id/satu"
+                    app:layout_anchorGravity="bottom|center"
+                    android:background="@drawable/background_button_bmi"
+                    android:drawableRight="@drawable/ic_next_pr"
+                    android:onClick="toPenyakitFlu"/>
+
                 <androidx.cardview.widget.CardView
                     android:layout_width="100dp"
                     android:layout_height="80dp"
@@ -437,6 +540,18 @@
                         android:layout_height="wrap_content"
                         android:src="@drawable/demam"/>
                 </androidx.cardview.widget.CardView>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:text="Lihat"
+                    android:textColor="#fff"
+                    android:textAllCaps="false"
+                    app:layout_anchor="@id/dua"
+                    app:layout_anchorGravity="bottom|center"
+                    android:background="@drawable/background_button_bmi"
+                    android:drawableRight="@drawable/ic_next_pr"
+                    android:onClick="toPenyakitDemam"/>
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="100dp"
@@ -453,6 +568,18 @@
                         android:src="@drawable/sakittenggorokan"/>
                 </androidx.cardview.widget.CardView>
 
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:text="Lihat"
+                    android:textColor="#fff"
+                    android:textAllCaps="false"
+                    app:layout_anchor="@id/tiga"
+                    app:layout_anchorGravity="bottom|center"
+                    android:background="@drawable/background_button_bmi"
+                    android:drawableRight="@drawable/ic_next_pr"
+                    android:onClick="toPenyakitSakitTenggorokan"/>
+
                 <androidx.cardview.widget.CardView
                     android:layout_width="100dp"
                     android:layout_height="80dp"
@@ -467,6 +594,45 @@
                         android:layout_height="wrap_content"
                         android:src="@drawable/migrain"/>
                 </androidx.cardview.widget.CardView>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:text="Lihat"
+                    android:textColor="#fff"
+                    android:textAllCaps="false"
+                    app:layout_anchor="@id/empat"
+                    app:layout_anchorGravity="bottom|center"
+                    android:background="@drawable/background_button_bmi"
+                    android:drawableRight="@drawable/ic_next_pr"
+                    android:onClick="toPusing"/>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_marginLeft="25dp"
+                    app:layout_anchor="@id/card_center5"
+                    app:layout_anchorGravity="top|left"
+                    app:cardElevation="10dp"
+                    app:cardCornerRadius="5dp">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/sinusitis"/>
+                </androidx.cardview.widget.CardView>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:text="Lihat"
+                    android:textColor="#fff"
+                    android:textAllCaps="false"
+                    app:layout_anchor="@id/lima"
+                    app:layout_anchorGravity="bottom|center"
+                    android:background="@drawable/background_button_bmi"
+                    android:drawableRight="@drawable/ic_next_pr"
+                    android:onClick="toSinusitis"/>
 
             </androidx.coordinatorlayout.widget.CoordinatorLayout>
         </LinearLayout>

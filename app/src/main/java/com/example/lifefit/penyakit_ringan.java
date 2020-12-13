@@ -36,5 +36,16 @@ public class penyakit_ringan extends AppCompatActivity {
     }
 
     public void backToEnsiklopedia(View view) {
+        finish();
+    }
+
+    public void toPusing(View view) {
+        Intent intent = new Intent(this, penyakit_pusing.class);
+        startActivity(intent);
+    }
+
+    public void toSinusitis(View view) {
+        Intent intent = new Intent(this, penyakit_sinusitis.class);
+        startActivity(intent);
     }
 }

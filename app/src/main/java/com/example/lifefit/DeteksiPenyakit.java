@@ -68,17 +68,85 @@ public class DeteksiPenyakit extends AppCompatActivity implements View.OnClickLi
                 Intent intent = new Intent(this, hasil_deteksi_flu.class);
                 startActivity(intent);
             }
-        } else if (demamIya.isChecked() && batukTidak.isChecked()){
+        } else if (demamIya.isChecked() && batukIya.isChecked() && lendirtTidak.isChecked() && sakitkIya.isChecked() && hidungtTidak.isChecked()){
             if (i == R.id.submitDeteksi) {
-                Intent intent = new Intent(this, penyakit_demam.class);
+                Intent intent = new Intent(this, hasil_deteksi_flu.class);
                 startActivity(intent);
             }
-        } else if (demamIya.isChecked()){
+        } else if (demamIya.isChecked() && batukTidak.isChecked() && lendirtTidak.isChecked() && sakitkIya.isChecked() && hidungtIya.isChecked()){
             if (i == R.id.submitDeteksi) {
-                Intent intent = new Intent(this, penyakit_demam.class);
+                Intent intent = new Intent(this, hasil_deteksi_flu.class);
+                startActivity(intent);
+            }
+        } else if (demamIya.isChecked() && batukTidak.isChecked() && lendirtIya.isChecked() && sakitkIya.isChecked() && hidungtTidak.isChecked()){
+            if (i == R.id.submitDeteksi) {
+                Intent intent = new Intent(this, hasil_deteksi_radang_tenggorokan.class);
+                startActivity(intent);
+            }
+        } else if (demamTidak.isChecked() && batukIya.isChecked() && lendirtTidak.isChecked() && sakitkTidak.isChecked() && hidungtIya.isChecked()){
+            if (i == R.id.submitDeteksi) {
+                Intent intent = new Intent(this, hasil_deteksi_radang_tenggorokan.class);
+                startActivity(intent);
+            }
+        } else if (demamTidak.isChecked() && batukTidak.isChecked() && lendirtTidak.isChecked() && sakitkIya.isChecked() && hidungtIya.isChecked()){
+            if (i == R.id.submitDeteksi) {
+                Intent intent = new Intent(this, hasil_deteksi_sinusitis.class);
+                startActivity(intent);
+            }
+        } else if (demamTidak.isChecked() && batukIya.isChecked() && lendirtIya.isChecked() && sakitkIya.isChecked() && hidungtTidak.isChecked()){
+            if (i == R.id.submitDeteksi) {
+                Intent intent = new Intent(this, hasil_deteksi_sinusitis.class);
+                startActivity(intent);
+            }
+        } else if (demamTidak.isChecked() && batukIya.isChecked() && lendirtIya.isChecked() && sakitkIya.isChecked() && hidungtIya.isChecked()){
+            if (i == R.id.submitDeteksi) {
+                Intent intent = new Intent(this, hasil_deteksi_sinusitis.class);
+                startActivity(intent);
+            }
+        } else if (demamIya.isChecked() && batukTidak.isChecked() && lendirtTidak.isChecked() && sakitkTidak.isChecked() && hidungtTidak.isChecked()){
+            if (i == R.id.submitDeteksi) {
+                Intent intent = new Intent(this, hasil_deteksi_flu.class);
+                startActivity(intent);
+            }
+        } else if (demamTidak.isChecked() && batukIya.isChecked() && lendirtTidak.isChecked() && sakitkTidak.isChecked() && hidungtTidak.isChecked()){
+            if (i == R.id.submitDeteksi) {
+                Intent intent = new Intent(this, hasil_deteksi_flu.class);
+                startActivity(intent);
+            }
+        } else if (demamTidak.isChecked() && batukTidak.isChecked() && lendirtIya.isChecked() && sakitkTidak.isChecked() && hidungtTidak.isChecked()){
+            if (i == R.id.submitDeteksi) {
+                Intent intent = new Intent(this, hasil_deteksi_radang_tenggorokan.class);
+                startActivity(intent);
+            }
+        } else if (demamTidak.isChecked() && batukTidak.isChecked() && lendirtTidak.isChecked() && sakitkIya.isChecked() && hidungtTidak.isChecked()){
+            if (i == R.id.submitDeteksi) {
+                Intent intent = new Intent(this, hasil_deteksi_sinusitis.class);
+                startActivity(intent);
+            }
+        } else if (demamTidak.isChecked() && batukTidak.isChecked() && lendirtTidak.isChecked() && sakitkTidak.isChecked() && hidungtIya.isChecked()){
+            if (i == R.id.submitDeteksi) {
+                Intent intent = new Intent(this, hasil_deteksi_flu.class);
+                startActivity(intent);
+            }
+        } else if (demamTidak.isChecked() && batukTidak.isChecked() && lendirtTidak.isChecked() && sakitkTidak.isChecked() && hidungtTidak.isChecked()){
+            if (i == R.id.submitDeteksi) {
+                Intent intent = new Intent(this, hasil_deteksi_sehat.class);
+                startActivity(intent);
+            }
+        } else if (demamIya.isChecked() && batukIya.isChecked() && lendirtIya.isChecked() && sakitkIya.isChecked() && hidungtIya.isChecked()){
+            if (i == R.id.submitDeteksi) {
+                Intent intent = new Intent(this, hasil_deteksi_flu.class);
+                startActivity(intent);
+            }
+        } else {
+            if (i == R.id.submitDeteksi) {
+                Intent intent = new Intent(this, hasil_deteksi_flu.class);
                 startActivity(intent);
             }
         }
     }
 
+    public void backDashboard(View view) {
+        finish();
+    }
 }

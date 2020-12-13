@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ensiklopedia"
+    tools:context=".DeteksiPenyakit"
     android:background="#fff"
     android:layout_gravity="bottom">
 
@@ -22,18 +22,35 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
-                <TextView
-                    android:id="@+id/tv_title_deteksiPenyakit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="DETEKSI PENYAKIT"
-                    android:textStyle="bold"
-                    android:textColor="#fff"
-                    android:textSize="20sp"
-                    android:fontFamily="sans-serif-medium"
-                    android:layout_marginStart="25dp"
-                    android:layout_marginLeft="25dp"
-                    android:layout_marginTop="30dp"/>
+                <RelativeLayout
+                    android:id="@+id/tool"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:layout_collapseMode="parallax">
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_back_v2"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:onClick="backDashboard"/>
+                    <TextView
+                        android:id="@+id/tv_title_deteksiPenyakit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Deteksi Penyakit"
+                        android:textStyle="bold"
+                        android:textColor="#fff"
+                        android:textSize="20sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:layout_marginStart="25dp"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"/>
+                </RelativeLayout>
                 <TextView
                     android:id="@+id/tv_subtitle"
                     android:layout_width="wrap_content"
@@ -44,7 +61,7 @@
                     android:text="Apakah anda merasa sakit ?"
                     android:textStyle="bold"
                     android:textColor="#fff"
-                    android:layout_below="@id/tv_title_deteksiPenyakit"/>
+                    android:layout_below="@id/tool"/>
                 <TextView
                     android:id="@+id/tv_subtitle2"
                     android:layout_width="250dp"
@@ -64,7 +81,7 @@
                     android:src="@drawable/ic_deteksi_penyakit_foreground"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
+                    android:layout_below="@id/tool"
                     android:layout_marginRight="20dp"
                     android:layout_marginEnd="20dp"/>
 
@@ -83,27 +100,27 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Jawablah pertanyaan berikut"
-                android:textSize="18sp"
-                android:fontFamily="sans-serif"
-                android:textColor="#000"
-                android:textStyle="bold"
-                android:layout_marginLeft="35dp"
-                android:layout_marginStart="35dp"
-                android:layout_marginRight="35dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="35dp"
-                android:layout_marginTop="20dp"/>
+                android:layout_marginRight="35dp"
+                android:fontFamily="@font/playfair_display_bold"
+                android:text="Jawablah pertanyaan berikut"
+                android:textColor="#333333"
+                android:textSize="16sp" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cv_demam"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="3dp"
-                app:cardElevation="10dp"
-                android:layout_marginTop="20dp"
+                app:cardElevation="5dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginRight="30dp"
                 android:layout_marginLeft="30dp">
                 <LinearLayout
@@ -118,21 +135,23 @@
                         android:layout_weight="2"
                         android:orientation="vertical"
                         android:layout_gravity="center_vertical">
+
                         <TextView
                             android:id="@+id/tv_dDemamD"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="left"
-                            android:layout_marginTop="10dp"
                             android:layout_marginStart="15dp"
                             android:layout_marginLeft="15dp"
-                            android:layout_marginRight="20dp"
+                            android:layout_marginTop="10dp"
                             android:layout_marginEnd="20dp"
+                            android:layout_marginRight="20dp"
+                            android:fontFamily="@font/archivo_narrow_bold"
                             android:text="@string/tv_dDemamD"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textColor="#333333"
                             android:textSize="20sp"
-                            android:textStyle="bold"
-                            android:textColor="#000"
-                            android:textAppearance="?android:attr/textAppearanceSmall"/>
+                            android:textStyle="bold" />
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -149,8 +168,8 @@
                                     android:layout_height="wrap_content"
                                     android:text="Iya"
                                     android:layout_marginLeft="15dp"
-                                    android:textColor="#000"
-                                    android:buttonTint="#000"
+                                    android:textColor="#333333"
+                                    android:buttonTint="#333333"
                                     android:layout_marginStart="15dp" />
                                 <RadioButton
                                     android:id="@+id/demamTidak"
@@ -158,8 +177,8 @@
                                     android:layout_height="wrap_content"
                                     android:text="Tidak"
                                     android:layout_marginLeft="15dp"
-                                    android:textColor="#000"
-                                    android:buttonTint="#000"
+                                    android:textColor="#333333"
+                                    android:buttonTint="#333333"
                                     android:layout_marginStart="15dp"
                                     android:layout_marginTop="5dp"
                                     android:layout_marginBottom="10dp"/>
@@ -174,8 +193,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="3dp"
-                app:cardElevation="10dp"
-                android:layout_marginTop="20dp"
+                app:cardElevation="5dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginRight="30dp"
                 android:layout_marginLeft="30dp">
                 <LinearLayout
@@ -190,21 +209,23 @@
                         android:layout_weight="2"
                         android:orientation="vertical"
                         android:layout_gravity="center_vertical">
+
                         <TextView
                             android:id="@+id/tv_dBatukD"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="left"
-                            android:layout_marginTop="10dp"
                             android:layout_marginStart="15dp"
                             android:layout_marginLeft="15dp"
-                            android:layout_marginRight="20dp"
+                            android:layout_marginTop="10dp"
                             android:layout_marginEnd="20dp"
+                            android:layout_marginRight="20dp"
+                            android:fontFamily="@font/archivo_narrow_bold"
                             android:text="@string/tv_dBatukD"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textColor="#333333"
                             android:textSize="20sp"
-                            android:textStyle="bold"
-                            android:textColor="#000"
-                            android:textAppearance="?android:attr/textAppearanceSmall"/>
+                            android:textStyle="bold" />
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -221,8 +242,8 @@
                                     android:layout_height="wrap_content"
                                     android:text="Iya"
                                     android:layout_marginLeft="15dp"
-                                    android:textColor="#000"
-                                    android:buttonTint="#000"
+                                    android:textColor="#333333"
+                                    android:buttonTint="#333333"
                                     android:layout_marginStart="15dp" />
                                 <RadioButton
                                     android:id="@+id/batukTidak"
@@ -230,8 +251,8 @@
                                     android:layout_height="wrap_content"
                                     android:text="Tidak"
                                     android:layout_marginLeft="15dp"
-                                    android:textColor="#000"
-                                    android:buttonTint="#000"
+                                    android:textColor="#333333"
+                                    android:buttonTint="#333333"
                                     android:layout_marginStart="15dp"
                                     android:layout_marginTop="5dp"
                                     android:layout_marginBottom="10dp"/>
@@ -246,8 +267,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="3dp"
-                app:cardElevation="10dp"
-                android:layout_marginTop="20dp"
+                app:cardElevation="5dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginRight="30dp"
                 android:layout_marginLeft="30dp">
                 <LinearLayout
@@ -262,21 +283,23 @@
                         android:layout_weight="2"
                         android:orientation="vertical"
                         android:layout_gravity="center_vertical">
+
                         <TextView
                             android:id="@+id/tv_dLendirtD"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="left"
-                            android:layout_marginTop="10dp"
                             android:layout_marginStart="15dp"
                             android:layout_marginLeft="15dp"
-                            android:layout_marginRight="20dp"
+                            android:layout_marginTop="10dp"
                             android:layout_marginEnd="20dp"
+                            android:layout_marginRight="20dp"
+                            android:fontFamily="@font/archivo_narrow_bold"
                             android:text="Apakah terdapat lendir di tenggorokan anda?"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textColor="#333333"
                             android:textSize="20sp"
-                            android:textStyle="bold"
-                            android:textColor="#000"
-                            android:textAppearance="?android:attr/textAppearanceSmall"/>
+                            android:textStyle="bold" />
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -293,8 +316,8 @@
                                     android:layout_height="wrap_content"
                                     android:text="Iya"
                                     android:layout_marginLeft="15dp"
-                                    android:textColor="#000"
-                                    android:buttonTint="#000"
+                                    android:textColor="#333333"
+                                    android:buttonTint="#333333"
                                     android:layout_marginStart="15dp" />
                                 <RadioButton
                                     android:id="@+id/lendirtTidak"
@@ -302,8 +325,8 @@
                                     android:layout_height="wrap_content"
                                     android:text="Tidak"
                                     android:layout_marginLeft="15dp"
-                                    android:textColor="#000"
-                                    android:buttonTint="#000"
+                                    android:textColor="#333333"
+                                    android:buttonTint="#333333"
                                     android:layout_marginStart="15dp"
                                     android:layout_marginTop="5dp"
                                     android:layout_marginBottom="10dp"/>
@@ -318,8 +341,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="3dp"
-                app:cardElevation="10dp"
-                android:layout_marginTop="20dp"
+                app:cardElevation="5dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginRight="30dp"
                 android:layout_marginLeft="30dp">
                 <LinearLayout
@@ -334,21 +357,23 @@
                         android:layout_weight="2"
                         android:orientation="vertical"
                         android:layout_gravity="center_vertical">
+
                         <TextView
                             android:id="@+id/tv_dSakitkD"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="left"
-                            android:layout_marginTop="10dp"
                             android:layout_marginStart="15dp"
                             android:layout_marginLeft="15dp"
-                            android:layout_marginRight="20dp"
+                            android:layout_marginTop="10dp"
                             android:layout_marginEnd="20dp"
+                            android:layout_marginRight="20dp"
+                            android:fontFamily="@font/archivo_narrow_bold"
                             android:text="Apakah anda mengalami pusing kepala?"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textColor="#333333"
                             android:textSize="20sp"
-                            android:textStyle="bold"
-                            android:textColor="#000"
-                            android:textAppearance="?android:attr/textAppearanceSmall"/>
+                            android:textStyle="bold" />
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -365,8 +390,8 @@
                                     android:layout_height="wrap_content"
                                     android:text="Iya"
                                     android:layout_marginLeft="15dp"
-                                    android:textColor="#000"
-                                    android:buttonTint="#000"
+                                    android:textColor="#333333"
+                                    android:buttonTint="#333333"
                                     android:layout_marginStart="15dp" />
                                 <RadioButton
                                     android:id="@+id/sakitkTidak"
@@ -374,8 +399,8 @@
                                     android:layout_height="wrap_content"
                                     android:text="Tidak"
                                     android:layout_marginLeft="15dp"
-                                    android:textColor="#000"
-                                    android:buttonTint="#000"
+                                    android:textColor="#333333"
+                                    android:buttonTint="#333333"
                                     android:layout_marginStart="15dp"
                                     android:layout_marginTop="5dp"
                                     android:layout_marginBottom="10dp"/>
@@ -390,8 +415,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="3dp"
-                app:cardElevation="10dp"
-                android:layout_marginTop="20dp"
+                app:cardElevation="5dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginRight="30dp"
                 android:layout_marginLeft="30dp">
                 <LinearLayout
@@ -406,21 +431,23 @@
                         android:layout_weight="2"
                         android:orientation="vertical"
                         android:layout_gravity="center_vertical">
+
                         <TextView
                             android:id="@+id/tv_dHidungtD"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="left"
-                            android:layout_marginTop="10dp"
                             android:layout_marginStart="15dp"
                             android:layout_marginLeft="15dp"
-                            android:layout_marginRight="20dp"
+                            android:layout_marginTop="10dp"
                             android:layout_marginEnd="20dp"
+                            android:layout_marginRight="20dp"
+                            android:fontFamily="@font/archivo_narrow_bold"
                             android:text="Apakah hidung anda tersumbat?"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textColor="#333333"
                             android:textSize="20sp"
-                            android:textStyle="bold"
-                            android:textColor="#000"
-                            android:textAppearance="?android:attr/textAppearanceSmall"/>
+                            android:textStyle="bold" />
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -437,8 +464,8 @@
                                     android:layout_height="wrap_content"
                                     android:text="Iya"
                                     android:layout_marginLeft="15dp"
-                                    android:textColor="#000"
-                                    android:buttonTint="#000"
+                                    android:textColor="#333333"
+                                    android:buttonTint="#333333"
                                     android:layout_marginStart="15dp" />
                                 <RadioButton
                                     android:id="@+id/hidungtTidak"
@@ -446,8 +473,8 @@
                                     android:layout_height="wrap_content"
                                     android:text="Tidak"
                                     android:layout_marginLeft="15dp"
-                                    android:textColor="#000"
-                                    android:buttonTint="#000"
+                                    android:textColor="#333333"
+                                    android:buttonTint="#333333"
                                     android:layout_marginStart="15dp"
                                     android:layout_marginTop="5dp"
                                     android:layout_marginBottom="10dp"/>

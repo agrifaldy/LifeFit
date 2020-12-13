@@ -135,7 +135,8 @@
                                             android:text="Monitoring Kesehatan"
                                             android:textAppearance="?android:attr/textAppearanceLarge"
                                             android:textSize="18sp"
-                                            android:textStyle="bold" />
+                                            android:textStyle="bold"
+                                            android:textColor="#333333"/>
 
                                         <RelativeLayout
                                             android:layout_width="match_parent"
@@ -162,7 +163,8 @@
                                                 android:layout_toLeftOf="@id/nexttt"
                                                 android:fontFamily="@font/roboto"
                                                 android:text="Anda dapat memonitoring aktivitas sehat anda sehari-hari."
-                                                android:textAppearance="?android:attr/textAppearanceSmall" />
+                                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                                android:textColor="#333333"/>
 
                                         </RelativeLayout>
 
@@ -230,7 +232,8 @@
                                             android:text="Deteksi Penyakit"
                                             android:textAppearance="?android:attr/textAppearanceLarge"
                                             android:textSize="18sp"
-                                            android:textStyle="bold" />
+                                            android:textStyle="bold"
+                                            android:textColor="#333333"/>
 
                                         <RelativeLayout
                                             android:layout_width="match_parent"
@@ -258,7 +261,8 @@
                                                 android:layout_toLeftOf="@id/nextt"
                                                 android:fontFamily="@font/roboto"
                                                 android:text="Anda dapat mendeteksi penyakit berdasarkan inputan gejala."
-                                                android:textAppearance="?android:attr/textAppearanceSmall" />
+                                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                                android:textColor="#333333"/>
 
                                         </RelativeLayout>
 
@@ -330,7 +334,7 @@
                                     android:layout_marginLeft="10dp"
                                     android:fontFamily="@font/montserrat_bold"
                                     android:text="Nama Pengguna"
-                                    android:textColor="#000"
+                                    android:textColor="#333333"
                                     android:textSize="20sp"
                                     android:textStyle="bold" />
 
@@ -342,7 +346,7 @@
                                     android:layout_marginLeft="10dp"
                                     android:fontFamily="@font/roboto_medium"
                                     android:text="email/alamat"
-                                    android:textSize="13sp" />
+                                    android:textSize="13sp"/>
                             </LinearLayout>
                         </LinearLayout>
 
@@ -368,7 +372,7 @@
                                     android:layout_marginLeft="20dp"
                                     android:layout_marginTop="10dp"
                                     android:fontFamily="@font/roboto_medium"
-                                    android:textColor="#000000" />
+                                    android:textColor="#333333" />
 
                                 <TextView
                                     android:layout_width="match_parent"

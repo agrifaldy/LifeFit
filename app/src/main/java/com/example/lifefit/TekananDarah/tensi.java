@@ -25,6 +25,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.example.lifefit.IndeksMassaTubuh.page_monitoring;
 import com.example.lifefit.R;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -223,5 +224,9 @@ public class tensi extends AppCompatActivity {
                 Log.w("TAG", "Failed to read value.", error.toException());
             }
         });
+    }
+
+    public void backToPageMonitoringc(View view) {
+        finish();
     }
 }
