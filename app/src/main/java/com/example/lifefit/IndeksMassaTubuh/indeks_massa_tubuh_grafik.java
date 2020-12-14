@@ -33,6 +33,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 public class indeks_massa_tubuh_grafik extends AppCompatActivity {
 
@@ -73,6 +74,7 @@ public class indeks_massa_tubuh_grafik extends AppCompatActivity {
                 Object fieldsOb3 = new Object();
                 HashMap fldObj;
                 HashMap value;
+                HashMap tinggiBadan;
                 //String[] tinggiBadan;
 
 
@@ -87,7 +89,7 @@ public class indeks_massa_tubuh_grafik extends AppCompatActivity {
 
                     //list.add(fldObj);
                     fldObj.get("");
-                    value.get("nodeId");
+                    value.get("");
 
 
 
@@ -106,16 +108,44 @@ public class indeks_massa_tubuh_grafik extends AppCompatActivity {
                                 String berat = fldObj.get("berat").toString();
                                 String imt = fldObj.get("imt").toString();
 
+                                /**for (int i = 0; i < value.size(); i++) {
+                                    list.add(value);
+                                }**/
+
                                 list.add(value);
+                                list.get(0);
+
+                                /**class MySet<A> {
+                                    ArrayList<A> contents = new ArrayList();
+                                    HashMap<A,Integer> indices = new HashMap<A,Integer>();
+                                    Random R = new Random();
+
+                                    //selects random element in constant time
+                                    A randomKey() {
+                                        return contents.get(R.nextInt(contents.size()));
+                                    }
+
+                                    //adds new element in constant time
+                                    void add(A a) {
+                                        indices.put(a,contents.size());
+                                        contents.add(a);
+                                    }
+
+                                }**/
+
+
+
+                                //tinggiBadan =  value.get(R.(value.size()));
+                                //tinggiBadan.get("tinggi");
 
                                 //String[] tinggiBadan = Arrays.copyOf(( tinggiBadanValue, tinggiBadanValue.length, String[].class);
 
                                 BarChart barChart = (BarChart) findViewById(R.id.barChart);
 
                                 ArrayList<BarEntry> entries = new ArrayList<>();
-                                entries.add(new BarEntry(Float.parseFloat(tinggi), Float.parseFloat(tinggi), "Tinggi Badan"));
-                                entries.add(new BarEntry(Float.parseFloat(tinggi), Float.parseFloat(berat), "Berat Badan"));
-                                entries.add(new BarEntry(Float.parseFloat(tinggi), Float.parseFloat(imt), "IMT"));
+                                entries.add(new BarEntry(1, Float.parseFloat(tinggi), "Tinggi Badan"));
+                                entries.add(new BarEntry(2, Float.parseFloat(berat), "Berat Badan"));
+                                entries.add(new BarEntry(3, Float.parseFloat(imt), "IMT"));
 
                                 /**for(int i = 0; i < tinggi.toString().length(); i++){
                                  entries.add(new Entry(tinggi[i] ,i));
@@ -130,11 +160,12 @@ public class indeks_massa_tubuh_grafik extends AppCompatActivity {
                                 label.add("Berat");
                                 label.add("Imt");
 
-                                BarDataSet bardataset = new BarDataSet(entries, tanggal);
+                                BarDataSet bardataset = new BarDataSet(entries, label.toString());
 
-                                bardataset.setColors(ColorTemplate.COLORFUL_COLORS);
+                                bardataset.setColors(ColorTemplate.JOYFUL_COLORS);
                                 bardataset.setValueTextColor(Color.BLACK);
                                 bardataset.setValueTextSize(16f);
+
                                 BarData barData = new BarData(bardataset);
                                 barChart.setFitBars(true);
                                 barChart.setData(barData); // set the data and list of labels into chart
@@ -142,6 +173,8 @@ public class indeks_massa_tubuh_grafik extends AppCompatActivity {
 
 
                                 barChart.animateY(2000, Easing.EaseInOutQuad);
+                                barChart.setTouchEnabled(true);
+
                             }
                     }
 

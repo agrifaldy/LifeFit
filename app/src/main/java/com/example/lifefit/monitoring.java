@@ -193,4 +193,8 @@ public class monitoring extends Fragment {
         return v;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
 }
