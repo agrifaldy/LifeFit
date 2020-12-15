@@ -42,7 +42,7 @@
         <activity android:name=".IndeksMassaTubuh.indeks_massa_tubuh_grafik" />
         <activity android:name=".IndeksMassaTubuh.indeks_massa_tubuh_input" />
         <activity android:name=".IndeksMassaTubuh.indeks_massa_tubuh" />
-        <activity android:name=".UserLoginActivity" />
+        <activity android:name=".UserLoginActivity" android:noHistory="true"/>
         <activity android:name=".UserSignupActivity" />
         <activity
             android:name=".Splash"
