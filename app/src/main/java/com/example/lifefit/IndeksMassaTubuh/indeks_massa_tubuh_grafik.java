@@ -7,6 +7,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.view.WindowManager;
 
 import com.example.lifefit.R;
@@ -37,10 +38,11 @@ import java.util.Random;
 
 public class indeks_massa_tubuh_grafik extends AppCompatActivity {
 
-    private DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+    private DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("Bmi");
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
-    private List<indeks_massa_tubuh_grafik> list;
+    //private List<indeks_massa_tubuh_grafik> list;
     BarChart barChart;
+    private List<Bmi> list = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,171 +60,122 @@ public class indeks_massa_tubuh_grafik extends AppCompatActivity {
 
     private void showBartChart () {
 
-        ArrayList<HashMap<String, Object>> list = new ArrayList<>();
+        //final ArrayList<HashMap<String, Object>> list = new ArrayList<>();
         Object fieldsObj = new Object();
         HashMap fldObj;
 
-        mDatabase.child("Bmi").addValueEventListener(new ValueEventListener() {
+        mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
 
-                ArrayList<HashMap<String, Object>> list = new ArrayList<>();
+                //ArrayList<HashMap<String, Object>> list = new ArrayList<>();
                 Object fieldsObj = new Object();
                 Object fieldsOb2 = new Object();
                 Object fieldsOb3 = new Object();
                 HashMap fldObj;
-                HashMap value;
-                HashMap tinggiBadan;
-                //String[] tinggiBadan;
+                HashMap values;
+                HashMap tinggiBadanValue;
+                Object tinggiBadan;
 
-
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
-                    //indeks_massa_tubuh_grafik value = snapshot.getValue(indeks_massa_tubuh_grafik.class);
-                    //list.add(0,value);
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
 
                     fldObj = (HashMap)snapshot.getValue(fieldsObj.getClass());
-                    value = (HashMap)dataSnapshot.getValue(fieldsOb2.getClass());
+                    values = (HashMap)dataSnapshot.getValue(fieldsOb2.getClass());
+                    /**for (int x = 0; x < values.size(); x++) {
+                        Bmi value = snapshot.getValue(Bmi.class);
+                        Bmi valueTinggi = dataSnapshot.getValue(Bmi.class);
+                        list.add(x, value);
+                    }**/
+                    //tinggiBadanValue = (HashMap) dataSnapshot.getValue(fieldsOb3.getClass());
+
+                    /**for ( Object key : values.keySet() ) {
+
+                     }**/
+
+
+
+                    values.get("");
 
                     fieldsOb2.toString();
 
                     //list.add(fldObj);
                     fldObj.get("");
-                    value.get("");
+                    //value.get("");
 
 
+                    //list.clear();
+                    Bmi value = snapshot.getValue(Bmi.class);
+                    //Bmi valueTinggi = dataSnapshot.getValue(Bmi.class);
+                    list.add(0, value);
 
-                    String now = mDatabase.child("wow").getKey();
+                    /**if (mAuth.getCurrentUser().getUid().equals(value.getId())) {
+                     values = (HashMap)dataSnapshot.getValue(fieldsOb2.getClass());
+                     values.size();
+                     }**/
 
-                    /**for (int i = 0; i < value.size(); i++) {
-                        tinggiBadan = (HashMap) i;
-                    }
+                    BarChart barChart = (BarChart) findViewById(R.id.barChart);
 
-                    tinggiBadan = (HashMap) value.;**/
+                    ArrayList<BarEntry> entries = new ArrayList<>();
+                    //entries.add(new BarEntry(1, Float.parseFloat(listData.get(0).getTinggi()), "Tinggi Badan"));
+                    //entries.add(new BarEntry(2, Float.parseFloat(berat), "Berat Badan"));
+                    //entries.add(new BarEntry(3, Float.parseFloat(imt), "IMT"));
 
-                            if(mAuth.getCurrentUser().getUid().equals(fldObj.get("id").toString())) {
+                    //for(int i = 0; i < listData.get(0).getTinggi().length() && i < listData.get(0).getBerat().length() && i < listData.get(0).getImt().length(); i++)
 
-                                String tinggi = fldObj.get("tinggi").toString();
-                                String tanggal = fldObj.get("tanggal").toString();
-                                String berat = fldObj.get("berat").toString();
-                                String imt = fldObj.get("imt").toString();
+                        for(int i = 0; i < list.size(); i++){
 
-                                /**for (int i = 0; i < value.size(); i++) {
-                                    list.add(value);
-                                }**/
+                            if (mAuth.getCurrentUser().getUid().equals(list.get(i).getId())) {
 
-                                list.add(value);
-                                list.get(0);
-
-                                /**class MySet<A> {
-                                    ArrayList<A> contents = new ArrayList();
-                                    HashMap<A,Integer> indices = new HashMap<A,Integer>();
-                                    Random R = new Random();
-
-                                    //selects random element in constant time
-                                    A randomKey() {
-                                        return contents.get(R.nextInt(contents.size()));
-                                    }
-
-                                    //adds new element in constant time
-                                    void add(A a) {
-                                        indices.put(a,contents.size());
-                                        contents.add(a);
-                                    }
-
-                                }**/
-
-
-
-                                //tinggiBadan =  value.get(R.(value.size()));
-                                //tinggiBadan.get("tinggi");
-
-                                //String[] tinggiBadan = Arrays.copyOf(( tinggiBadanValue, tinggiBadanValue.length, String[].class);
-
-                                BarChart barChart = (BarChart) findViewById(R.id.barChart);
-
-                                ArrayList<BarEntry> entries = new ArrayList<>();
-                                entries.add(new BarEntry(1, Float.parseFloat(tinggi), "Tinggi Badan"));
-                                entries.add(new BarEntry(2, Float.parseFloat(berat), "Berat Badan"));
-                                entries.add(new BarEntry(3, Float.parseFloat(imt), "IMT"));
-
-                                /**for(int i = 0; i < tinggi.toString().length(); i++){
-                                 entries.add(new Entry(tinggi[i] ,i));
-                                 }
-
-                                 for(int i = 1; i < xDataL.length; i++){
-                                 entries.add(xDataL[i]);
-                                 }**/
+                                entries.add(new BarEntry(i, Float.parseFloat(list.get(i).getTinggi()), "Tinggi Badan"));
 
                                 ArrayList<String> label = new ArrayList<>();
                                 label.add("Tinggi");
-                                label.add("Berat");
-                                label.add("Imt");
 
                                 BarDataSet bardataset = new BarDataSet(entries, label.toString());
 
-                                bardataset.setColors(ColorTemplate.JOYFUL_COLORS);
+                                bardataset.setColors(Color.parseColor("#424874"));
                                 bardataset.setValueTextColor(Color.BLACK);
                                 bardataset.setValueTextSize(16f);
 
+
                                 BarData barData = new BarData(bardataset);
+
                                 barChart.setFitBars(true);
-                                barChart.setData(barData); // set the data and list of labels into chart
-                                barChart.getDescription().setText(tanggal);
-
-
+                                barChart.setData(barData);
+                                barChart.getDescription().setText("Tanggal");
                                 barChart.animateY(2000, Easing.EaseInOutQuad);
                                 barChart.setTouchEnabled(true);
 
                             }
-                    }
 
 
 
-                    //list.add(value);
+                            /**if (mAuth.getCurrentUser().getUid().equals(listData.get(0).getId()) && mAuth.getCurrentUser().getUid().equals(value.getId())) {
+                             barChart.setData(barData); // set the data and list of labels into chart
+                             bardataset.setVisible(true);
+
+                             }**/
 
 
-                    //list.get(0);
-
-                    /**if(mAuth.getCurrentUser().getUid().equals(fldObj.get("id").toString())) {
 
 
 
-                        String tinggi = fldObj.get("tinggi").toString();
-                        String tanggal = fldObj.get("tanggal").toString();
+                            /**} else {
+                             bardataset.setVisible(false);
+                             }**/
 
 
-                        //String[] tinggiBadan = Arrays.copyOf(( tinggiBadanValue, tinggiBadanValue.length, String[].class);
-
-                        BarChart barChart = (BarChart) findViewById(R.id.barChart);
-
-                        ArrayList<BarEntry> entries = new ArrayList<>();
-                        entries.add(new BarEntry(Float.parseFloat(tinggi), Float.parseFloat(tinggi)));
-
-                        for(int i = 0; i < tinggi.toString().length(); i++){
-                         entries.add(new Entry(tinggi[i] ,i));
-                         }
-
-                         for(int i = 1; i < xDataL.length; i++){
-                         entries.add(xDataL[i]);
-                         }
-
-                        BarDataSet bardataset = new BarDataSet(entries, tanggal);
-
-                        bardataset.setColors(ColorTemplate.COLORFUL_COLORS);
-                        bardataset.setValueTextColor(Color.BLACK);
-                        bardataset.setValueTextSize(16f);
-                        BarData barData = new BarData(bardataset);
-                        barChart.setFitBars(true);
-                        barChart.setData(barData); // set the data and list of labels into chart
-                        barChart.getDescription().setText("Bar chart");
+                        }
 
 
-                        barChart.animateY(2000, Easing.EaseInOutQuad);
-                    }**/
+
+
+                    //}
 
                 }
+            }
 
             @Override
             public void onCancelled(DatabaseError error) {
@@ -231,25 +184,11 @@ public class indeks_massa_tubuh_grafik extends AppCompatActivity {
             }
         });
 
-
-
-        /**entries.add(new BarEntry(2015, 475));
-        entries.add(new BarEntry(2016, 508));
-        entries.add(new BarEntry(2017, 660));
-        entries.add(new BarEntry(2018, 550));
-        entries.add(new BarEntry(2019, 563));**/
-
-
-
-        /**ArrayList<String> labels = new ArrayList<String>();
-        labels.add("2016");
-        labels.add("2015");
-        labels.add("2014");
-        labels.add("2013");
-        labels.add("2012");
-        labels.add("2011");**/
-
-
     }
+
+    /**@Override
+    public int getItemCount() {
+        return list.size();
+    }**/
 
 }

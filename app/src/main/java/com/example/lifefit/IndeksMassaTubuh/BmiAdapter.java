@@ -69,19 +69,20 @@ public class BmiAdapter extends RecyclerView.Adapter<BmiAdapter.ViewHolder> {
     ArrayList<String> keylist = new ArrayList<>();
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
+
         holder.btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(final View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
                 builder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-
+                        //list.remove(getItemViewType(position));
                         if (mAuth.getCurrentUser().getUid().equals(list.get(position).getId())){
-
+                            String id = mDatabase.push().getKey();
+                            mDatabase.child("").removeValue();
                         }
-
                     }
                 }).setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
                     @Override
@@ -124,6 +125,10 @@ public class BmiAdapter extends RecyclerView.Adapter<BmiAdapter.ViewHolder> {
         }
     }
 
+    public void deleteItem(int position) {
+
+    }
+
     private static String formatNumberCurrency(String number) {
         DecimalFormat formatter = new DecimalFormat("00.00");
         return formatter.format(Double.parseDouble(number));
@@ -159,7 +164,6 @@ public class BmiAdapter extends RecyclerView.Adapter<BmiAdapter.ViewHolder> {
             }**/
 
         }
-
 
     }
 
