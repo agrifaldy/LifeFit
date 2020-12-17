@@ -1,14 +1,12 @@
-package com.example.lifefit.TekananDarah;
+package com.example.lifefit.Aktivitas;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.WindowManager;
 
-import com.example.lifefit.IndeksMassaTubuh.Bmi;
+import com.example.lifefit.DenyutJantung.DenyutJantung;
 import com.example.lifefit.R;
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.BarChart;
@@ -21,37 +19,23 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.jjoe64.graphview.DefaultLabelFormatter;
-import com.jjoe64.graphview.GraphView;
-import com.jjoe64.graphview.helper.StaticLabelsFormatter;
-import com.jjoe64.graphview.series.BarGraphSeries;
-import com.jjoe64.graphview.series.DataPoint;
-import com.jjoe64.graphview.series.DataPointInterface;
-import com.jjoe64.graphview.series.LineGraphSeries;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
-public class tensi_grafik extends AppCompatActivity {
+public class aktivitas_grafik extends AppCompatActivity {
 
     private DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("TekananDarah");
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     //private List<indeks_massa_tubuh_grafik> list;
     BarChart barChart;
-    private List<TekananDarah> list = new ArrayList<>();
-
-    SimpleDateFormat sdf = new SimpleDateFormat("yy/MM/dd");
-    GraphView graphView;
-    LineGraphSeries series;
+    private List<AktivitasHarian> list = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_tensi_grafik);
+        setContentView(R.layout.activity_aktivitas_grafik);
         showBartChart();
     }
 
@@ -103,7 +87,7 @@ public class tensi_grafik extends AppCompatActivity {
 
 
                     //list.clear();
-                    TekananDarah value = snapshot.getValue(TekananDarah.class);
+                    AktivitasHarian value = snapshot.getValue(AktivitasHarian.class);
                     //Bmi valueTinggi = dataSnapshot.getValue(Bmi.class);
                     list.add(0, value);
 
@@ -112,7 +96,7 @@ public class tensi_grafik extends AppCompatActivity {
                      values.size();
                      }**/
 
-                    BarChart barChart = (BarChart) findViewById(R.id.barChartTensi);
+                    BarChart barChart = (BarChart) findViewById(R.id.barChartJantung);
 
                     ArrayList<BarEntry> entries = new ArrayList<>();
                     //entries.add(new BarEntry(1, Float.parseFloat(listData.get(0).getTinggi()), "Tinggi Badan"));
@@ -125,10 +109,10 @@ public class tensi_grafik extends AppCompatActivity {
 
                         if (mAuth.getCurrentUser().getUid().equals(list.get(i).getId())) {
 
-                            entries.add(new BarEntry(i, Float.parseFloat(list.get(i).getTekananAtas()), "Tekanan Atas"));
+                            entries.add(new BarEntry(i, Float.parseFloat(list.get(i).getMakan()), "Makan"));
 
                             ArrayList<String> label = new ArrayList<>();
-                            label.add("Tekanan Darah");
+                            label.add("Aktifitas");
 
                             BarDataSet bardataset = new BarDataSet(entries, label.toString());
 
@@ -182,5 +166,4 @@ public class tensi_grafik extends AppCompatActivity {
         });
 
     }
-
 }

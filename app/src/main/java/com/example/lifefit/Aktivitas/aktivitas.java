@@ -30,6 +30,7 @@ import com.example.lifefit.IndeksMassaTubuh.BmiAdapter;
 import com.example.lifefit.IndeksMassaTubuh.indeks_massa_tubuh;
 import com.example.lifefit.IndeksMassaTubuh.page_monitoring;
 import com.example.lifefit.R;
+import com.example.lifefit.TekananDarah.tensi_grafik;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
@@ -220,4 +221,10 @@ public class aktivitas extends AppCompatActivity {
     public void backToPageMonitoringd(View view) {
         finish();
     }
+
+    public void toAktivitasGrafik(View view) {
+        Intent intent = new Intent(this, aktivitas_grafik.class);
+        startActivity(intent);
+    }
+
 }

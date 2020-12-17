@@ -8,9 +8,10 @@
     tools:context=".TekananDarah.tensi_grafik"
     android:padding="20dp">
 
-    <com.jjoe64.graphview.GraphView
+    <com.github.mikephil.charting.charts.BarChart
+        android:layout_margin="10dp"
         android:layout_width="match_parent"
-        android:layout_height="500dip"
-        android:id="@+id/graph" />
+        android:layout_height="match_parent"
+        android:id="@+id/barChartTensi"/>
 
 </LinearLayout>

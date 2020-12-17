@@ -28,6 +28,7 @@ import com.example.lifefit.R;
 import com.example.lifefit.TekananDarah.TekananDarah;
 import com.example.lifefit.TekananDarah.TekananDarahAdapter;
 import com.example.lifefit.TekananDarah.tensi;
+import com.example.lifefit.TekananDarah.tensi_grafik;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
@@ -202,4 +203,10 @@ public class denyut_jantung extends AppCompatActivity {
     public void backToPageMonitoringb(View view) {
         finish();
     }
+
+    public void toJantungGrafik(View view) {
+        Intent intent = new Intent(this, denyut_jantung_grafik.class);
+        startActivity(intent);
+    }
+
 }

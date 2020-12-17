@@ -26,6 +26,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.example.lifefit.IndeksMassaTubuh.indeks_massa_tubuh_grafik;
 import com.example.lifefit.IndeksMassaTubuh.page_monitoring;
 import com.example.lifefit.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -273,4 +274,10 @@ public class tensi extends AppCompatActivity {
     public void backToPageMonitoringc(View view) {
         finish();
     }
+
+    public void toTensiGrafik(View view) {
+        Intent intent = new Intent(this, tensi_grafik.class);
+        startActivity(intent);
+    }
+
 }
