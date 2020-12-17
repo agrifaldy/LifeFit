@@ -143,7 +143,13 @@
                                         android:minLines="2"
                                         android:text="Monitoring IMT"
                                         android:textAppearance="?android:attr/textAppearanceLarge"
-                                        android:textSize="13sp" />
+                                        android:textSize="13sp"
+                                        android:layout_marginBottom="2dp"/>
+
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:background="?android:attr/listDivider"/>
 
                                     <ImageView
                                         android:layout_width="wrap_content"
@@ -199,7 +205,14 @@
                                         android:textSize="13sp"
                                         android:minLines="2"
                                         android:layout_gravity="center"
-                                        android:textAlignment="center"/>
+                                        android:textAlignment="center"
+                                        android:layout_marginBottom="2dp"/>
+
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:background="?android:attr/listDivider"/>
+
                                     <ImageView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
@@ -220,7 +233,7 @@
                                 android:layout_height="wrap_content"
                                 app:cardElevation="7dp"
                                 app:cardCornerRadius="10dp"
-                                android:layout_marginBottom="40dp"
+                                android:layout_marginBottom="30dp"
                                 android:layout_marginTop="5dp"
                                 android:layout_marginRight="8dp"
                                 android:foreground="?android:attr/selectableItemBackground"
@@ -259,7 +272,12 @@
                                         android:textAppearance="?android:attr/textAppearanceLarge"
                                         android:textSize="13sp"
                                         android:layout_gravity="center"
-                                        android:textAlignment="center"/>
+                                        android:textAlignment="center"
+                                        android:layout_marginBottom="2dp"/>
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:background="?android:attr/listDivider"/>
                                     <ImageView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
@@ -274,7 +292,7 @@
                                 android:layout_height="wrap_content"
                                 app:cardElevation="7dp"
                                 app:cardCornerRadius="10dp"
-                                android:layout_marginBottom="40dp"
+                                android:layout_marginBottom="30dp"
                                 android:layout_marginLeft="8dp"
                                 android:layout_marginTop="5dp"
                                 android:foreground="?android:attr/selectableItemBackground"
@@ -314,7 +332,12 @@
                                         android:textSize="13sp"
                                         android:layout_gravity="center"
                                         android:minLines="2"
-                                        android:textAlignment="center"/>
+                                        android:textAlignment="center"
+                                        android:layout_marginBottom="2dp"/>
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:background="?android:attr/listDivider"/>
                                     <ImageView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"

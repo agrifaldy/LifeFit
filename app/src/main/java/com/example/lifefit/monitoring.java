@@ -147,7 +147,30 @@ public class monitoring extends Fragment {
         modelNews3.title = "4 Bahaya Susu Sapi Jika Dikonsumsi Berlebihan";
         modelNews.add(modelNews3);
 
-        newsViewPager.setAdapter(new ModelNewsAdapter(modelNews));
+        ModelNews modelNews4 = new ModelNews();
+        modelNews4.imageUrl = "https://asset.kompas.com/crops/x2qHEjZgH0BeYGOxwQ2z_BXftV8=/6x35:994x694/750x500/data/photo/2020/11/06/5fa564193b144.jpg";
+        modelNews4.title = "Cara Mencegah dan mengatasi Diare";
+        modelNews.add(modelNews4);
+
+        ModelNews modelNews5 = new ModelNews();
+        modelNews5.imageUrl = "https://asset.kompas.com/crops/QA5yVeOXQJVpbwp_TK_Hf_DhJ44=/2x20:972x667/750x500/data/photo/2020/11/12/5fad0004b705b.jpg";
+        modelNews5.title = "6 Penyebab Obesitas yang Perlu Diwaspadai";
+        modelNews.add(modelNews5);
+
+        ModelNews modelNews6 = new ModelNews();
+        modelNews6.imageUrl = "https://asset.kompas.com/crops/BV5h1jySrt3cLxr0mqECBfvsvVQ=/0x0:1000x667/750x500/data/photo/2020/06/12/5ee331e8db424.jpg";
+        modelNews6.title = "8 Jenis Vitamin B dan Manfaatnya bagi Tubuh";
+        modelNews.add(modelNews6);
+
+
+        String[] link = new String[]{"https://health.kompas.com/read/2020/12/09/100500268/10-gejala-keracunan-makanan-yang-perlu-diwaspadai?page=all",
+                "https://health.kompas.com/read/2020/12/09/080500568/11-makanan-untuk-bantu-terlihat-awet-muda?page=all",
+                "https://health.kompas.com/read/2020/12/07/060000268/4-bahaya-susu-sapi-jika-dikonsumsi-berlebihan?page=all",
+                "https://health.kompas.com/read/2020/12/17/100000768/cara-mencegah-dan-mengatasi-diare",
+                "https://health.kompas.com/read/2020/12/15/140500468/6-penyebab-obesitas-yang-perlu-diwaspadai",
+                "https://health.kompas.com/read/2020/12/15/120500168/8-jenis-vitamin-b-dan-manfaatnya-bagi-tubuh"};
+
+        newsViewPager.setAdapter(new ModelNewsAdapter(getContext(), modelNews, link));
 
         newsViewPager.setClipToPadding(false);
         newsViewPager.setClipChildren(false);
