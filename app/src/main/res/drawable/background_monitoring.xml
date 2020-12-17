@@ -9,8 +9,8 @@
         </shape>
     </item>
     <item
-        android:left="-300dp"
-        android:right="-300dp"
+        android:left="-500dp"
+        android:right="-500dp"
         android:bottom="-200dp">
         <shape
             android:shape="oval">

@@ -1,6 +1,7 @@
 package com.example.lifefit.TekananDarah;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.ItemTouchHelper;
@@ -27,7 +28,9 @@ import android.widget.Toast;
 
 import com.example.lifefit.IndeksMassaTubuh.page_monitoring;
 import com.example.lifefit.R;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -35,12 +38,15 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Objects;
+
+import static java.security.AccessController.getContext;
 
 public class tensi extends AppCompatActivity {
 
@@ -49,6 +55,8 @@ public class tensi extends AppCompatActivity {
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference myRef = database.getReference("TekananDarah");
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
+
+    private FirebaseFirestore firestoreDB = FirebaseFirestore.getInstance();
 
     private List<TekananDarah> list = new ArrayList<>();
     private int year, month, day;
@@ -70,20 +78,42 @@ public class tensi extends AppCompatActivity {
 
         recyclerViewTensi.setAdapter(adapter);
 
-        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {
-            @Override
-            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
-                return false;
-            }
 
-            @Override
-            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-                list.remove(viewHolder.getAdapterPosition());
-                adapter.notifyDataSetChanged();
-            }
-        }).attachToRecyclerView(recyclerViewTensi);
+//        ItemTouchHelper.SimpleCallback swipeToDeleteCallback = new
+//                SwipeToDeleteCallback(0, ItemTouchHelper.RIGHT, TekananDarahAdapter, getContext()); // Making the SimpleCallback
+//
+//        ItemTouchHelper touchHelper = new ItemTouchHelper(swipeToDeleteCallback);
+//
+//        touchHelper.attachToRecyclerView(recyclerViewTensi); // then attach it to your recycler view
+
 
         //button click
+
+//        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+//            @Override
+//            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+//                return false;
+//            }
+//
+//            @Override
+//            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, final int direction) {
+//                TekananDarah titikPoint = list.get(direction);
+//                firestoreDB.collection("TekananDarah")
+//                        .document(titikPoint.getId())
+//                        .delete()
+//                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+//                            @Override
+//                            public void onComplete(@NonNull Task<Void> task) {
+//                                list.remove(direction);
+//                                adapter.notifyItemRemoved(direction);
+//                                adapter.notifyItemRangeChanged(direction, getItemCount());
+//                                Toast.makeText(tensi.this, "Titik Sampah has been deleted!", Toast.LENGTH_SHORT).show();
+//                            }
+//                        });
+//            }
+//        }).attachToRecyclerView(recyclerViewTensi);
+
+
         btnAddTensi.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
@@ -93,6 +123,10 @@ public class tensi extends AppCompatActivity {
         });
 
         readData();
+    }
+
+    private int getItemCount() {
+        return list.size();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
@@ -212,6 +246,7 @@ public class tensi extends AppCompatActivity {
                     list.add(0,value);
                 }
                 recyclerViewTensi.setAdapter(new TekananDarahAdapter(tensi.this,list));
+
                 /**if (mAuth.getCurrentUser().getUid().equals(username.getId())){
                  recyclerView.setVisibility(View.VISIBLE);
                  }**/
@@ -222,6 +257,15 @@ public class tensi extends AppCompatActivity {
             public void onCancelled(DatabaseError error) {
                 // Failed to read value
                 Log.w("TAG", "Failed to read value.", error.toException());
+            }
+        });
+    }
+
+    private void hapusData(TekananDarah tekananDarah) {
+        myRef.child(tekananDarah.getId()).removeValue(new DatabaseReference.CompletionListener() {
+            @Override
+            public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
+                Toast.makeText(getApplicationContext(), "Berhasil dihapus", Toast.LENGTH_SHORT).show();
             }
         });
     }

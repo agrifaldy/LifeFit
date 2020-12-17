@@ -153,7 +153,6 @@ public class BmiAdapter extends RecyclerView.Adapter<BmiAdapter.ViewHolder> {
             tv_imt = itemView.findViewById(R.id.tv_imt);
             tv_keterangan = itemView.findViewById(R.id.tv_keterangan);
             btnDelete = itemView.findViewById(R.id.btn_deleteBmi);
-            btnEdit = itemView.findViewById(R.id.btn_editBmi);
             hasilIbm = itemView.findViewById(R.id.cv_hasiIbm);
 
 

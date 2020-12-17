@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".monitoring"
+    tools:context=".profil"
     android:background="#fff">
 
     <ScrollView
@@ -248,7 +248,7 @@
                             android:layout_toEndOf="@+id/iv_about_us"
                             android:layout_toRightOf="@+id/iv_about_us"
                             android:fontFamily="@font/roboto"
-                            android:text="Tentang Kami"
+                            android:text="Our Team"
                             android:textColor="#000"
                             android:textSize="15sp" />
                         <ImageView
@@ -257,7 +257,7 @@
                             android:src="@drawable/ic_next"
                             android:background="@android:color/transparent"
                             android:layout_alignParentRight="true"
-                            android:layout_alignParentEnd="true" />/>
+                            android:layout_alignParentEnd="true" />
                     </RelativeLayout>
                     <TextView
                         android:id="@+id/tv_pengaturan"

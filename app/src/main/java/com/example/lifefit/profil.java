@@ -23,7 +23,7 @@ public class profil extends Fragment implements View.OnClickListener {
     private Button b_logout;
     View view;
     private LinearLayout ll_logout;
-    private RelativeLayout feedback, akunsaya;
+    private RelativeLayout feedback, akunsaya, aboutus;
 
     public profil() {
         // Required empty public constructor
@@ -38,6 +38,7 @@ public class profil extends Fragment implements View.OnClickListener {
         ll_logout = (LinearLayout) view.findViewById(R.id.ll_logout);
         feedback = (RelativeLayout) view.findViewById(R.id.rl_feedback);
         akunsaya = (RelativeLayout) view.findViewById(R.id.rl_akun_saya);
+        aboutus = (RelativeLayout) view.findViewById(R.id.rl_about_us);
 
         feedback.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,6 +57,14 @@ public class profil extends Fragment implements View.OnClickListener {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), akun_saya.class);
+                startActivity(intent);
+            }
+        });
+
+        aboutus.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), tentang_kami.class);
                 startActivity(intent);
             }
         });
