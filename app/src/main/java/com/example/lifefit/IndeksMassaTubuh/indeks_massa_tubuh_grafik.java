@@ -34,6 +34,8 @@ import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
 
 import java.lang.reflect.Array;
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -140,9 +142,22 @@ public class indeks_massa_tubuh_grafik extends AppCompatActivity {
 
                             if (mAuth.getCurrentUser().getUid().equals(list.get(i).getId())) {
 
-                                entries.add(new BarEntry(Float.parseFloat(list.get(i).getTinggi()), Float.parseFloat(list.get(i).getTinggi()), list.get(i).getTanggal()));
-                                entries2.add(new BarEntry(Float.parseFloat(list.get(i).getBerat()), Float.parseFloat(list.get(i).getBerat()), list.get(i).getTanggal()));
-                                entries3.add(new BarEntry(Float.parseFloat(list.get(i).getImt()), Float.parseFloat(list.get(i).getImt()), list.get(i).getTanggal()));
+
+                                //String string = list.get(0).getTanggal();
+                                DateFormat format = new SimpleDateFormat("ddMMyyyy");
+                                Date date = null;
+                                try {
+                                    date = new SimpleDateFormat("MMMM d, yyyy", Locale.ENGLISH).parse(list.get(i).getTanggal().toString());
+                                } catch (ParseException e) {
+                                    e.printStackTrace();
+                                }
+                                String tanggal = format.format(date);
+
+
+
+                                entries.add(new BarEntry(Integer.parseInt(tanggal)/1000000, Float.parseFloat(list.get(i).getTinggi()), list.get(i).getTanggal()));
+                                entries2.add(new BarEntry(Integer.parseInt(tanggal)/1000000, Float.parseFloat(list.get(i).getBerat()), list.get(i).getTanggal()));
+                                entries3.add(new BarEntry(Integer.parseInt(tanggal)/1000000, Float.parseFloat(list.get(i).getImt()), list.get(i).getTanggal()));
 
 
                                 /**ArrayList<String> label = new ArrayList<>();
@@ -154,8 +169,8 @@ public class indeks_massa_tubuh_grafik extends AppCompatActivity {
 
 
                                 //BarDataSet bardataset = new BarDataSet(entries, label.toString());
-                                BarDataSet bardataset = new BarDataSet(entries, "Tinggi");
-                                BarDataSet bardataset2 = new BarDataSet(entries2, "Berat");
+                                BarDataSet bardataset = new BarDataSet(entries, "Tinggi Badan");
+                                BarDataSet bardataset2 = new BarDataSet(entries2, "Berat Badan");
                                 BarDataSet bardataset3 = new BarDataSet(entries3, "IMT");
 
                                 //bardataset.setColors(ColorTemplate.JOYFUL_COLORS);
@@ -163,13 +178,14 @@ public class indeks_massa_tubuh_grafik extends AppCompatActivity {
                                 bardataset.setValueTextColor(Color.BLACK);
                                 bardataset.setValueTextSize(16f);
 
+
                                 //bardataset2.setColors(ColorTemplate.JOYFUL_COLORS);
-                                bardataset2.setColors(Color.parseColor("#424874"));
+                                bardataset2.setColors(Color.parseColor("#cd5d7d"));
                                 bardataset2.setValueTextColor(Color.BLACK);
                                 bardataset2.setValueTextSize(16f);
 
                                 //bardataset3.setColors(ColorTemplate.JOYFUL_COLORS);
-                                bardataset3.setColors(Color.parseColor("#424874"));
+                                bardataset3.setColors(Color.parseColor("#968c83"));
                                 bardataset3.setValueTextColor(Color.BLACK);
                                 bardataset3.setValueTextSize(16f);
 
@@ -180,24 +196,41 @@ public class indeks_massa_tubuh_grafik extends AppCompatActivity {
 
                                 barChart.setFitBars(true);
                                 barChart.setData(barData);
-                                barChart.getDescription().setText("Tanggal");
+                                barChart.getDescription().setText("");
                                 barChart.animateY(2000, Easing.EaseInOutQuad);
                                 barChart.setTouchEnabled(true);
                                 barChart.setDrawGridBackground(false);
-
-
+                                XAxis xAxis = barChart.getXAxis();
+                                xAxis.setGranularity(1f);
+                                xAxis.setCenterAxisLabels(true);
+                                xAxis.setEnabled(true);
+                                xAxis.setDrawGridLines(false);
+                                xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
 
                                 barChart2.setFitBars(true);
                                 barChart2.setData(barData2);
-                                barChart2.getDescription().setText("Tanggal");
+                                barChart2.getDescription().setText("");
                                 barChart2.animateY(2000, Easing.EaseInOutQuad);
                                 barChart2.setTouchEnabled(true);
+                                XAxis xAxis2 = barChart2.getXAxis();
+                                xAxis2.setGranularity(1f);
+                                xAxis2.setCenterAxisLabels(true);
+                                xAxis2.setEnabled(true);
+                                xAxis2.setDrawGridLines(false);
+                                xAxis2.setPosition(XAxis.XAxisPosition.BOTTOM);
 
                                 barChart3.setFitBars(true);
                                 barChart3.setData(barData3);
-                                barChart3.getDescription().setText("Tanggal");
+                                barChart3.getDescription().setText("");
                                 barChart3.animateY(2000, Easing.EaseInOutQuad);
                                 barChart3.setTouchEnabled(true);
+                                XAxis xAxis3 = barChart3.getXAxis();
+                                xAxis3.setGranularity(1f);
+                                xAxis3.setCenterAxisLabels(true);
+                                xAxis3.setEnabled(true);
+                                xAxis3.setDrawGridLines(false);
+                                xAxis3.setPosition(XAxis.XAxisPosition.BOTTOM);
+
 
                             }
 
