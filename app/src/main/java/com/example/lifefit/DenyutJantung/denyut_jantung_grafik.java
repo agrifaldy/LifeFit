@@ -26,7 +26,7 @@ import java.util.List;
 
 public class denyut_jantung_grafik extends AppCompatActivity {
 
-    private DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("TekananDarah");
+    private DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("denyutJantung");
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     //private List<indeks_massa_tubuh_grafik> list;
     BarChart barChart;

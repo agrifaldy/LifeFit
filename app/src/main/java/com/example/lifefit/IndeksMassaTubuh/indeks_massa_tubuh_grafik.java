@@ -53,11 +53,6 @@ public class indeks_massa_tubuh_grafik extends AppCompatActivity {
 
     }
 
-    /**@Override
-    public int getItemCount() {
-        return list.size();
-    }**/
-
     private void showBartChart () {
 
         //final ArrayList<HashMap<String, Object>> list = new ArrayList<>();

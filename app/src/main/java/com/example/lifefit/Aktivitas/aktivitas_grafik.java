@@ -26,7 +26,7 @@ import java.util.List;
 
 public class aktivitas_grafik extends AppCompatActivity {
 
-    private DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("TekananDarah");
+    private DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("Aktivitas");
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     //private List<indeks_massa_tubuh_grafik> list;
     BarChart barChart;
@@ -96,7 +96,7 @@ public class aktivitas_grafik extends AppCompatActivity {
                      values.size();
                      }**/
 
-                    BarChart barChart = (BarChart) findViewById(R.id.barChartJantung);
+                    BarChart barChart = (BarChart) findViewById(R.id.barChartAktivitas);
 
                     ArrayList<BarEntry> entries = new ArrayList<>();
                     //entries.add(new BarEntry(1, Float.parseFloat(listData.get(0).getTinggi()), "Tinggi Badan"));
