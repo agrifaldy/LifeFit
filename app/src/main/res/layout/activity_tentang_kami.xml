@@ -89,7 +89,7 @@
                         android:layout_marginLeft="30dp"
                         android:layout_marginRight="30dp"
                         android:layout_marginTop="10dp"
-                        android:text="Proyek Manager"
+                        android:text="Proyek Manager &amp; User Authentication"
                         android:textSize="15sp"
                         android:textColor="#333333"/>
 
@@ -136,7 +136,7 @@
                         android:layout_marginLeft="30dp"
                         android:layout_marginRight="30dp"
                         android:layout_marginTop="10dp"
-                        android:text="Programmer"
+                        android:text="Backend &amp; Frontend"
                         android:textSize="15sp"
                         android:textColor="#333333"/>
                 </LinearLayout>
@@ -182,7 +182,7 @@
                         android:layout_marginLeft="30dp"
                         android:layout_marginRight="30dp"
                         android:layout_marginTop="10dp"
-                        android:text="Desainer &amp; Testing"
+                        android:text="UI/UX &amp; Testing"
                         android:textSize="15sp"
                         android:textColor="#333333"/>
                 </LinearLayout>
