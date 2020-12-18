@@ -8,8 +8,10 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -78,43 +80,7 @@ public class tensi extends AppCompatActivity {
         adapter =  new TekananDarahAdapter(this, list);
 
         recyclerViewTensi.setAdapter(adapter);
-
-
-//        ItemTouchHelper.SimpleCallback swipeToDeleteCallback = new
-//                SwipeToDeleteCallback(0, ItemTouchHelper.RIGHT, TekananDarahAdapter, getContext()); // Making the SimpleCallback
-//
-//        ItemTouchHelper touchHelper = new ItemTouchHelper(swipeToDeleteCallback);
-//
-//        touchHelper.attachToRecyclerView(recyclerViewTensi); // then attach it to your recycler view
-
-
-        //button click
-
-//        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
-//            @Override
-//            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
-//                return false;
-//            }
-//
-//            @Override
-//            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, final int direction) {
-//                TekananDarah titikPoint = list.get(direction);
-//                firestoreDB.collection("TekananDarah")
-//                        .document(titikPoint.getId())
-//                        .delete()
-//                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-//                            @Override
-//                            public void onComplete(@NonNull Task<Void> task) {
-//                                list.remove(direction);
-//                                adapter.notifyItemRemoved(direction);
-//                                adapter.notifyItemRangeChanged(direction, getItemCount());
-//                                Toast.makeText(tensi.this, "Titik Sampah has been deleted!", Toast.LENGTH_SHORT).show();
-//                            }
-//                        });
-//            }
-//        }).attachToRecyclerView(recyclerViewTensi);
-
-
+        
         btnAddTensi.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
@@ -124,11 +90,43 @@ public class tensi extends AppCompatActivity {
         });
 
         readData();
+
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
+        itemTouchHelper.attachToRecyclerView(recyclerViewTensi);
     }
 
-    private int getItemCount() {
-        return list.size();
-    }
+    ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+        @Override
+        public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+            return false;
+        }
+
+        @Override
+        public void onSwiped(@NonNull final RecyclerView.ViewHolder viewHolder, int direction) {
+            final int position = viewHolder.getAdapterPosition();
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(tensi.this);
+            builder.setTitle("Delete");
+            builder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    TekananDarah delete = list.get(position);
+                    String del = delete.getId();
+                    myRef.child(del).removeValue();
+                    Toast.makeText(tensi.this, "Data berhasil dihapus", Toast.LENGTH_SHORT).show();
+                }
+            }).setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    dialogInterface.dismiss();
+                    adapter.notifyItemChanged(viewHolder.getAdapterPosition());
+                }
+            }).setMessage("Apakah anda yakin mau menghapus data ini?");
+            builder.show();
+
+
+        }
+    };
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     private void showDialogAdd() {
@@ -223,12 +221,13 @@ public class tensi extends AppCompatActivity {
 
     private void addDataToFirebase(String tknanA, String tknanB, String Tanggal, String ket){
         String id = myRef.push().getKey();
-        TekananDarah tekananDarah = new TekananDarah(id, tknanA, tknanB, Tanggal, ket);
+        String key = mAuth.getCurrentUser().getUid();
+        TekananDarah tekananDarah = new TekananDarah(id, key, tknanA, tknanB, Tanggal, ket);
 
         myRef.child(id).setValue(tekananDarah).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
-                Toast.makeText(getApplicationContext(), "Successfully",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Data berhasil ditambahkan",Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -246,7 +245,10 @@ public class tensi extends AppCompatActivity {
                     TekananDarah value = snapshot.getValue(TekananDarah.class);
                     list.add(0,value);
                 }
-                recyclerViewTensi.setAdapter(new TekananDarahAdapter(tensi.this,list));
+                adapter = new TekananDarahAdapter(tensi.this,list);
+                recyclerViewTensi.setAdapter(adapter);
+
+                setClick();
 
                 /**if (mAuth.getCurrentUser().getUid().equals(username.getId())){
                  recyclerView.setVisibility(View.VISIBLE);
@@ -262,11 +264,38 @@ public class tensi extends AppCompatActivity {
         });
     }
 
-    private void hapusData(TekananDarah tekananDarah) {
+    private void setClick() {
+        adapter.setOnCallBack(new TekananDarahAdapter.OnCallBack() {
+            @Override
+            public void onButtonDeleteClick(final TekananDarah tekananDarah) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(tensi.this);
+                builder.setTitle("Delete");
+                builder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        deleteData(tekananDarah);
+                    }
+                }).setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                }).setMessage("Apakah anda yakin mau menghapus data ini?");
+                builder.show();
+            }
+
+            @Override
+            public void onButtonEditClick(TekananDarah tekananDarah) {
+
+            }
+        });
+    }
+
+    private void deleteData(TekananDarah tekananDarah) {
         myRef.child(tekananDarah.getId()).removeValue(new DatabaseReference.CompletionListener() {
             @Override
             public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
-                Toast.makeText(getApplicationContext(), "Berhasil dihapus", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Data berhasil dihapus", Toast.LENGTH_SHORT).show();
             }
         });
     }

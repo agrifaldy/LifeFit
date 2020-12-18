@@ -4,6 +4,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class TekananDarah {
     private String id;
+    private String key;
     private String tekananAtas;
     private String tekananBawah;
     private String tanggal;
@@ -13,13 +14,21 @@ public class TekananDarah {
     public TekananDarah() {
     }
 
-    public TekananDarah(String id, String tekananAtas, String tekananBawah, String tanggal, String keterangan) {
-        mAuth = FirebaseAuth.getInstance();
-        this.id = mAuth.getCurrentUser().getUid();
+    public TekananDarah(String id, String key, String tekananAtas, String tekananBawah, String tanggal, String keterangan) {
+        this.id =id;
+        this.key = key;
         this.tekananAtas = tekananAtas;
         this.tekananBawah = tekananBawah;
         this.tanggal = tanggal;
         this.keterangan = keterangan;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
     }
 
     public String getId() {

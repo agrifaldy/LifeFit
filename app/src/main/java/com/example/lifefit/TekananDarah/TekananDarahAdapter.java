@@ -1,48 +1,29 @@
 package com.example.lifefit.TekananDarah;
 
-import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
-import android.util.Log;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.lifefit.R;
-import com.firebase.ui.firestore.FirestoreRecyclerOptions;
-import com.firebase.ui.firestore.ObservableSnapshotArray;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
-
-import static androidx.constraintlayout.motion.utils.Oscillator.TAG;
 
 public class TekananDarahAdapter extends RecyclerView.Adapter<TekananDarahAdapter.ViewHolder> {
 
     private Context context;
     private List<TekananDarah> list;
-    private ArrayList<TekananDarah> listt;
     private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;
     private DatabaseReference  ref = FirebaseDatabase.getInstance().getReference();
@@ -75,7 +56,7 @@ public class TekananDarahAdapter extends RecyclerView.Adapter<TekananDarahAdapte
         holder.tv_tanggalTensi.setText(list.get(position).getTanggal());
         holder.tv_keteranganTensi.setText(list.get(position).getKeterangan());
 
-        if (mAuth.getCurrentUser().getUid().equals(list.get(position).getId())){
+        if (mAuth.getCurrentUser().getUid().equals(list.get(position).getKey())){
             holder.tv_tekananAtas.setVisibility(View.VISIBLE);
             holder.tv_tekananBawah.setVisibility(View.VISIBLE);
             holder.tv_tanggalTensi.setVisibility(View.VISIBLE);
@@ -90,32 +71,33 @@ public class TekananDarahAdapter extends RecyclerView.Adapter<TekananDarahAdapte
             hasilTensi.setLayoutParams(params);
         }
 
-//        CardView delButton = holder.itemView.findViewById(R.id.deleteTensi);
-//
-//        TekananDarah tekananDarah = list.get(position);
-//        final String tensi = tekananDarah.getId();
-//        final Query applesQuery = ref.child("TekananDarah").orderByChild("id").equalTo(tensi);
-//
-//        delButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                applesQuery.addListenerForSingleValueEvent(new ValueEventListener() {
-//                    @Override
-//                    public void onDataChange(DataSnapshot dataSnapshot) {
-//                        for (DataSnapshot appleSnapshot: dataSnapshot.getChildren()) {
-//                            appleSnapshot.getRef().removeValue();
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onCancelled(DatabaseError databaseError) {
-//                        Log.e(TAG, "onCancelled", databaseError.toException());
-//                    }
-//                });
-//            }
-//        });
+        holder.ListItem.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                final String[] action = {"Edit", "Delete"};
+                AlertDialog.Builder alert = new AlertDialog.Builder(view.getContext());
+                alert.setItems(action, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        switch (i){
+                            case 0:
+                                onCallBack.onButtonEditClick(list.get(position));
+                                break;
+                            case 1:
+                                onCallBack.onButtonDeleteClick(list.get(position));
+                                break;
+                        }
+                    }
+                });
+                alert.create();
+                alert.show();
+                return true;
+            }
+        });
+    }
 
-
+    public void deleteDataItem(int position) {
+        TekananDarah tekananDarah = list.get(position);
     }
 
     @Override
@@ -123,13 +105,14 @@ public class TekananDarahAdapter extends RecyclerView.Adapter<TekananDarahAdapte
         return list.size();
     }
 
-    public TekananDarah getItemCount(int position) {
-        return list.get(position);
+    public TekananDarah getIdItem(int position) {
+        return null;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView tv_tekananAtas, tv_tekananBawah, tv_tanggalTensi, tv_keteranganTensi;
         CardView delButton;
+        private LinearLayout ListItem;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             params = new LinearLayout.LayoutParams(0,0);
@@ -137,16 +120,15 @@ public class TekananDarahAdapter extends RecyclerView.Adapter<TekananDarahAdapte
             tv_tekananBawah = itemView.findViewById(R.id.tv_tekanan_bawah);
             tv_tanggalTensi = itemView.findViewById(R.id.tv_tanggal_tensi);
             tv_keteranganTensi = itemView.findViewById(R.id.tv_keterangan_tensi);
-
+            ListItem = itemView.findViewById(R.id.ListItem);
             hasilTensi = itemView.findViewById(R.id.cv_hasilTensi);
         }
     }
 
+
     public interface OnCallBack{
-        void onTblHapus(TekananDarah tekananDarah);
+        void onButtonDeleteClick(TekananDarah tekananDarah);
+        void onButtonEditClick(TekananDarah tekananDarah);
     }
 
-    public interface FirebaseDataListener{
-        void onDeleteData(TekananDarah tekananDarah, int position);
-    }
 }
