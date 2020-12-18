@@ -274,5 +274,6 @@ public class indeks_massa_tubuh_grafik extends AppCompatActivity {
     public int getItemCount() {
         return list.size();
     }**/
+    
 
 }
