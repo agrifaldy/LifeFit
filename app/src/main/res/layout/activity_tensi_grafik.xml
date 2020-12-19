@@ -8,10 +8,50 @@
     tools:context=".TekananDarah.tensi_grafik"
     android:padding="20dp">
 
-    <com.github.mikephil.charting.charts.BarChart
-        android:layout_margin="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/barChartTensi"/>
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="50dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Grafik Sistolik"
+                android:textSize="30sp"
+                android:textColor="#000"
+                android:layout_marginBottom="30dp"/>
+
+            <com.github.mikephil.charting.charts.BarChart
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:id="@+id/barChartTensi"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Grafik Diastolik"
+                android:textSize="30sp"
+                android:textColor="#000"
+                android:layout_marginTop="30dp"/>
+
+            <com.github.mikephil.charting.charts.BarChart
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="130dp"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:id="@+id/barChartTensi2"/>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>

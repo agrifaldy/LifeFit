@@ -32,7 +32,6 @@ public class UserLoginActivity extends AppCompatActivity implements View.OnClick
     private EditText et_password;
     private Button b_login;
     private TextView link_signup;
-    private long pressedTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -125,24 +124,10 @@ public class UserLoginActivity extends AppCompatActivity implements View.OnClick
         }
     }
 
-    @Override
+    /**@Override
     public void onBackPressed() {
-
-        if (pressedTime + 2000 > System.currentTimeMillis()) {
-            //super.onBackPressed();
-            finish();
-
-
-        } else {
-            Toast.makeText(getBaseContext(), "Press back again to exit", Toast.LENGTH_SHORT).show();
-        }
-        pressedTime = System.currentTimeMillis();
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
         android.os.Process.killProcess(android.os.Process.myPid());
-    }
+        finish();
+    }**/
 
 }

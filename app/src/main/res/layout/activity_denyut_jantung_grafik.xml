@@ -8,10 +8,33 @@ android:layout_height="match_parent"
 tools:context=".DenyutJantung.denyut_jantung_grafik"
 android:padding="20dp">
 
-<com.github.mikephil.charting.charts.BarChart
-    android:layout_margin="10dp"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/barChartJantung"/>
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="50dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Grafik Denyut Jantung"
+                android:textSize="27sp"
+                android:textColor="#000"
+                android:layout_marginBottom="30dp"/>
+
+            <com.github.mikephil.charting.charts.BarChart
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:id="@+id/barChartJantung"/>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>
