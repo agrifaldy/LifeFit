@@ -458,7 +458,8 @@
                         android:textSize="12sp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginStart="10dp"
-                        android:layout_marginEnd="10dp"/>
+                        android:layout_marginEnd="10dp"
+                        android:layout_below="@id/tanggalMonitoring"/>
                     <TextView
                         android:id="@+id/tanggalMonitoring"
                         android:layout_width="wrap_content"
@@ -467,7 +468,6 @@
                         android:fontFamily="sans-serif-medium"
                         android:text="Tanggal"
                         android:textColor="#333333"
-                        android:layout_below="@id/jamMonitoring"
                         android:layout_marginLeft="10dp"
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"/>
