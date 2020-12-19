@@ -175,6 +175,7 @@
                             android:layout_alignParentEnd="true" />/>
                     </RelativeLayout>
                     <RelativeLayout
+                        android:id="@+id/rl_share_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"

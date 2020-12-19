@@ -417,9 +417,4 @@ public class aktivitas extends AppCompatActivity {
         finish();
     }
 
-    public void toAktivitasGrafik(View view) {
-        Intent intent = new Intent(this, aktivitas_grafik.class);
-        startActivity(intent);
-    }
-
 }

@@ -23,7 +23,7 @@ public class profil extends Fragment implements View.OnClickListener {
     private Button b_logout;
     View view;
     private LinearLayout ll_logout;
-    private RelativeLayout feedback, akunsaya, aboutus;
+    private RelativeLayout feedback, akunsaya, aboutus, sharetext;
 
     public profil() {
         // Required empty public constructor
@@ -39,6 +39,7 @@ public class profil extends Fragment implements View.OnClickListener {
         feedback = (RelativeLayout) view.findViewById(R.id.rl_feedback);
         akunsaya = (RelativeLayout) view.findViewById(R.id.rl_akun_saya);
         aboutus = (RelativeLayout) view.findViewById(R.id.rl_about_us);
+        sharetext = (RelativeLayout) view.findViewById(R.id.rl_share_text);
 
         feedback.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,6 +67,23 @@ public class profil extends Fragment implements View.OnClickListener {
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), tentang_kami.class);
                 startActivity(intent);
+            }
+        });
+
+        sharetext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                /*Create an ACTION_SEND Intent*/
+                Intent intent = new Intent(android.content.Intent.ACTION_SEND);
+                /*This will be the actual content you wish you share.*/
+                String shareBody = "Here is the share content body";
+                /*The type of the content is text, obviously.*/
+                intent.setType("text/plain");
+                /*Applying information Subject and Body.*/
+//                intent.putExtra(android.content.Intent.EXTRA_SUBJECT, getString(R.string.));
+                intent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+                /*Fire!*/
+                startActivity(Intent.createChooser(intent, "Share"));
             }
         });
 

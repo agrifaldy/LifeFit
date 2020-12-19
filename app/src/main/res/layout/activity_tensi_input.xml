@@ -40,7 +40,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
-        android:hint="Tekanan Atas"
+        android:hint="Sistolik"
         android:inputType="number"
         android:background="@android:drawable/editbox_background_normal"
         android:padding="15dp"/>
@@ -50,7 +50,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
-        android:hint="Tekanan Bawah"
+        android:hint="Diastolik"
         android:inputType="number"
         android:background="@android:drawable/editbox_background_normal"
         android:padding="15dp"/>
