@@ -5,30 +5,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TekananDarah.tensi_grafik"
-    android:padding="20dp">
+    tools:context=".TekananDarah.tensi_grafik">
 
     <ScrollView
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="#fff">
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="50dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:background="#fff">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="Grafik Sistolik"
-                android:textSize="30sp"
+                android:textSize="27sp"
                 android:textColor="#000"
-                android:layout_marginBottom="30dp"/>
+                android:layout_marginBottom="30dp"
+                android:layout_marginTop="50dp"
+                android:fontFamily="@font/roboto_bold"/>
 
             <com.github.mikephil.charting.charts.BarChart
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
                 android:id="@+id/barChartTensi"/>
@@ -37,15 +40,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="Grafik Diastolik"
-                android:textSize="30sp"
+                android:textSize="27sp"
                 android:textColor="#000"
-                android:layout_marginTop="30dp"/>
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/roboto_bold"/>
 
             <com.github.mikephil.charting.charts.BarChart
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
                 android:layout_marginTop="30dp"
-                android:layout_marginBottom="130dp"
+                android:layout_marginBottom="50dp"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
                 android:id="@+id/barChartTensi2"/>
