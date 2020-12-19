@@ -129,7 +129,7 @@ public class tensi_grafik extends AppCompatActivity {
 
                     for(int i = 0; i < list.size(); i++){
 
-                        if (mAuth.getCurrentUser().getUid().equals(list.get(i).getId())) {
+                        if (mAuth.getCurrentUser().getUid().equals(list.get(i).getKey())) {
 
 
                             //String string = list.get(0).getTanggal();

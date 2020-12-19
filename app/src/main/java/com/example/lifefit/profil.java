@@ -45,7 +45,7 @@ public class profil extends Fragment implements View.OnClickListener {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_SEND);
-                String[] strTo = { "test@g.com" };
+                String[] strTo = { "18523227@students.uii.ac.id" };
                 intent.putExtra(Intent.EXTRA_EMAIL, strTo);
                 intent.putExtra(Intent.EXTRA_SUBJECT, "Feedback");
                 intent.setType("message/rfc822");
@@ -76,7 +76,7 @@ public class profil extends Fragment implements View.OnClickListener {
                 /*Create an ACTION_SEND Intent*/
                 Intent intent = new Intent(android.content.Intent.ACTION_SEND);
                 /*This will be the actual content you wish you share.*/
-                String shareBody = "Here is the share content body";
+                String shareBody = "Hai, nyobain aplikasi LifeFit yuk \n\n Di aplikasinya kamu dapat memonitoring pola hidup sehatmu sehari-hari, buruan download!";
                 /*The type of the content is text, obviously.*/
                 intent.setType("text/plain");
                 /*Applying information Subject and Body.*/

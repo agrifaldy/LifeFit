@@ -32,10 +32,10 @@ import java.util.Locale;
 
 public class denyut_jantung_grafik extends AppCompatActivity {
 
-    private DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("denyutJantung");
+    private DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("DenyutJantung");
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     //private List<indeks_massa_tubuh_grafik> list;
-    BarChart barChartJantung;
+    BarChart barChart;
     private List<DenyutJantung> list = new ArrayList<>();
 
     @Override
@@ -102,7 +102,7 @@ public class denyut_jantung_grafik extends AppCompatActivity {
                      values.size();
                      }**/
 
-                    barChartJantung = findViewById(R.id.barChartJantung);
+                    BarChart barChart = (BarChart) findViewById(R.id.barChartJantung);
 
                     ArrayList<BarEntry> entries = new ArrayList<>();
                     //entries.add(new BarEntry(1, Float.parseFloat(listData.get(0).getTinggi()), "Tinggi Badan"));
@@ -144,13 +144,13 @@ public class denyut_jantung_grafik extends AppCompatActivity {
 
                             BarData barData = new BarData(bardataset);
 
-                            barChartJantung.setFitBars(true);
-                            barChartJantung.setData(barData);
-                            barChartJantung.getDescription().setText("");
-                            barChartJantung.animateY(2000, Easing.EaseInOutQuad);
-                            barChartJantung.setTouchEnabled(true);
-                            barChartJantung.setDrawGridBackground(false);
-                            XAxis xAxis = barChartJantung.getXAxis();
+                            barChart.setFitBars(true);
+                            barChart.setData(barData);
+                            barChart.getDescription().setText("");
+                            barChart.animateY(2000, Easing.EaseInOutQuad);
+                            barChart.setTouchEnabled(true);
+                            barChart.setDrawGridBackground(false);
+                            XAxis xAxis = barChart.getXAxis();
                             xAxis.setGranularity(1f);
                             xAxis.setCenterAxisLabels(false);
                             xAxis.setEnabled(true);
