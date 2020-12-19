@@ -156,4 +156,9 @@ public class UserSignupActivity extends AppCompatActivity implements View.OnClic
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(getApplicationContext(), UserLoginActivity.class));
+    }
+
 }

@@ -95,6 +95,7 @@ public class profil extends Fragment implements View.OnClickListener {
         FirebaseAuth.getInstance().signOut();
         Intent intent = new Intent(getActivity(), UserLoginActivity.class);
         startActivity(intent);
+        //Quit();
 
     }
 
@@ -105,5 +106,9 @@ public class profil extends Fragment implements View.OnClickListener {
             logOut();
         }
     }
+
+    /**protected void Quit() {
+        super.getActivity().finish();
+    }**/
 
 }
