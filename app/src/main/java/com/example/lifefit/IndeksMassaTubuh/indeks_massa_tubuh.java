@@ -8,9 +8,11 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -31,6 +33,8 @@ import android.widget.Toast;
 import com.example.lifefit.R;
 import com.example.lifefit.IndeksMassaTubuh.Bmi;
 import com.example.lifefit.IndeksMassaTubuh.BmiAdapter;
+import com.example.lifefit.TekananDarah.TekananDarah;
+import com.example.lifefit.TekananDarah.tensi;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
@@ -76,19 +80,6 @@ public class indeks_massa_tubuh extends AppCompatActivity {
         adapter = new BmiAdapter(context, list);
         recyclerView.setAdapter(adapter);
 
-        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,
-                ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
-            @Override
-            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
-                return false;
-            }
-
-            @Override
-            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-                adapter.deleteItem(viewHolder.getAdapterPosition());
-            }
-        }).attachToRecyclerView(recyclerView);
-
         //button click
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.KITKAT)
@@ -99,7 +90,42 @@ public class indeks_massa_tubuh extends AppCompatActivity {
         });
 
         readData();
+
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
+        itemTouchHelper.attachToRecyclerView(recyclerView);
     }
+
+    ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+        @Override
+        public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+            return false;
+        }
+
+        @Override
+        public void onSwiped(@NonNull final RecyclerView.ViewHolder viewHolder, int direction) {
+            final int position = viewHolder.getAdapterPosition();
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(indeks_massa_tubuh.this);
+            builder.setTitle("Delete");
+            builder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    Bmi delete = list.get(position);
+                    String del = delete.getId();
+                    myRef.child(del).removeValue();
+                    Toast.makeText(indeks_massa_tubuh.this, "Data berhasil dihapus", Toast.LENGTH_SHORT).show();
+                }
+            }).setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    dialogInterface.dismiss();
+                    adapter.notifyItemChanged(viewHolder.getAdapterPosition());
+                }
+            }).setMessage("Apakah anda yakin mau menghapus data ini?");
+            builder.show();
+        }
+    };
+
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     private void showDialogAdd() {
@@ -198,12 +224,13 @@ public class indeks_massa_tubuh extends AppCompatActivity {
 
     private void addDataToFirebase(String x, String y, String z, String p, String ket){
         String id = myRef.push().getKey();
-        Bmi bmi = new Bmi(id, x, y, z, p, ket);
+        String key = mAuth.getCurrentUser().getUid();
+        Bmi bmi = new Bmi(id, key, x, y, z, p, ket);
 
         myRef.child(id).setValue(bmi).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
-                Toast.makeText(getApplicationContext(), "Successfully",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Data berhasil ditambahkan",Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -223,8 +250,10 @@ public class indeks_massa_tubuh extends AppCompatActivity {
                             Bmi value = snapshot.getValue(Bmi.class);
                             list.add(0,value);
                         }
-                        recyclerView.setAdapter(new BmiAdapter(indeks_massa_tubuh.this,list));
-//                        setClick();
+                        adapter = new BmiAdapter(indeks_massa_tubuh.this,list);
+                        recyclerView.setAdapter(adapter);
+
+                        setClick();
                     /**if (mAuth.getCurrentUser().getUid().equals(username.getId())){
                         recyclerView.setVisibility(View.VISIBLE);
                     }**/
@@ -239,103 +268,151 @@ public class indeks_massa_tubuh extends AppCompatActivity {
             });
     }
 
-//    private void setClick() {
-//        adapter.setOnCallBack(new BmiAdapter.OnCallBack() {
-//            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-//            @Override
-//            public void onButtonEditClick(Bmi bmi) {
-//                showDialogUpdateBmi(bmi);
-//            }
-//        });
-//    }
+    private void setClick() {
+        adapter.setOnCallBack(new BmiAdapter.OnCallBack() {
+            @Override
+            public void onButtonDeleteClick(final Bmi bmi) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(indeks_massa_tubuh.this);
+                builder.setTitle("Delete");
+                builder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        deleteData(bmi);
+                    }
+                }).setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                }).setMessage("Apakah anda yakin mau menghapus data ini?");
+                builder.show();
+            }
 
-//    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-//    private void showDialogUpdateBmi(final Bmi bmi) {
-//        final Dialog dialog = new Dialog(this);
-//        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-//        dialog.setContentView(R.layout.activity_indeks_massa_tubuh_input);
-//
-//        Objects.requireNonNull(dialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-//        dialog.setCancelable(true);
-//        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
-//        lp.copyFrom(Objects.requireNonNull(dialog.getWindow().getAttributes()));
-//        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
-//        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
-//        dialog.getWindow().setAttributes(lp);
-//
-//        ImageButton btnClose = dialog.findViewById(R.id.btn_close);
-//        btnClose.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                dialog.dismiss();
-//            }
-//        });
-//
-//        final EditText brt = dialog.findViewById(R.id.et_berat);
-//        brt.setText(bmi.getBerat());
-//        final EditText tgi = dialog.findViewById(R.id.et_tinggi);
-//        tgi.setText(bmi.getTinggi());
-//        final EditText tgl = dialog.findViewById(R.id.et_tanggal);
-//        tgl.setText(bmi.getTanggal());
-//        Button btnAdd = dialog.findViewById(R.id.btn_add);
-//
-//        final Calendar calendar = Calendar.getInstance();
-//
-//        tgl.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                year = calendar.get(Calendar.YEAR);
-//                month = calendar.get(Calendar.MONTH);
-//                day = calendar.get(Calendar.DAY_OF_MONTH);
-//                DatePickerDialog datePickerDialog = new DatePickerDialog(indeks_massa_tubuh.this, new DatePickerDialog.OnDateSetListener() {
-//                    @Override
-//                    public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-////                        tgl.setText(day+"/"+(month+1)+"/"+year);
-//                        calendar.set(Calendar.YEAR, year);
-//                        calendar.set(Calendar.MONTH, month);
-//                        calendar.set(Calendar.DAY_OF_MONTH, day);
-//                        String currentDate = DateFormat.getDateInstance(DateFormat.LONG).format(calendar.getTime());
-//
-//                        tgl.setText(currentDate);
-//                    }
-//                },year,month,day);
-//                datePickerDialog.show();
-//            }
-//        });
-//
-//        btnAdd.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                if (TextUtils.isEmpty(brt.getText())){
-//                    brt.setError("Tidak boleh kosong");
-//                } else if (TextUtils.isEmpty(tgi.getText())){
-//                    tgi.setError("Tidak boleh kosong");
-//                } else if (TextUtils.isEmpty(tgl.getText())){
-//                    tgl.setError("Tidak boleh kosong");
-//                } else {
-//                    String p = "17.53";
-//                    String keterangan = "Ideal";
-//
-//                    String a = brt.getText().toString();
-//                    String b = tgi.getText().toString();
-//                    String c = tgl.getText().toString();
-//
-//                    updateBmi(bmi, a, b, c, p, keterangan);
-//                    dialog.dismiss();
-//                }
-//            }
-//        });
-//
-//        dialog.show();
-//    }
-//
-//    private void updateBmi(Bmi bmi, String aa, String bb, String cc, String dd, String ee) {
-//        myRef.child(bmi.getId()).child("berat").setValue(aa);
-//        myRef.child(bmi.getId()).child("tinggi").setValue(bb);
-//        myRef.child(bmi.getId()).child("tanggal").setValue(cc);
-//        myRef.child(bmi.getId()).child("imt").setValue(dd);
-//        myRef.child(bmi.getId()).child("keterangan").setValue(ee);
-//    }
+            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+            @Override
+            public void onButtonEditClick(Bmi bmi) {
+                showDialogUpdateBmi(bmi);
+            }
+        });
+    }
+
+    private void deleteData(Bmi bmi) {
+        myRef.child(bmi.getId()).removeValue(new DatabaseReference.CompletionListener() {
+            @Override
+            public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
+                Toast.makeText(getApplicationContext(), "Data berhasil dihapus", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    private void showDialogUpdateBmi(final Bmi bmi) {
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.activity_indeks_massa_tubuh_input);
+
+        Objects.requireNonNull(dialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.setCancelable(true);
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(Objects.requireNonNull(dialog.getWindow().getAttributes()));
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        dialog.getWindow().setAttributes(lp);
+
+        ImageButton btnClose = dialog.findViewById(R.id.btn_close);
+        btnClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+
+        final EditText brt = dialog.findViewById(R.id.et_berat);
+        brt.setText(bmi.getBerat());
+        final EditText tgi = dialog.findViewById(R.id.et_tinggi);
+        tgi.setText(bmi.getTinggi());
+        final EditText tgl = dialog.findViewById(R.id.et_tanggal);
+        tgl.setText(bmi.getTanggal());
+        Button btnAdd = dialog.findViewById(R.id.btn_add);
+        btnAdd.setText("Update");
+
+        final Calendar calendar = Calendar.getInstance();
+
+        tgl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                year = calendar.get(Calendar.YEAR);
+                month = calendar.get(Calendar.MONTH);
+                day = calendar.get(Calendar.DAY_OF_MONTH);
+                DatePickerDialog datePickerDialog = new DatePickerDialog(indeks_massa_tubuh.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+//                        tgl.setText(day+"/"+(month+1)+"/"+year);
+                        calendar.set(Calendar.YEAR, year);
+                        calendar.set(Calendar.MONTH, month);
+                        calendar.set(Calendar.DAY_OF_MONTH, day);
+                        dateFormat = new SimpleDateFormat("EEEE, d MMMM", new Locale("id"));
+                        String currentDate = dateFormat.format(calendar.getTime());
+                        tgl.setText(currentDate);
+                    }
+                },year,month,day);
+                datePickerDialog.show();
+            }
+        });
+
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (TextUtils.isEmpty(brt.getText())){
+                    brt.setError("Tidak boleh kosong");
+                } else if (TextUtils.isEmpty(tgi.getText())){
+                    tgi.setError("Tidak boleh kosong");
+                } else if (TextUtils.isEmpty(tgl.getText())){
+                    tgl.setError("Tidak boleh kosong");
+                } else {
+                    String b = brt.getText().toString();
+                    String ti = tgi.getText().toString();
+                    String tl = tgl.getText().toString();
+
+                    double beratBadan = Double.parseDouble(b);
+                    double tinggiBadan = Double.parseDouble(ti);
+
+                    double hasil = beratBadan/(tinggiBadan*tinggiBadan*0.0001);
+
+                    String p = Double.toString(hasil);
+
+                    String keterangan;
+
+                    if(hasil <= 18.4) {
+                        keterangan = "Berat Badan Kurang";
+                    }else if(hasil >= 18.5 && hasil <= 24.9 ) {
+                        keterangan = "Berat Badan Ideal";
+                    }else if(hasil >= 25 && hasil <= 29.9) {
+                        keterangan = "Berat Badan Lebih";
+                    }else if(hasil >= 30 && hasil <= 39.9) {
+                        keterangan = "Gemuk";
+                    }else{
+                        keterangan = "Sangat Gemuk";
+                    }
+
+                    updateBmi(bmi, b, ti, tl, p, keterangan);
+                    dialog.dismiss();
+                }
+            }
+        });
+
+        dialog.show();
+    }
+
+    private void updateBmi(Bmi bmi, String aa, String bb, String cc, String dd, String ee) {
+        myRef.child(bmi.getId()).child("berat").setValue(aa);
+        myRef.child(bmi.getId()).child("tinggi").setValue(bb);
+        myRef.child(bmi.getId()).child("tanggal").setValue(cc);
+        myRef.child(bmi.getId()).child("imt").setValue(dd);
+        myRef.child(bmi.getId()).child("keterangan").setValue(ee);
+        Toast.makeText(getApplicationContext(), "Data berhasil diupdate", Toast.LENGTH_SHORT).show();
+    }
 
 
     public void toHalamanGrafik(View view) {

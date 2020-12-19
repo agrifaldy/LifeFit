@@ -5,6 +5,7 @@ import com.google.firebase.database.DatabaseReference;
 
 public class Bmi {
     private String id;
+    private String key;
     private String berat;
     private String tinggi;
     private String tanggal;
@@ -16,9 +17,9 @@ public class Bmi {
 
     }
 
-    public Bmi(String id, String berat, String tinggi, String tanggal, String imt, String keterangan) {
-        mAuth = FirebaseAuth.getInstance();
-        this.id = mAuth.getCurrentUser().getUid();
+    public Bmi(String id, String key, String berat, String tinggi, String tanggal, String imt, String keterangan) {
+        this.id = id;
+        this.key = key;
         this.berat = berat;
         this.tinggi = tinggi;
         this.tanggal = tanggal;
@@ -32,6 +33,14 @@ public class Bmi {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
     }
 
     public String getBerat() {

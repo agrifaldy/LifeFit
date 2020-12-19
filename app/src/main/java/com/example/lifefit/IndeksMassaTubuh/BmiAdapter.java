@@ -20,6 +20,8 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.lifefit.R;
+import com.example.lifefit.TekananDarah.TekananDarah;
+import com.example.lifefit.TekananDarah.TekananDarahAdapter;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -46,7 +48,11 @@ public class BmiAdapter extends RecyclerView.Adapter<BmiAdapter.ViewHolder> {
 
     public LinearLayout.LayoutParams params;
 
-//    private OnCallBack onCallBack;
+    OnCallBack onCallBack;
+
+    public void setOnCallBack(BmiAdapter.OnCallBack onCallBack) {
+        this.onCallBack = onCallBack;
+    }
 
     public BmiAdapter(Context context, List<Bmi> list) {
         this.context = context;
@@ -71,43 +77,13 @@ public class BmiAdapter extends RecyclerView.Adapter<BmiAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
 
-        holder.btnDelete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(final View view) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                builder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        //list.remove(getItemViewType(position));
-                        if (mAuth.getCurrentUser().getUid().equals(list.get(position).getId())){
-                            String id = mDatabase.push().getKey();
-                            mDatabase.child("").removeValue();
-                        }
-                    }
-                }).setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        dialogInterface.dismiss();
-                    }
-                }).setMessage("Apakah anda yakin mau menghapus?");
-                builder.show();
-            }
-        });
-
-//        holder.btnEdit.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                onCallBack.onButtonEditClick(list.get(position));
-//            }
-//        });
-
         holder.tv_berat.setText(list.get(position).getBerat());
         holder.tv_tinggi.setText(list.get(position).getTinggi());
         holder.tv_tanggal.setText(list.get(position).getTanggal());
         holder.tv_imt.setText(formatNumberCurrency(list.get(position).getImt()));
         holder.tv_keterangan.setText(list.get(position).getKeterangan());
 
-        if (mAuth.getCurrentUser().getUid().equals(list.get(position).getId())){
+        if (mAuth.getCurrentUser().getUid().equals(list.get(position).getKey())){
             holder.tv_berat.setVisibility(View.VISIBLE);
             holder.tv_tinggi.setVisibility(View.VISIBLE);
             holder.tv_tanggal.setVisibility(View.VISIBLE);
@@ -123,11 +99,32 @@ public class BmiAdapter extends RecyclerView.Adapter<BmiAdapter.ViewHolder> {
             hasilIbm.setVisibility(View.INVISIBLE);
             hasilIbm.setLayoutParams(params);
         }
+
+        holder.menu_bmi.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                final String[] action = {"Edit", "Delete"};
+                AlertDialog.Builder alert = new AlertDialog.Builder(view.getContext());
+                alert.setItems(action, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        switch (i){
+                            case 0:
+                                onCallBack.onButtonEditClick(list.get(position));
+                                break;
+                            case 1:
+                                onCallBack.onButtonDeleteClick(list.get(position));
+                                break;
+                        }
+                    }
+                });
+                alert.create();
+                alert.show();
+                return true;
+            }
+        });
     }
 
-    public void deleteItem(int position) {
-
-    }
 
     private static String formatNumberCurrency(String number) {
         DecimalFormat formatter = new DecimalFormat("00.00");
@@ -143,7 +140,7 @@ public class BmiAdapter extends RecyclerView.Adapter<BmiAdapter.ViewHolder> {
         int position;
 
         private TextView tv_berat, tv_tinggi, tv_tanggal, tv_imt, tv_keterangan;
-        private CardView btnDelete, btnEdit;
+        private LinearLayout menu_bmi;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             params = new LinearLayout.LayoutParams(0, 0);
@@ -152,8 +149,9 @@ public class BmiAdapter extends RecyclerView.Adapter<BmiAdapter.ViewHolder> {
             tv_tanggal = itemView.findViewById(R.id.tv_tanggal);
             tv_imt = itemView.findViewById(R.id.tv_imt);
             tv_keterangan = itemView.findViewById(R.id.tv_keterangan);
-            btnDelete = itemView.findViewById(R.id.btn_deleteBmi);
             hasilIbm = itemView.findViewById(R.id.cv_hasiIbm);
+
+            menu_bmi = itemView.findViewById(R.id.ll_menu_bmi);
 
 
             /**if (mAuth.getCurrentUser().getUid().equals(list.get(position).getId())) {
@@ -164,6 +162,11 @@ public class BmiAdapter extends RecyclerView.Adapter<BmiAdapter.ViewHolder> {
 
         }
 
+    }
+
+    public interface OnCallBack{
+        void onButtonDeleteClick(Bmi bmi);
+        void onButtonEditClick(Bmi bmi);
     }
 
 //    public interface OnCallBack {

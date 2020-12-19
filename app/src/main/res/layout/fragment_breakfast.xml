@@ -70,7 +70,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="379 KCAL"
+                            android:text="379 KKAL"
                             android:textSize="18sp"
                             android:textColor="#000"
                             android:layout_marginTop="10dp"
@@ -114,7 +114,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="48 KCAL"
+                            android:text="48 KKAL"
                             android:textSize="18sp"
                             android:textColor="#000"
                             android:layout_marginTop="10dp"
@@ -166,7 +166,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="330 KCAL"
+                            android:text="330 KKAL"
                             android:textSize="18sp"
                             android:textColor="#000"
                             android:layout_marginTop="10dp"
@@ -210,7 +210,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="106 KCAL"
+                            android:text="106 KKAL"
                             android:textSize="18sp"
                             android:textColor="#000"
                             android:layout_marginTop="10dp"
@@ -262,7 +262,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="116 KCAL"
+                            android:text="116 KKAL"
                             android:textSize="18sp"
                             android:textColor="#000"
                             android:layout_marginTop="10dp"
@@ -306,7 +306,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="180 KCAL"
+                            android:text="180 KKAL"
                             android:textSize="18sp"
                             android:textColor="#000"
                             android:layout_marginTop="10dp"
