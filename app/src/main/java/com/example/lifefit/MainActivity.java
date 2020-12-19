@@ -96,4 +96,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         android.os.Process.killProcess(android.os.Process.myPid());
     }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        
+    }
 }
