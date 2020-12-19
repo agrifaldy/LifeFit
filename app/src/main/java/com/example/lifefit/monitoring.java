@@ -2,9 +2,11 @@ package com.example.lifefit;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -40,6 +42,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Objects;
 
 
 public class monitoring extends Fragment {
@@ -56,6 +59,7 @@ public class monitoring extends Fragment {
     FirebaseUser user;
     StorageReference storageReference;
     CircularImageView profileImageMonitoring;
+    private boolean shouldRefreshOnResume = false;
 
 
     public monitoring() {
@@ -219,13 +223,29 @@ public class monitoring extends Fragment {
         return v;
     }
 
-    /*@Override
+    /**@RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    @Override
     public void onResume() {
         super.onResume();
-        Fragment currentFragment = getActivity().getSupportFragmentManager().findFragmentById(R.id.monitoring);
-        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-        fragmentTransaction.detach(currentFragment);
-        fragmentTransaction.attach(currentFragment);
-        fragmentTransaction.commit();
+        Fragment currentFragment = Objects.requireNonNull(getActivity()).getSupportFragmentManager().findFragmentById(R.id.monitoring);
+        if (currentFragment != null) {
+            FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+            ft.detach(currentFragment);
+            ft.attach(currentFragment);
+            ft.commit();
+        }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    @Override
+    public void onStart() {
+        super.onStart();
+        Fragment currentFragment = Objects.requireNonNull(getActivity()).getSupportFragmentManager().findFragmentById(R.id.monitoring);
+        if (currentFragment != null) {
+            FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+            ft.detach(currentFragment);
+            ft.attach(currentFragment);
+            ft.commit();
+        }
     }**/
 }

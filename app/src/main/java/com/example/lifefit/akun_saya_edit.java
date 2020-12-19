@@ -4,8 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.fragment.app.Fragment;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
@@ -148,8 +150,11 @@ public class akun_saya_edit extends AppCompatActivity {
 
                 mDatabase.child("users").child(userId).setValue(user1);
 
+                /**ProgressDialog dialog = ProgressDialog.show(akun_saya_edit.this, "Update Profil",
+                        "Loading. Please wait...", true);**/
                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 finish();
+
             }
         });
 
