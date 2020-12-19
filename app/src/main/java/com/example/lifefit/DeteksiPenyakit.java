@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 import com.google.android.material.card.MaterialCardView;
 
@@ -85,6 +86,11 @@ public class DeteksiPenyakit extends AppCompatActivity implements View.OnClickLi
             }
         } else if (demamTidak.isChecked() && batukIya.isChecked() && lendirtTidak.isChecked() && sakitkTidak.isChecked() && hidungtIya.isChecked()){
             if (i == R.id.submitDeteksi) {
+                Intent intent = new Intent(this, hasil_deteksi_flu.class);
+                startActivity(intent);
+            }
+        } else if (demamTidak.isChecked() && batukIya.isChecked() && lendirtIya.isChecked() && sakitkTidak.isChecked() && hidungtTidak.isChecked()){
+            if (i == R.id.submitDeteksi) {
                 Intent intent = new Intent(this, hasil_deteksi_radang_tenggorokan.class);
                 startActivity(intent);
             }
@@ -103,24 +109,9 @@ public class DeteksiPenyakit extends AppCompatActivity implements View.OnClickLi
                 Intent intent = new Intent(this, hasil_deteksi_sinusitis.class);
                 startActivity(intent);
             }
-        } else if (demamIya.isChecked() && batukTidak.isChecked() && lendirtTidak.isChecked() && sakitkTidak.isChecked() && hidungtTidak.isChecked()){
-            if (i == R.id.submitDeteksi) {
-                Intent intent = new Intent(this, hasil_deteksi_flu.class);
-                startActivity(intent);
-            }
-        } else if (demamTidak.isChecked() && batukIya.isChecked() && lendirtTidak.isChecked() && sakitkTidak.isChecked() && hidungtTidak.isChecked()){
-            if (i == R.id.submitDeteksi) {
-                Intent intent = new Intent(this, hasil_deteksi_flu.class);
-                startActivity(intent);
-            }
         } else if (demamTidak.isChecked() && batukTidak.isChecked() && lendirtIya.isChecked() && sakitkTidak.isChecked() && hidungtTidak.isChecked()){
             if (i == R.id.submitDeteksi) {
                 Intent intent = new Intent(this, hasil_deteksi_radang_tenggorokan.class);
-                startActivity(intent);
-            }
-        } else if (demamTidak.isChecked() && batukTidak.isChecked() && lendirtTidak.isChecked() && sakitkIya.isChecked() && hidungtTidak.isChecked()){
-            if (i == R.id.submitDeteksi) {
-                Intent intent = new Intent(this, hasil_deteksi_sinusitis.class);
                 startActivity(intent);
             }
         } else if (demamTidak.isChecked() && batukTidak.isChecked() && lendirtTidak.isChecked() && sakitkTidak.isChecked() && hidungtIya.isChecked()){
@@ -138,10 +129,37 @@ public class DeteksiPenyakit extends AppCompatActivity implements View.OnClickLi
                 Intent intent = new Intent(this, hasil_deteksi_flu.class);
                 startActivity(intent);
             }
-        } else {
+        } else if (demamTidak.isChecked() && batukIya.isChecked() && lendirtIya.isChecked() && sakitkTidak.isChecked() && hidungtTidak.isChecked()){
             if (i == R.id.submitDeteksi) {
-                Intent intent = new Intent(this, hasil_deteksi_flu.class);
+                Intent intent = new Intent(this, hasil_deteksi_radang_tenggorokan.class);
                 startActivity(intent);
+            }
+        } else if (demamIya.isChecked() && batukIya.isChecked() && lendirtIya.isChecked() && sakitkTidak.isChecked() && hidungtTidak.isChecked()){
+            if (i == R.id.submitDeteksi) {
+                Intent intent = new Intent(this, hasil_deteksi_radang_tenggorokan.class);
+                startActivity(intent);
+            }
+        } else if (demamTidak.isChecked() && batukIya.isChecked() && lendirtIya.isChecked() && sakitkTidak.isChecked() && hidungtTidak.isChecked()){
+            if (i == R.id.submitDeteksi) {
+                Intent intent = new Intent(this, hasil_deteksi_radang_tenggorokan.class);
+                startActivity(intent);
+            }
+        } else if (demamTidak.isChecked() && batukTidak.isChecked() && lendirtIya.isChecked() && sakitkTidak.isChecked() && hidungtTidak.isChecked()){
+            if (i == R.id.submitDeteksi) {
+                Intent intent = new Intent(this, hasil_deteksi_radang_tenggorokan.class);
+                startActivity(intent);
+            }
+        } else if (demamIya.isChecked() && batukTidak.isChecked() && lendirtTidak.isChecked() && sakitkTidak.isChecked() && hidungtTidak.isChecked()){
+            if (i == R.id.submitDeteksi) {
+                Toast.makeText(this, "Anda sedang demam, jangan lupa istirahat :)", Toast.LENGTH_SHORT).show();
+            }
+        } else if (demamTidak.isChecked() && batukIya.isChecked() && lendirtTidak.isChecked() && sakitkTidak.isChecked() && hidungtTidak.isChecked()){
+            if (i == R.id.submitDeteksi) {
+                Toast.makeText(this, "Anda sedang batuk, jangan lupa banyak minum air putih :)", Toast.LENGTH_SHORT).show();
+            }
+        } else if (demamTidak.isChecked() && batukTidak.isChecked() && lendirtTidak.isChecked() && sakitkIya.isChecked() && hidungtTidak.isChecked()){
+            if (i == R.id.submitDeteksi) {
+                Toast.makeText(this, "Anda sedang pusing kepala, jangan lupa banyak istirahat :)", Toast.LENGTH_SHORT).show();
             }
         }
     }

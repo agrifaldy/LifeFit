@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
         if (pressedTime + 2000 > System.currentTimeMillis()) {
             //super.onBackPressed();
-            finish();
+            finishAffinity();
 
 
         } else {

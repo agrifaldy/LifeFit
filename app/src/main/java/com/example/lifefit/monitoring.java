@@ -70,6 +70,8 @@ public class monitoring extends Fragment {
         fStore = FirebaseFirestore.getInstance();
         user = mAuth.getCurrentUser();
 
+        Fragment currentFragment = getActivity().getSupportFragmentManager().findFragmentById(R.id.monitoring);
+
         storageReference = FirebaseStorage.getInstance().getReference();
 
         StorageReference profileRef = storageReference.child("users/"+mAuth.getCurrentUser().getUid()+"/profile.jpg");
@@ -219,5 +221,6 @@ public class monitoring extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+        Fragment currentFragment = getActivity().getSupportFragmentManager().findFragmentById(R.id.monitoring);
     }
 }
