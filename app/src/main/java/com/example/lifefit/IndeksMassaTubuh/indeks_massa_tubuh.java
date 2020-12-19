@@ -41,9 +41,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 import java.util.Objects;
 
 public class indeks_massa_tubuh extends AppCompatActivity {
@@ -57,6 +59,7 @@ public class indeks_massa_tubuh extends AppCompatActivity {
     private Context context;
     private BmiAdapter adapter;
     private int year, month, day;
+    private SimpleDateFormat dateFormat;
 
 //    private BmiAdapter adapter;
 
@@ -140,7 +143,8 @@ public class indeks_massa_tubuh extends AppCompatActivity {
                         calendar.set(Calendar.YEAR, year);
                         calendar.set(Calendar.MONTH, month);
                         calendar.set(Calendar.DAY_OF_MONTH, day);
-                        String currentDate = DateFormat.getDateInstance(DateFormat.LONG).format(calendar.getTime());
+                        dateFormat = new SimpleDateFormat("EEEE, d MMMM", new Locale("id"));
+                        String currentDate = dateFormat.format(calendar.getTime());
                         tgl.setText(currentDate);
                     }
                 },year,month,day);
