@@ -155,8 +155,6 @@ public class indeks_massa_tubuh_grafik extends AppCompatActivity {
                                 }
                                 String tanggal = formatTanggal.format(date);
 
-
-
                                 entries.add(new BarEntry(Integer.parseInt(tanggal)/1000000, Float.parseFloat(list.get(i).getTinggi()), list.get(i).getTanggal()));
                                 entries2.add(new BarEntry(Integer.parseInt(tanggal)/1000000, Float.parseFloat(list.get(i).getBerat()), list.get(i).getTanggal()));
                                 entries3.add(new BarEntry(Integer.parseInt(tanggal)/1000000, Float.parseFloat(list.get(i).getImt()), list.get(i).getTanggal()));
