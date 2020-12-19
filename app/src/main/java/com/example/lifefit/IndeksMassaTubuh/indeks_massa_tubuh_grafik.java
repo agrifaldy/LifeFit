@@ -24,7 +24,9 @@ import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.formatter.IAxisValueFormatter;
+import com.github.mikephil.charting.formatter.ValueFormatter;
 import com.github.mikephil.charting.utils.ColorTemplate;
+import com.github.mikephil.charting.utils.ViewPortHandler;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -144,14 +146,14 @@ public class indeks_massa_tubuh_grafik extends AppCompatActivity {
 
 
                                 //String string = list.get(0).getTanggal();
-                                DateFormat format = new SimpleDateFormat("ddMMyyyy");
+                                DateFormat formatTanggal = new SimpleDateFormat("ddMMyyyy");
                                 Date date = null;
                                 try {
                                     date = new SimpleDateFormat("MMMM d, yyyy", Locale.ENGLISH).parse(list.get(i).getTanggal().toString());
                                 } catch (ParseException e) {
                                     e.printStackTrace();
                                 }
-                                String tanggal = format.format(date);
+                                String tanggal = formatTanggal.format(date);
 
 
 
@@ -160,12 +162,12 @@ public class indeks_massa_tubuh_grafik extends AppCompatActivity {
                                 entries3.add(new BarEntry(Integer.parseInt(tanggal)/1000000, Float.parseFloat(list.get(i).getImt()), list.get(i).getTanggal()));
 
 
-                                /**ArrayList<String> label = new ArrayList<>();
+                                final ArrayList<String> label = new ArrayList<>();
                                 label.add(list.get(i).getTanggal());
                                 ArrayList<String> label2 = new ArrayList<>();
                                 label2.add(list.get(i).getTanggal());
                                 ArrayList<String> label3 = new ArrayList<>();
-                                label3.add(list.get(i).getTanggal());**/
+                                label3.add(list.get(i).getTanggal());
 
 
                                 //BarDataSet bardataset = new BarDataSet(entries, label.toString());
@@ -194,6 +196,7 @@ public class indeks_massa_tubuh_grafik extends AppCompatActivity {
                                 BarData barData2 = new BarData(bardataset2);
                                 BarData barData3 = new BarData(bardataset3);
 
+
                                 barChart.setFitBars(true);
                                 barChart.setData(barData);
                                 barChart.getDescription().setText("");
@@ -202,10 +205,27 @@ public class indeks_massa_tubuh_grafik extends AppCompatActivity {
                                 barChart.setDrawGridBackground(false);
                                 XAxis xAxis = barChart.getXAxis();
                                 xAxis.setGranularity(1f);
-                                xAxis.setCenterAxisLabels(true);
+                                xAxis.setCenterAxisLabels(false);
                                 xAxis.setEnabled(true);
                                 xAxis.setDrawGridLines(false);
                                 xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+                                //xAxis.setAxisMinimum(1);
+                                //xAxis.setAxisMaximum(31);
+                                xAxis.setLabelCount(Integer.parseInt(tanggal)/1000000);
+                                /**\xAxis.setValueFormatter(new ValueFormatter() {
+                                    @Override
+                                    public String getFormattedValue(float value, AxisBase axis) {
+                                        return label.get((int)value);
+                                    }
+                                });
+                                final int finalI = i;
+                                xAxis.setValueFormatter(new ValueFormatter() {
+                                    @Override
+                                    public String getFormattedValue(float value, Entry entry, int dataSetIndex, ViewPortHandler viewPortHandler) {
+
+                                        return list.get(finalI).getTanggal();
+                                    }
+                                });**/
 
                                 barChart2.setFitBars(true);
                                 barChart2.setData(barData2);
@@ -214,7 +234,7 @@ public class indeks_massa_tubuh_grafik extends AppCompatActivity {
                                 barChart2.setTouchEnabled(true);
                                 XAxis xAxis2 = barChart2.getXAxis();
                                 xAxis2.setGranularity(1f);
-                                xAxis2.setCenterAxisLabels(true);
+                                xAxis2.setCenterAxisLabels(false);
                                 xAxis2.setEnabled(true);
                                 xAxis2.setDrawGridLines(false);
                                 xAxis2.setPosition(XAxis.XAxisPosition.BOTTOM);
@@ -226,7 +246,7 @@ public class indeks_massa_tubuh_grafik extends AppCompatActivity {
                                 barChart3.setTouchEnabled(true);
                                 XAxis xAxis3 = barChart3.getXAxis();
                                 xAxis3.setGranularity(1f);
-                                xAxis3.setCenterAxisLabels(true);
+                                xAxis3.setCenterAxisLabels(false);
                                 xAxis3.setEnabled(true);
                                 xAxis3.setDrawGridLines(false);
                                 xAxis3.setPosition(XAxis.XAxisPosition.BOTTOM);
@@ -274,6 +294,6 @@ public class indeks_massa_tubuh_grafik extends AppCompatActivity {
     public int getItemCount() {
         return list.size();
     }**/
-    
+
 
 }

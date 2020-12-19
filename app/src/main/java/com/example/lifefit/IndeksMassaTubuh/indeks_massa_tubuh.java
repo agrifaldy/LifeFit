@@ -141,7 +141,6 @@ public class indeks_massa_tubuh extends AppCompatActivity {
                         calendar.set(Calendar.MONTH, month);
                         calendar.set(Calendar.DAY_OF_MONTH, day);
                         String currentDate = DateFormat.getDateInstance(DateFormat.LONG).format(calendar.getTime());
-
                         tgl.setText(currentDate);
                     }
                 },year,month,day);
