@@ -5,6 +5,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class DenyutJantung {
 
     private String id;
+    private String key;
     private String denyutJantung;
     private String tanggal;
     private String keterangan;
@@ -13,9 +14,9 @@ public class DenyutJantung {
     public DenyutJantung() {
     }
 
-    public DenyutJantung(String id, String denyutJantung, String tanggal, String keterangan) {
-        mAuth = FirebaseAuth.getInstance();
-        this.id = mAuth.getCurrentUser().getUid();
+    public DenyutJantung(String id, String key, String denyutJantung, String tanggal, String keterangan) {
+        this.id = id;
+        this.key = key;
         this.denyutJantung = denyutJantung;
         this.tanggal = tanggal;
         this.keterangan = keterangan;
@@ -27,6 +28,14 @@ public class DenyutJantung {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
     }
 
     public String getDenyutJantung() {

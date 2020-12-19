@@ -46,6 +46,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 
@@ -123,8 +124,6 @@ public class tensi extends AppCompatActivity {
                 }
             }).setMessage("Apakah anda yakin mau menghapus data ini?");
             builder.show();
-
-
         }
     };
 
@@ -284,11 +283,115 @@ public class tensi extends AppCompatActivity {
                 builder.show();
             }
 
+            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
             public void onButtonEditClick(TekananDarah tekananDarah) {
-
+                showDialogUpdateData(tekananDarah);
             }
         });
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    private void showDialogUpdateData(final TekananDarah tekananDarah) {
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.activity_tensi_input);
+
+        Objects.requireNonNull(dialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.setCancelable(true);
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(Objects.requireNonNull(dialog.getWindow().getAttributes()));
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        dialog.getWindow().setAttributes(lp);
+
+        ImageButton btnClose = dialog.findViewById(R.id.btn_close_tensi);
+        btnClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+
+        final EditText ta = dialog.findViewById(R.id.et_tekanan_atas);
+        ta.setText(tekananDarah.getTekananAtas());
+        final EditText tb = dialog.findViewById(R.id.et_tekanan_bawah);
+        tb.setText(tekananDarah.getTekananBawah());
+        final EditText tgl = dialog.findViewById(R.id.et_tanggal_tensi);
+        tgl.setText(tekananDarah.getTanggal());
+        Button btnAdd = dialog.findViewById(R.id.btn_simpan_tensi);
+        btnAdd.setText("Update");
+
+        final Calendar calendar = Calendar.getInstance();
+
+        tgl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                year = calendar.get(Calendar.YEAR);
+                month = calendar.get(Calendar.MONTH);
+                day = calendar.get(Calendar.DAY_OF_MONTH);
+                DatePickerDialog datePickerDialog = new DatePickerDialog(tensi.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+//                        tgl.setText(day+"/"+(month+1)+"/"+year);
+                        calendar.set(Calendar.YEAR, year);
+                        calendar.set(Calendar.MONTH, month);
+                        calendar.set(Calendar.DAY_OF_MONTH, day);
+                        String currentDate = DateFormat.getDateInstance(DateFormat.LONG).format(calendar.getTime());
+
+                        tgl.setText(currentDate);
+                    }
+                },year,month,day);
+                datePickerDialog.show();
+            }
+        });
+
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (TextUtils.isEmpty(ta.getText())){
+                    ta.setError("Tidak boleh kosong");
+                } else if (TextUtils.isEmpty(tb.getText())){
+                    tb.setError("Tidak boleh kosong");
+                } else if (TextUtils.isEmpty(tgl.getText())){
+                    tgl.setError("Tidak boleh kosong");
+                } else {
+                    String tekA = ta.getText().toString();
+                    String tekB = tb.getText().toString();
+                    String tglT = tgl.getText().toString();
+
+                    int a = Integer.parseInt(tekA);
+                    int b = Integer.parseInt(tekB);
+
+                    String keterangan = null;
+
+                    if(a < 121 && b < 80) {
+                        keterangan = "Tekanan darah normal";
+                    }else if(a > 120 && a < 140 || b > 79 && b < 90) {
+                        keterangan = "Pra Hipertensi";
+                    }else if(a > 139 && a < 160 || b > 89 && b < 100) {
+                        keterangan = "Hipertensi tingkat I";
+                    }else if(a > 159 && a < 181 || b > 99 && b < 111) {
+                        keterangan = "Hipertensi tingkat II";
+                    }else if(a > 181 || b > 110 ) {
+                        keterangan = "Hipertensi Krisis";
+                    }
+
+                    updateData(tekananDarah, tekA, tekB, tglT, keterangan);
+                    dialog.dismiss();
+                }
+            }
+        });
+
+        dialog.show();
+    }
+
+    private void updateData(TekananDarah tekananDarah, String tekA, String tekB, String tglT, String keterangan) {
+        myRef.child(tekananDarah.getId()).child("tekananAtas").setValue(tekA);
+        myRef.child(tekananDarah.getId()).child("tekananBawah").setValue(tekB);
+        myRef.child(tekananDarah.getId()).child("tanggal").setValue(tglT);
+        myRef.child(tekananDarah.getId()).child("keterangan").setValue(keterangan);
+        Toast.makeText(getApplicationContext(), "Data berhasil diupdate", Toast.LENGTH_SHORT).show();
     }
 
     private void deleteData(TekananDarah tekananDarah) {

@@ -1,6 +1,8 @@
 package com.example.lifefit.Aktivitas;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +30,11 @@ public class AktivitasAdapter extends RecyclerView.Adapter<AktivitasAdapter.View
     private FirebaseAuth mAuth;
     private CardView hasilAktivitas;
     public LinearLayout.LayoutParams params;
+    AktivitasAdapter.OnCallBack onCallBack;
+
+    public void setOnCallBack(AktivitasAdapter.OnCallBack onCallBack) {
+        this.onCallBack = onCallBack;
+    }
 
     public AktivitasAdapter(Context context, List<AktivitasHarian> list) {
         this.context = context;
@@ -45,7 +52,7 @@ public class AktivitasAdapter extends RecyclerView.Adapter<AktivitasAdapter.View
     }
 
     @Override
-    public void onBindViewHolder(@NonNull AktivitasAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull AktivitasAdapter.ViewHolder holder, final int position) {
         holder.tv_aktivitas_makan.setText(list.get(position).getMakan());
         holder.tv_aktivitas_minum.setText(list.get(position).getMinum());
         holder.tv_aktivitas_tidur.setText(list.get(position).getTidur());
@@ -54,7 +61,7 @@ public class AktivitasAdapter extends RecyclerView.Adapter<AktivitasAdapter.View
         holder.tv_aktivitas_keterangan.setText(list.get(position).getKeterangan());
 
 
-        if (mAuth.getCurrentUser().getUid().equals(list.get(position).getId())){
+        if (mAuth.getCurrentUser().getUid().equals(list.get(position).getKey())){
             holder.tv_aktivitas_makan.setVisibility(View.VISIBLE);
             holder.tv_aktivitas_minum.setVisibility(View.VISIBLE);
             holder.tv_aktivitas_tidur.setVisibility(View.VISIBLE);
@@ -72,6 +79,30 @@ public class AktivitasAdapter extends RecyclerView.Adapter<AktivitasAdapter.View
             hasilAktivitas.setVisibility(View.INVISIBLE);
             hasilAktivitas.setLayoutParams(params);
         }
+
+        holder.menu_aktivitas.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                final String[] action = {"Edit", "Delete"};
+                AlertDialog.Builder alert = new AlertDialog.Builder(view.getContext());
+                alert.setItems(action, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        switch (i){
+                            case 0:
+                                onCallBack.onButtonEditClick(list.get(position));
+                                break;
+                            case 1:
+                                onCallBack.onButtonDeleteClick(list.get(position));
+                                break;
+                        }
+                    }
+                });
+                alert.create();
+                alert.show();
+                return true;
+            }
+        });
     }
 
     @Override
@@ -83,6 +114,7 @@ public class AktivitasAdapter extends RecyclerView.Adapter<AktivitasAdapter.View
 
         private TextView tv_aktivitas_makan, tv_aktivitas_minum, tv_aktivitas_tidur, tv_aktivitas_olahraga,
                 tv_aktivitas_keterangan, tv_aktivitas_tanggal;
+        private LinearLayout menu_aktivitas;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -94,6 +126,13 @@ public class AktivitasAdapter extends RecyclerView.Adapter<AktivitasAdapter.View
             tv_aktivitas_keterangan = itemView.findViewById(R.id.tv_aktivitas_keterangan);
             tv_aktivitas_tanggal = itemView.findViewById(R.id.tv_aktivitas_tanggal);
             hasilAktivitas = itemView.findViewById(R.id.cv_Aktivitas);
+
+            menu_aktivitas = itemView.findViewById(R.id.ll_menu_aktivitas);
         }
+    }
+
+    public interface OnCallBack{
+        void onButtonDeleteClick(AktivitasHarian aktivitasHarian);
+        void onButtonEditClick(AktivitasHarian aktivitasHarian);
     }
 }

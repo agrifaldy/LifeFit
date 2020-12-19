@@ -5,6 +5,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class AktivitasHarian {
 
     private String id;
+    private String key;
     private String makan;
     private String minum;
     private String tidur;
@@ -16,9 +17,9 @@ public class AktivitasHarian {
     public AktivitasHarian() {
     }
 
-    public AktivitasHarian(String id, String makan, String minum, String tidur, String olahraga, String tanggal, String keterangan) {
-        mAuth = FirebaseAuth.getInstance();
-        this.id = mAuth.getCurrentUser().getUid();
+    public AktivitasHarian(String id, String key, String makan, String minum, String tidur, String olahraga, String tanggal, String keterangan) {
+        this.id = id;
+        this.key = key;
         this.makan = makan;
         this.minum = minum;
         this.tidur = tidur;
@@ -33,6 +34,14 @@ public class AktivitasHarian {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
     }
 
     public String getMakan() {

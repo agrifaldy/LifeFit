@@ -96,10 +96,6 @@ public class TekananDarahAdapter extends RecyclerView.Adapter<TekananDarahAdapte
         });
     }
 
-    public void deleteDataItem(int position) {
-        TekananDarah tekananDarah = list.get(position);
-    }
-
     @Override
     public int getItemCount() {
         return list.size();

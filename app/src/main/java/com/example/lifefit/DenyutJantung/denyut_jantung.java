@@ -1,12 +1,17 @@
 package com.example.lifefit.DenyutJantung;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -54,6 +59,7 @@ public class denyut_jantung extends AppCompatActivity {
 
     private List<DenyutJantung> list = new ArrayList<>();
     private int year, month, day;
+    DenyutJantungAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,7 +82,41 @@ public class denyut_jantung extends AppCompatActivity {
         });
 
         readData();
+
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
+        itemTouchHelper.attachToRecyclerView(recyclerViewDenyutJantung);
     }
+
+    ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+        @Override
+        public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+            return false;
+        }
+
+        @Override
+        public void onSwiped(@NonNull final RecyclerView.ViewHolder viewHolder, int direction) {
+            final int position = viewHolder.getAdapterPosition();
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(denyut_jantung.this);
+            builder.setTitle("Delete");
+            builder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    DenyutJantung denyutJantung = list.get(position);
+                    String denyut = denyutJantung.getId();
+                    myRef.child(denyut).removeValue();
+                    Toast.makeText(denyut_jantung.this, "Data berhasil dihapus", Toast.LENGTH_SHORT).show();
+                }
+            }).setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    dialogInterface.dismiss();
+                    adapter.notifyItemChanged(viewHolder.getAdapterPosition());
+                }
+            }).setMessage("Apakah anda yakin mau menghapus data ini?");
+            builder.show();
+        }
+    };
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     private void showDialogAdd() {
@@ -162,7 +202,8 @@ public class denyut_jantung extends AppCompatActivity {
 
     private void addDataToFirebase(String dtkjntg, String Tanggal, String ket){
         String id = myRef.push().getKey();
-        DenyutJantung denyutJantung = new DenyutJantung(id, dtkjntg, Tanggal, ket);
+        String key = mAuth.getCurrentUser().getUid();
+        DenyutJantung denyutJantung = new DenyutJantung(id, key, dtkjntg, Tanggal, ket);
 
         myRef.child(id).setValue(denyutJantung).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
@@ -185,7 +226,10 @@ public class denyut_jantung extends AppCompatActivity {
                     DenyutJantung value = snapshot.getValue(DenyutJantung.class);
                     list.add(0,value);
                 }
-                recyclerViewDenyutJantung.setAdapter(new DenyutJantungAdapter(denyut_jantung.this,list));
+                adapter = new DenyutJantungAdapter(denyut_jantung.this,list);
+                recyclerViewDenyutJantung.setAdapter(adapter);
+
+                setClick();
                 /**if (mAuth.getCurrentUser().getUid().equals(username.getId())){
                  recyclerView.setVisibility(View.VISIBLE);
                  }**/
@@ -196,6 +240,135 @@ public class denyut_jantung extends AppCompatActivity {
             public void onCancelled(DatabaseError error) {
                 // Failed to read value
                 Log.w("TAG", "Failed to read value.", error.toException());
+            }
+        });
+    }
+
+    private void setClick() {
+        adapter.setOnCallBack(new DenyutJantungAdapter.OnCallBack() {
+            @Override
+            public void onButtonDeleteClick(final DenyutJantung denyutJantung) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(denyut_jantung.this);
+                builder.setTitle("Delete");
+                builder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        deleteData(denyutJantung);
+                    }
+                }).setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                }).setMessage("Apakah anda yakin mau menghapus data ini?");
+                builder.show();
+            }
+
+            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+            @Override
+            public void onButtonEditClick(DenyutJantung denyutJantung) {
+                showDialogUpdateData(denyutJantung);
+            }
+        });
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    private void showDialogUpdateData(final DenyutJantung denyutJantung) {
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.activity_denyut_jantung_input);
+
+        Objects.requireNonNull(dialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.setCancelable(true);
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(Objects.requireNonNull(dialog.getWindow().getAttributes()));
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        dialog.getWindow().setAttributes(lp);
+
+        ImageButton btnClose = dialog.findViewById(R.id.btn_close_denyut_jantung);
+        btnClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+
+        final EditText dj = dialog.findViewById(R.id.et_denyut_jantung);
+        dj.setText(denyutJantung.getDenyutJantung());
+        final EditText tgl = dialog.findViewById(R.id.et_tanggal_denyut_jantung);
+        tgl.setText(denyutJantung.getTanggal());
+        Button btnAdd = dialog.findViewById(R.id.btn_simpan_denyut_jantung);
+        btnAdd.setText("Update");
+
+        final Calendar calendar = Calendar.getInstance();
+
+        tgl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                year = calendar.get(Calendar.YEAR);
+                month = calendar.get(Calendar.MONTH);
+                day = calendar.get(Calendar.DAY_OF_MONTH);
+                DatePickerDialog datePickerDialog = new DatePickerDialog(denyut_jantung.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+//                        tgl.setText(day+"/"+(month+1)+"/"+year);
+                        calendar.set(Calendar.YEAR, year);
+                        calendar.set(Calendar.MONTH, month);
+                        calendar.set(Calendar.DAY_OF_MONTH, day);
+                        String currentDate = DateFormat.getDateInstance(DateFormat.LONG).format(calendar.getTime());
+
+                        tgl.setText(currentDate);
+                    }
+                },year,month,day);
+                datePickerDialog.show();
+            }
+        });
+
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (TextUtils.isEmpty(dj.getText())){
+                    dj.setError("Tidak boleh kosong");
+                }  else if (TextUtils.isEmpty(tgl.getText())){
+                    tgl.setError("Tidak boleh kosong");
+                } else {
+                    String dtkJ = dj.getText().toString();
+                    String tglT = tgl.getText().toString();
+
+                    int a = Integer.parseInt(dtkJ);
+
+                    String keterangan = null;
+
+                    if(a < 59) {
+                        keterangan = "Detak Jantung Tidak Normal";
+                    }else if(a > 59 && a < 101) {
+                        keterangan = "Detak Jantung Normal";
+                    }else if(a > 100) {
+                        keterangan = "Detak Jantung Tidak Normal";
+                    }
+
+                    updateData(denyutJantung, dtkJ, tglT, keterangan);
+                    dialog.dismiss();
+                }
+            }
+        });
+
+        dialog.show();
+    }
+
+    private void updateData(DenyutJantung denyutJantung, String dtkJ, String tglT, String keterangan) {
+        myRef.child(denyutJantung.getId()).child("denyutJantung").setValue(dtkJ);
+        myRef.child(denyutJantung.getId()).child("tanggal").setValue(tglT);
+        myRef.child(denyutJantung.getId()).child("keterangan").setValue(keterangan);
+        Toast.makeText(getApplicationContext(), "Data berhasil diupdate", Toast.LENGTH_SHORT).show();
+    }
+
+    private void deleteData(DenyutJantung denyutJantung) {
+        myRef.child(denyutJantung.getId()).removeValue(new DatabaseReference.CompletionListener() {
+            @Override
+            public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
+                Toast.makeText(getApplicationContext(), "Data berhasil dihapus", Toast.LENGTH_SHORT).show();
             }
         });
     }
