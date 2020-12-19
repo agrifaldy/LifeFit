@@ -149,7 +149,7 @@ public class indeks_massa_tubuh_grafik extends AppCompatActivity {
                                 DateFormat formatTanggal = new SimpleDateFormat("ddMMyyyy");
                                 Date date = null;
                                 try {
-                                    date = new SimpleDateFormat("MMMM d, yyyy", Locale.ENGLISH).parse(list.get(i).getTanggal().toString());
+                                    date = new SimpleDateFormat("EEEE, d MMMM", new Locale("id")).parse(list.get(i).getTanggal().toString());
                                 } catch (ParseException e) {
                                     e.printStackTrace();
                                 }
