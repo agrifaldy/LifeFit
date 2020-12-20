@@ -99,8 +99,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
-        loadFragment(new monitoring());
+    protected void onRestart() {
+        super.onRestart();
     }
 }

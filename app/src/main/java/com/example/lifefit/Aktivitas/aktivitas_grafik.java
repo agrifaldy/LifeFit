@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.WindowManager;
 
 import com.example.lifefit.DenyutJantung.DenyutJantung;
 import com.example.lifefit.R;
@@ -36,6 +37,7 @@ public class aktivitas_grafik extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_aktivitas_grafik);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         showBartChart();
     }
 

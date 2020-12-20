@@ -13,7 +13,10 @@
         android:roundIcon="@mipmap/ic_detak_jantung_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Aktivitas.aktivitas_grafik"></activity>
+        <activity
+            android:name=".LoadingSplash"
+            android:noHistory="true"></activity>
+        <activity android:name=".Aktivitas.aktivitas_grafik" />
         <activity android:name=".DenyutJantung.denyut_jantung_grafik" />
         <activity android:name=".tentang_kami" />
         <activity android:name=".penyakit_sinusitis" />
@@ -45,7 +48,7 @@
         <activity android:name=".IndeksMassaTubuh.indeks_massa_tubuh_grafik" />
         <activity android:name=".IndeksMassaTubuh.indeks_massa_tubuh_input" />
         <activity android:name=".IndeksMassaTubuh.indeks_massa_tubuh" />
-        <activity android:name=".UserLoginActivity"/>
+        <activity android:name=".UserLoginActivity" />
         <activity android:name=".UserSignupActivity" />
         <activity
             android:name=".Splash"

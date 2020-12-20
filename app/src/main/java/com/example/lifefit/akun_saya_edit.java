@@ -152,7 +152,7 @@ public class akun_saya_edit extends AppCompatActivity {
 
                 /**ProgressDialog dialog = ProgressDialog.show(akun_saya_edit.this, "Update Profil",
                         "Loading. Please wait...", true);**/
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                startActivity(new Intent(getApplicationContext(), LoadingSplash.class));
                 finish();
 
             }
