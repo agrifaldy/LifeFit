@@ -167,7 +167,6 @@ public class akun_saya_edit extends AppCompatActivity {
             if(resultCode == Activity.RESULT_OK){
                 Uri imageUri = data.getData();
                 profileImage.setImageURI(imageUri);
-
                 uploadImageToFirebase(imageUri);
             }
         }
