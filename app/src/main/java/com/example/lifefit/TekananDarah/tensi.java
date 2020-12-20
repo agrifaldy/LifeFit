@@ -340,8 +340,8 @@ public class tensi extends AppCompatActivity {
                         calendar.set(Calendar.YEAR, year);
                         calendar.set(Calendar.MONTH, month);
                         calendar.set(Calendar.DAY_OF_MONTH, day);
-                        String currentDate = DateFormat.getDateInstance(DateFormat.LONG).format(calendar.getTime());
-
+                        dateFormat = new SimpleDateFormat("EEEE, d MMMM", new Locale("id"));
+                        String currentDate = dateFormat.format(calendar.getTime());
                         tgl.setText(currentDate);
                     }
                 },year,month,day);
