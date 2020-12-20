@@ -96,4 +96,11 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         android.os.Process.killProcess(android.os.Process.myPid());
     }
 
+    //Tim
+    //Fokus Sarajana
+
+    //Agrifaldy Rahmatillah(18523227)
+    //Ahmad Raihan Akhdani(18523216)
+    //Yona Septianita(18523243)
+
 }
