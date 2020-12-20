@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -35,6 +36,7 @@ public class UserSignupActivity extends AppCompatActivity implements View.OnClic
     private EditText et_password;
     private Button b_signup;
     private TextView link_login;
+    private TextInputLayout til;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +55,7 @@ public class UserSignupActivity extends AppCompatActivity implements View.OnClic
         et_password = (EditText) findViewById(R.id.et_password);
         b_signup = (Button)findViewById(R.id.b_signup);
         link_login = (TextView)findViewById(R.id.link_login);
+        til = (TextInputLayout) findViewById(R.id.text_input_layout);
 
         //nambahin method onClick, biar tombolnya bisa diklik
         b_signup.setOnClickListener(this);
@@ -132,7 +135,8 @@ public class UserSignupActivity extends AppCompatActivity implements View.OnClic
             et_password.setError("Required");
             result = false;
         } else if (et_password.getText().length() < 6) {
-            et_password.setError(getResources().getString(R.string.error_invalid_password));
+            til.setError(getResources().getString(R.string.error_invalid_password));
+//            et_password.setError(getResources().getString(R.string.error_invalid_password));
             result = false;
         } else {
             et_password.setError(null);
