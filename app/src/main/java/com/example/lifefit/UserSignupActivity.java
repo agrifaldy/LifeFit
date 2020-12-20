@@ -131,6 +131,9 @@ public class UserSignupActivity extends AppCompatActivity implements View.OnClic
         if (TextUtils.isEmpty(et_password.getText().toString())) {
             et_password.setError("Required");
             result = false;
+        } else if (et_password.getText().length() < 6) {
+            et_password.setError(getResources().getString(R.string.error_invalid_password));
+            result = false;
         } else {
             et_password.setError(null);
         }

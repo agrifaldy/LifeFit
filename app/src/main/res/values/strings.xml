@@ -91,4 +91,5 @@
         \n5.Konsumsi makanan sehat, seperti buah dan sayuran.
         \n6.Gunakan pelembab udara, terutama ketika cuaca panas.
         \n7.Kurangi kontak secara langsung dengan penderita pilek dan flu.</string>
+    <string name="error_invalid_password">Please enter a minimum password of 6 characters</string>
 </resources>
