@@ -5,6 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:tag="fragmentMonitoring"
+    android:id="@+id/idFragmentMonitoring"
     tools:context=".monitoring"
     android:background="#fff"
     android:orientation="vertical">
@@ -60,7 +62,7 @@
                             android:layout_height="match_parent"
                             android:orientation="vertical"
                             android:layout_marginTop="90dp"
-                            android:layout_marginBottom="100dp">
+                            android:layout_marginBottom="70dp">
 
                             <TextView
                                 android:layout_width="wrap_content"

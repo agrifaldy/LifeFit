@@ -4,11 +4,9 @@ import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
 import android.app.Instrumentation;
-import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -83,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
         if (pressedTime + 2000 > System.currentTimeMillis()) {
             //super.onBackPressed();
-            finishAffinity();
+            finish();
 
 
         } else {
@@ -98,8 +96,4 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         android.os.Process.killProcess(android.os.Process.myPid());
     }
 
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-    }
 }
