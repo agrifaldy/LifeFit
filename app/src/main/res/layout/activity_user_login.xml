@@ -102,6 +102,7 @@
                     android:textStyle="bold" />
                 <!-- Email Label -->
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/text_input_layout_email_login"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
@@ -124,6 +125,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
                 <!-- Password Label -->
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/text_input_layout_password_login"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"

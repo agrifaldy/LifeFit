@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -33,6 +34,7 @@ public class UserLoginActivity extends AppCompatActivity implements View.OnClick
     private Button b_login;
     private TextView link_signup;
     private long pressedTime;
+    private TextInputLayout tilPassword, tilEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +53,8 @@ public class UserLoginActivity extends AppCompatActivity implements View.OnClick
         et_password = (EditText) findViewById(R.id.et_password);
         b_login = (Button)findViewById(R.id.b_login);
         link_signup = (TextView)findViewById(R.id.link_signup) ;
+        tilPassword = (TextInputLayout) findViewById(R.id.text_input_layout_password_login);
+        tilEmail = (TextInputLayout) findViewById(R.id.text_input_layout_email_login);
 
         //nambahin method onClick, biar tombolnya bisa diklik
         b_login.setOnClickListener(this);
@@ -99,17 +103,17 @@ public class UserLoginActivity extends AppCompatActivity implements View.OnClick
     private boolean validateForm() {
         boolean result = true;
         if (TextUtils.isEmpty(et_email.getText().toString())) {
-            et_email.setError("Required");
+            tilEmail.setError("Required");
             result = false;
         } else {
-            et_email.setError(null);
+            tilEmail.setError(null);
         }
 
         if (TextUtils.isEmpty(et_password.getText().toString())) {
-            et_password.setError("Required");
+            tilPassword.setError("Required");
             result = false;
         } else {
-            et_password.setError(null);
+            tilPassword.setError(null);
         }
 
         return result;

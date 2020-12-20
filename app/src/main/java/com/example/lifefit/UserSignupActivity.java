@@ -36,7 +36,7 @@ public class UserSignupActivity extends AppCompatActivity implements View.OnClic
     private EditText et_password;
     private Button b_signup;
     private TextView link_login;
-    private TextInputLayout til;
+    private TextInputLayout tilPassword, tilEmail, tilUsername;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +55,9 @@ public class UserSignupActivity extends AppCompatActivity implements View.OnClic
         et_password = (EditText) findViewById(R.id.et_password);
         b_signup = (Button)findViewById(R.id.b_signup);
         link_login = (TextView)findViewById(R.id.link_login);
-        til = (TextInputLayout) findViewById(R.id.text_input_layout);
+        tilPassword = (TextInputLayout) findViewById(R.id.text_input_layout_password);
+        tilEmail = (TextInputLayout) findViewById(R.id.text_input_layout_email);
+        tilUsername = (TextInputLayout) findViewById(R.id.text_input_layout_username);
 
         //nambahin method onClick, biar tombolnya bisa diklik
         b_signup.setOnClickListener(this);
@@ -118,28 +120,28 @@ public class UserSignupActivity extends AppCompatActivity implements View.OnClic
         boolean result = true;
 
         if (TextUtils.isEmpty(et_nama.getText().toString())) {
-            et_nama.setError("Required");
+            tilUsername.setError("Required");
             result = false;
         } else {
-            et_nama.setError(null);
+            tilUsername.setError(null);
         }
 
         if (TextUtils.isEmpty(et_email.getText().toString())) {
-            et_email.setError("Required");
+            tilEmail.setError("Required");
             result = false;
         } else {
-            et_email.setError(null);
+            tilEmail.setError(null);
         }
 
         if (TextUtils.isEmpty(et_password.getText().toString())) {
-            et_password.setError("Required");
+            tilPassword.setError("Required");
             result = false;
         } else if (et_password.getText().length() < 6) {
-            til.setError(getResources().getString(R.string.error_invalid_password));
+            tilPassword.setError(getResources().getString(R.string.error_invalid_password));
 //            et_password.setError(getResources().getString(R.string.error_invalid_password));
             result = false;
         } else {
-            et_password.setError(null);
+            tilPassword.setError(null);
         }
 
         return result;
